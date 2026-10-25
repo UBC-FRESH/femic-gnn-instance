@@ -389,3 +389,5 @@ followed the workflow at the time.
   and barge fixed cost uses the full voyage occupancy.
 - Solved voyage: departure day 1, cargo arrival day 5, occupancy 8 days, demand day 8.
 - Published legacy screen unchanged; the proxy remains diagnostic and not a quote.
+- P7.1 is `pr-open` in PR #41. The P7 close-out report is queued at
+  `notes/reports/p7-closeout.md`; no release, tag, or published transport switch is authorized.
