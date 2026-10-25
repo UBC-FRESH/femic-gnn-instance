@@ -141,3 +141,13 @@ followed the workflow at the time.
 - Clean checkout of `ea70b26`: validator 0 errors, 0 warnings; dashboard 6/6 green.
 - CI run `40172423658` and Docs run `40172423704` passed on `main`.
 - The release is a prototype, not a legal or operational release.
+### P3.1 operability and cost/revenue audit
+
+- Opened P3 with parent #22 and child #23-#28.
+- Audited FHOPS: strong harvest-system productivity and machine costing; no
+  native coastal log price deck, barge network, or operability classifier.
+- Audited GNN data: no slope/terrain, roads/landings, barge terminals, grade
+  recovery, or prices in the current block model.
+- Recorded that the current release is volume-only and is not an operable,
+  financially assessed, or "sustainable" harvest level.
+- No price, cost, slope, or recovery value was fabricated.

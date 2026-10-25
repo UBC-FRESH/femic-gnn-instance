@@ -1,7 +1,14 @@
 Prototype release notes
 =======================
 
-Status: **prototype / pre-release**. Not a legal or operational release.
+Status: **volume-only prototype / pre-release**. Not a legal or operational release.
+
+.. warning::
+
+   **Volume-only caveat:** this release has no operability classification,
+   harvest cost, haul/barge cost, grade/sort decomposition, log prices, or net
+   revenue. It is not a "sustainable harvest level" and it is not financially
+   assessed.
 
 v0.1.0-prototype is a public model and method release for the proposed GNN
 Statement of Intent area. It combines the TSA 46 and TSA 47 portions of the

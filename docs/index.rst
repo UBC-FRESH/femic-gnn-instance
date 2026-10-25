@@ -7,6 +7,11 @@ models.
 
 .. warning::
 
+   **Volume-only caveat:** this release has no operability classification,
+   harvest cost, haul/barge cost, grade/sort decomposition, log prices, or net
+   revenue. It is not a "sustainable harvest level" and it is not financially
+   assessed.
+
    The boundary is the **proposed GNN Statement of Intent** polygon, not a
    final treaty boundary or a legal title determination. Confirm it with GNN
    before public or operational use. The THLB and AAC below are derived

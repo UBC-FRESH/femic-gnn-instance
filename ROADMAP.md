@@ -15,6 +15,7 @@ after its parent issue exists and the maintainer approves it.
 | P0 Bootstrap and workflow retrofit | #2 | `feature/p0-bootstrap` | complete |
 | P1 Validation and hardening | #1 | `feature/p1-validation-hardening` | complete |
 | P2 Release and hand-off | #17 | `feature/p2-release` | complete |
+| P3 Operability, cost, and net revenue | #22 | `feature/p3-operability-cost-revenue` | active |
 
 ## Lifecycle Map
 
@@ -141,10 +142,60 @@ Acceptance criteria:
 - The tag, release, and settings changes were each approved separately.
 - A clean checkout reproduces the documented verification.
 
+## Phase 3: Operability, cost, and net revenue
+
+Parent issue: #22
+Branch: `feature/p3-operability-cost-revenue`
+Status: active
+
+Goal: make block operability, harvest cost, haul/barge cost, grade/sort
+revenue, and net revenue first-class. A scenario may not be labelled
+"sustainable" unless it is operable and financially assessed.
+
+- [x] P3.1 Audit operability and cost/revenue data (#23)
+  - [x] Audit FHOPS capabilities and gaps.
+  - [x] Audit GNN block attributes.
+  - [x] Audit public terrain/access/barge data.
+  - [x] Audit price/sort data.
+  - [x] Write the gap list.
+- [ ] P3.2 Define the per-block-per-treatment cost/revenue contract (#24)
+  - [ ] Write the contract schema.
+  - [ ] Add a synthetic contract fixture.
+  - [ ] Record the ws4/FHOPS boundary.
+- [ ] P3.3 Build grade/sort decomposition and the price deck (#25)
+  - [ ] Define the sort/grade taxonomy.
+  - [ ] Build a recovery matrix with provenance.
+  - [ ] Build the price deck with date and source.
+  - [ ] Run a sensitivity case.
+- [ ] P3.4 Implement FHOPS harvest, haul, and barge cost estimates (#26)
+  - [ ] Install FHOPS and validate a sample scenario.
+  - [ ] Build the block/system cost bridge.
+  - [ ] Add haul and barge assumptions.
+  - [ ] Produce a cost table with provenance.
+- [ ] P3.5 Integrate net revenue and define the sustainable gate (#27)
+  - [ ] Add net revenue outputs.
+  - [ ] Add the operability and financial gate.
+  - [ ] Run base and sensitivity cases.
+  - [ ] Record pass/fail per decade.
+- [ ] P3.6 Validate, document, and close out P3 (#28)
+  - [ ] Validate cost/revenue coverage.
+  - [ ] Update docs and release caveat.
+  - [ ] Write and post the P3 close-out.
+
+Acceptance criteria:
+
+- Every scheduled block has an explicit operability class, harvest system, landing/access assumption, and cost record.
+- Cable and helicopter blocks are identified and costed, not hidden in an average.
+- Haul and barge costs are explicit and sourced.
+- Volume is decomposed into species/grade/sort assortments with a documented price deck.
+- The scenario reports gross revenue, harvest cost, haul/barge cost, net revenue, and NPV.
+- A "sustainable" label requires the operability and financial gates, not just volume.
+- The current release is clearly marked volume-only until those gates pass.
+
 ## Detailed Next Steps Notes
 
-1. P0, P1, and P2 are complete. P2 merged as `ea70b26`; release `v0.1.0-prototype` is published as a pre-release.
-2. Pages and `llms.txt` return HTTP 200; the clean-checkout dashboard and validator are green.
-3. P1.1 is closed as deferred by the maintainer; no external review is being sought. The packet remains available.
-4. Maintenance continues under `ROADMAP.md` and the open base-model issue `UBC-FRESH/femic#343`.
-5. No curve, target, THLB, AAC, or benchmark tuning.
+1. P0-P2 are complete; `v0.1.0-prototype` is a volume-only pre-release.
+2. P3 is active on `feature/p3-operability-cost-revenue`; parent #22 and child #23-#28 are linked.
+3. P3.1 audit is complete: FHOPS is the harvest-cost engine, but price/barge/operability data and a contract are still missing.
+4. P3.2-P3.6 follow; no "sustainable" label until the operability and financial gates pass.
+5. Do not invent prices, slopes, barge rates, or recovery assumptions.

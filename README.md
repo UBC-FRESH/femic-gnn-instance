@@ -14,6 +14,8 @@ Prototype release `v0.1.0-prototype` is available. Phase 2 (release and hand-off
 record, and the GitHub issues carry the live status. The model is a **prototype**, not a legal or
 operational release.
 
+> **Volume-only caveat:** This release has no operability classification, harvest cost, haul/barge cost, grade/sort decomposition, log prices, or net revenue. It is not a "sustainable harvest level" and it is not financially assessed.
+
 > **Warning:** The boundary is the **proposed GNN Statement of Intent** polygon,
 > not a final treaty boundary or a legal title determination. Confirm the
 > boundary and the public-output plan with GNN before operational use. The THLB
