@@ -13,14 +13,14 @@ OUT="${OUT:-output/patchworks_gnn}"
 MODEL_DIR="${MODEL_DIR:-runtime/gnn}"
 TARGET_PER_DECADE="${TARGET_PER_DECADE:-2527000}"
 
-python3 scripts/build_gnn_checkpoint.py \
+python3 pipeline/build_gnn_checkpoint.py \
   --tsa46-checkpoint "$CHECKPOINT" \
   --tsa47-checkpoint "$CHECKPOINT47" \
   --aoi "$AOI" \
   --out data/gnn_combined_checkpoint.feather \
   --stats data/gnn_checkpoint_stats.json
 
-python3 scripts/build_gnn_bundle.py \
+python3 pipeline/build_gnn_bundle.py \
   --tsa46-bundle "$BASE46/data/model_input_bundle" \
   --tsa47-bundle "$BASE47/data/model_input_bundle" \
   --out data/model_input_bundle_gnn
@@ -33,29 +33,29 @@ python3 -m femic export patchworks \
   --ifm-mode proportional \
   --output-dir "$OUT"
 
-python3 scripts/merge_slivers.py \
+mkdir -p "$MODEL_DIR/evidence" "$MODEL_DIR/schedules" "$MODEL_DIR/runs"
+python3 pipeline/merge_slivers.py \
   --fragments "$OUT/fragments/fragments.shp" \
   --out "$OUT/fragments_merged/fragments.shp" \
   --cutoff-ha 1.0 --age-tolerance 20 \
   > "$MODEL_DIR/evidence/sliver_merge.json"
 
-mkdir -p "$MODEL_DIR/evidence" "$MODEL_DIR/schedules" "$MODEL_DIR/runs"
 python3 -m ws4.cli build \
   --xml "$OUT/forestmodel.xml" \
   --fragments "$OUT/fragments_merged/fragments.shp" \
   --out "$MODEL_DIR/matrix"
 python3 -m ws4.cli validate --dataset "$MODEL_DIR/matrix"
 
-python3 scripts/prepare_ws4_ui.py \
+python3 pipeline/prepare_ws4_ui.py \
   --fragments "$OUT/fragments_merged/fragments.shp" \
   --out "$MODEL_DIR/fragments.geojson" --simplify-m 100
-python3 scripts/build_topology.py \
+python3 pipeline/build_topology.py \
   --fragments "$MODEL_DIR/fragments.geojson" \
   --out "$MODEL_DIR/topology.csv" --distance-m 0
-python3 scripts/build_opening_targets.py \
+python3 pipeline/build_opening_targets.py \
   --base config/targets.gnn.yaml \
   --out config/targets.gnn_opening.yaml
-python3 scripts/build_opening_schedule.py \
+python3 pipeline/build_opening_schedule.py \
   --dataset "$MODEL_DIR/matrix" \
   --topology "$MODEL_DIR/topology.csv" \
   --out "$MODEL_DIR/schedules/opening_first.csv" \

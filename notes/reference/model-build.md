@@ -57,7 +57,7 @@ The decade-10 miss is recorded, not hidden.
 ## Reproduce
 
 ```bash
-scripts/build_gnn_model.sh
+pipeline/build_gnn_model.sh
 ```
 
 The script expects the base instances at `../femic-tsa46-instance` and

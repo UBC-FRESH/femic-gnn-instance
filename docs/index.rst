@@ -46,7 +46,7 @@ combines the two FEMIC bundles, and exports one Patchworks/ws4 model:
 
 .. code-block:: bash
 
-   scripts/build_gnn_model.sh
+   pipeline/build_gnn_model.sh
    ./serve_gnn_calibrated.sh
 
 See :doc:`model-build`, :doc:`benchmark`, and :doc:`aoi`.
@@ -58,3 +58,4 @@ See :doc:`model-build`, :doc:`benchmark`, and :doc:`aoi`.
    model-build
    aus
    aoi
+   api/index
