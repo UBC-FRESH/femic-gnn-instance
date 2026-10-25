@@ -184,3 +184,13 @@ followed the workflow at the time.
   synthetic grapple-yarder estimate is 13.80 CAD/m3 for one machine.
 - The grade/sort recovery matrix is still missing; net revenue remains
   incomplete.
+### P3.3 provisional recovery matrix
+
+- Added `config/cost_revenue/recovery/recovery_matrix.csv` with species/product
+  shares and low/base/high cases.
+- Every row is marked `data_status=assumption`; it is not a stand-level GNN
+  recovery matrix.
+- Cited the BC Cruise Compilation Manual, CGNF spruce tables, and CRHS profiles
+  as partial public sources; documented what is still missing.
+- The sustainable gate must reject this matrix until observed cruise/mill
+  recovery replaces it.
