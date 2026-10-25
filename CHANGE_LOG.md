@@ -392,3 +392,15 @@ followed the workflow at the time.
 - P7.1 is `pr-open` in PR #41. The P7 close-out report is queued at
   `notes/reports/p7-closeout.md`; no release, tag, or published transport switch is authorized.
 - P7 merged as `6be91d7` (PR #41); task #40 and parent #39 are closed. The Quatsino-Ladysmith proxy is now a solved FHOPS Phase I diagnostic; the published screen remains legacy.
+
+### P8.1 solved-proxy full-THLB sensitivity
+
+- Transport metadata now comes from the selected FHOPS config instead of a hardcoded API status.
+- Full-THLB solved proxy sensitivity: **89.1% low / 95.7% base / 96.8% high**, versus legacy
+  88.0/95.5/96.8 and the P4 API 90.2/95.8/97.0.
+- Output is local at `runtime/p8/full_thlb_screening_proxy_solved.csv`; the published legacy screen
+  is unchanged.
+- The proxy remains `public_route_assumption_rates` and is not a quote or sustainable result.
+- Verification: dashboard GREEN, validator 0/0, docs clean; proxy screen status `public_route_assumption_rates`; output at `runtime/p8/full_thlb_screening_proxy_solved.csv`.
+- P8.1 is `pr-open` in PR #44. The P8 close-out report is queued at
+  `notes/reports/p8-closeout.md`; no release, tag, or published transport switch is authorized.

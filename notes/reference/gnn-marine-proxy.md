@@ -102,6 +102,25 @@ voyage occupancy.
 
 The prior FHOPS limitation is closed at `UBC-FRESH/fhops#196`.
 
+## Full-THLB sensitivity
+
+The solved proxy was run through the full-THLB screen with
+`--transport fhops-marine --fhops-config config/cost_revenue/transport/fhops_marine_quatsino_ladysmith.yaml`.
+The screen now reports the selected config's status as
+`public_route_assumption_rates`.
+
+| Transport path | Low case | Base | High case |
+| --- | ---: | ---: | ---: |
+| Legacy CLEWs/FFCM | 88.0% | 95.5% | 96.8% |
+| P4 API fixture | 90.2% | 95.8% | 97.0% |
+| P7 solved Quatsino proxy | 89.1% | 95.7% | 96.8% |
+
+The P7 result is a diagnostic sensitivity, not a published base. It uses assumed
+barge/truck rates, capacity, road legs, and terminal handling. The legacy screen
+remains the published comparison.
+
+Output: `runtime/p8/full_thlb_screening_proxy_solved.csv` (local, not committed).
+
 ## Limits
 
 - The terminal is not confirmed to be currently open or accepting GNN volume.
