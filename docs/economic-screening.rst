@@ -69,12 +69,50 @@ Method and limits
   redistributed.
 - Provisional recovery matrix; reject/waste 2/5/10%.
 - No road/landing construction, overhead, profit, or silviculture cost.
-- Barge scheduling is not supported by FHOPS hauling yet
-  (`UBC-FRESH/fhops#187 <https://github.com/UBC-FRESH/fhops/issues/187>`_).
+
+FHOPS marine sensitivity
+------------------------
+
+FHOPS marine/barge hauling is now available from upstream issue `#187` (merged
+as `f788d7a6`). The GNN instance has an opt-in adapter and a synthetic
+Sunshine Coast -> Howe Sound fixture:
+
+```bash
+python pipeline/fhops_marine_transport.py --out runtime/p4/fhops_marine_cost.csv
+python pipeline/full_thlb_screening.py ... --transport fhops-marine
+```
+
+The 2026-10-25 full-THLB sensitivity, which includes contract fixed dispatch
+costs, is:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 20 20 20
+
+   * - Transport path
+     - Low case
+     - Base
+     - High case
+   * - Legacy CLEWs/FFCM
+     - 88.0%
+     - 95.5%
+     - 96.8%
+   * - FHOPS marine
+     - 90.2%
+     - 95.8%
+     - 97.0%
+
+The FHOPS route, terminals, distances, and tariff values are synthetic fixture
+values, not GNN terminal data or current quotes. This sensitivity does not
+replace the published legacy screen and does not authorize a sustainable or
+profitable label.
 
 This is a screening estimate. It does not justify a sustainable or profitable
 label, and it does not replace a reviewed GNN netdown, current carrier quotes,
 or observed grade/sort recovery.
+
+See `notes/reference/fhops-marine-transport.md
+<https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reference/fhops-marine-transport.md>`_.
 
 Notes: `notes/reference/full-thlb-screening.md` and
 `notes/reference/net-revenue-screening.md`.

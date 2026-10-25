@@ -49,6 +49,16 @@ Sensitivity:
 - harvest cost x2.0: 87.8%
 - transport 30 CAD/m3: 92.3%
 
+FHOPS marine transport sensitivity (2026-10-25):
+
+- FHOPS #187 marine Phase I adapter, opt-in with `--transport fhops-marine`.
+- Low/base/high barge utilisation: 5.642/6.100/7.097 CAD/m3, including
+  contract fixed dispatch costs.
+- Positive THLB: 90.2% low case, 95.8% base, 97.0% high case.
+- The FHOPS route/terminals are a synthetic Sunshine Coast -> Howe Sound
+  fixture, not a GNN terminal inventory or current quote.
+- The published result above remains the legacy transport comparison.
+
 ## Caveats
 
 - Class-average system costs are applied to every block; this is not a

@@ -1,0 +1,29 @@
+# FHOPS marine transport cases for the GNN instance.
+#
+# These cases are a utilisation sensitivity on the redistributable
+# Sunshine Coast -> Howe Sound fixture. They are not current carrier or
+# terminal quotes, and they are not a GNN terminal inventory.
+schema_version: 1
+currency: CAD
+data_status: representative_fhops_phase_i
+scenario: config/cost_revenue/transport/fhops_marine/scenario.yaml
+horizon_days: 1
+source: "UBC-FRESH/fhops#187; merged commit f788d7a6; examples/hauling_marine"
+upstream_issue: "https://github.com/UBC-FRESH/fhops/issues/187"
+upstream_commit: "f788d7a63113c52159b3a9dbef449d6faf8325e9"
+cases:
+  - id: low_cost
+    utilization: 1.0
+    note: "Fully loaded 3,000 m3 barge; lowest unit cost."
+  - id: base
+    utilization: 0.75
+    note: "2,250 m3 barge; base utilisation assumption."
+  - id: high_cost
+    utilization: 0.5
+    note: "1,500 m3 barge; high unit cost from under-utilisation."
+notes:
+  - "The fixture's route, port, barge, truck, and terminal values are synthetic."
+  - "The adapter adds contract fixed dispatch costs because FHOPS Phase I excludes them."
+  - "The adapter sizes drayage trucks and barges for one representative day."
+  - "Storage and daily terminal throughput are uncapped for the aggregate lane."
+  - "This path is diagnostic; the legacy CLEWs/FFCM values remain the published comparison."
