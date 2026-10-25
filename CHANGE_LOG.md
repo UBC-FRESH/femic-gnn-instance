@@ -342,3 +342,20 @@ followed the workflow at the time.
 - P4.1 is `pr-open` in PR #32. The P4 close-out report is queued at
   `notes/reports/p4-closeout.md`; no merge, release, or sustainable label is authorized.
 - P4 merged as `6a8d94f` (PR #32); task #31 and parent #30 are closed. The phase is complete as a diagnostic transport integration.
+### P5.1 marine geography correction
+
+- Confirmed the GNN AOI is northern Vancouver Island (centroid about 51.185 N, -127.408 W),
+  not the Sunshine Coast.
+- The FHOPS marine fixture is Sunshine Coast -> Howe Sound with an 80 km water leg. It is an
+  API/cost-path test, not a GNN transport estimate.
+- Added `notes/reference/gnn-marine-geography.md` with candidate public infrastructure, source
+  links, uncertainty, the straight-line mismatch check, and the missing terminal/route/quote data.
+- Corrected the fixture labels in the transport config, adapter, notes, README, and economic-screening
+  docs. Removed the FHOPS full-THLB comparison table from the public screening page.
+- Changed the test data status to `upstream_fhops_fixture_api_test`; no published screen, model, or
+  sustainable label changed.
+- Candidate public infrastructure includes Port Hardy, Port McNeill, Beaver Cove, Coal Harbour,
+  Alert Bay, and Port Alice. None is confirmed as a GNN log-barge terminal.
+- Current carrier and terminal quotes remain missing and are not public.
+- P5.1 is `pr-open` in PR #35. The P5 close-out report is queued at
+  `notes/reports/p5-closeout.md`; no published transport switch or model change is authorized.

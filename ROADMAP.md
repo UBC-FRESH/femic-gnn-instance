@@ -17,6 +17,7 @@ after its parent issue exists and the maintainer approves it.
 | P2 Release and hand-off | #17 | `feature/p2-release` | complete |
 | P3 Operability, cost, and net revenue | #22 | `feature/p3-operability-cost-revenue` | complete |
 | P4 FHOPS-native marine transport | #30 | `feature/p4-fhops-marine` | complete |
+| P5 GNN marine geography and terminal data | #33 | `feature/p5-marine-data` | active |
 
 ## Lifecycle Map
 
@@ -204,8 +205,9 @@ Status: complete
 
 Goal: replace the legacy barge constant as the only transport path with a
 solved FHOPS Phase I marine transport adapter, while keeping the legacy path
-and the published screen reproducible. The FHOPS fixture is representative, not
-a GNN terminal inventory or a current quote.
+and the published screen reproducible. The FHOPS fixture is an upstream
+Sunshine Coast -> Howe Sound API test, not the GNN geography, terminal inventory,
+or a current quote.
 
 - [x] P4.1 Wire FHOPS marine transport into the GNN cost pipeline (#31)
   - [x] Add the FHOPS marine scenario bundle and provenance.
@@ -229,11 +231,42 @@ Closeout requirement: a P4 report with the FHOPS commit, solved cases, screen
 sensitivity, provenance, limits, and the next recommendation. The maintainer
 approves before merge.
 
+## Phase 5: GNN marine geography and terminal data
+
+Parent issue: #33
+Branch: `feature/p5-marine-data`
+Status: active
+
+Goal: establish the actual GNN marine geography and correct the upstream FHOPS
+Sunshine Coast -> Howe Sound fixture caveat. Record candidate public terminals
+and missing external data without inventing locations, distances, or quotes.
+
+- [x] P5.1 Correct the marine fixture geography and audit candidate GNN terminals (#34)
+  - [x] Add a GNN marine geography reference note.
+  - [x] Record candidate public infrastructure and uncertainty.
+  - [x] Record missing terminal/route/quote data.
+  - [x] Correct the fixture labels in config, adapter, notes, and docs.
+  - [x] Run dashboard, validator, and docs.
+
+Acceptance criteria:
+
+- The GNN AOI geography and fixture mismatch are documented.
+- Public infrastructure is labelled candidate, not a confirmed log-barge terminal.
+- The fixture is labelled an API/cost-path test, not a GNN transport estimate.
+- The published legacy screen is unchanged.
+- No invented terminal, route, rate, or sustainable claim is added.
+
+Closeout requirement: a P5 report with geography evidence, candidate-terminal
+sources, missing-data list, and the next decision. The maintainer approves
+before merge. P5 does not authorize a GNN-specific scenario or a transport
+switch.
+
 ## Detailed Next Steps Notes
 
 1. P0-P2 are complete; `v0.1.0-prototype` is a volume-only pre-release.
 2. P3 is complete as a **diagnostic** operability/cost/revenue screen, not a release.
 3. Full-THLB legacy screening: 95.5% positive base, 88.0-96.8% range; class-average costs, coarse DEM, provisional recovery, legacy transport.
 4. FHOPS #187 is resolved. The GNN adapter solves the synthetic Sunshine Coast -> Howe Sound marine fixture; full-THLB FHOPS sensitivity is 95.8% base, 90.2-97.0% range. The fixture is not a current quote.
-5. P4 is complete as a diagnostic transport integration. The published screen remains the legacy comparison until actual GNN terminals, distances, and carrier/terminal quotes are available.
-6. No release change or sustainable label is authorized by P4.
+5. P4 is complete as a diagnostic transport integration. The published screen remains the legacy comparison.
+6. P5 is active: the GNN AOI is northern Vancouver Island, while the FHOPS fixture is Sunshine Coast -> Howe Sound. The fixture is an API test, not a GNN route. Candidate terminals and quotes are being audited without inventing data.
+7. No release change or sustainable label is authorized by P4 or P5.

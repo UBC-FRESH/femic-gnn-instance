@@ -57,16 +57,19 @@ marine Phase I adapter:
 python pipeline/fhops_marine_transport.py --out runtime/p4/fhops_marine_cost.csv
 ```
 
-It solves the FHOPS Sunshine Coast -> Howe Sound fixture at 100%, 75%, and 50%
-barge utilisation. The 2026-10-25 base results, including contract fixed
+It exercises the FHOPS Sunshine Coast -> Howe Sound fixture at 100%, 75%, and
+50% barge utilisation. That fixture is **not** the GNN geography: the GNN AOI is
+northern Vancouver Island, while the fixture is southern BC. The cases are API
+tests, not GNN transport estimates. The 2026-10-25 base results, including contract fixed
 dispatch costs, are:
 
 - low cost: 5.642 CAD/m3 at a full 3,000 m3 barge;
 - base: 6.100 CAD/m3 at 2,250 m3; and
 - high cost: 7.097 CAD/m3 at 1,500 m3.
 
-The fixture is synthetic. It has no GNN terminals, road network, water
-distances, or current carrier/terminal quotes. The legacy path remains the
+The fixture is synthetic and geographically unrelated. It has no GNN terminals,
+road network, water distances, or current carrier/terminal quotes. See
+`notes/reference/gnn-marine-geography.md`. The legacy path remains the
 default published comparison. The screens accept
 `--transport fhops-marine` for a separate diagnostic sensitivity.
 
@@ -79,4 +82,4 @@ default published comparison. The screens accept
 - Season/availability constraints.
 
 The sustainable gate must reject `data_status=assumption` and
-`representative_fhops_phase_i` for a sustainable label.
+`upstream_fhops_fixture_api_test` for a sustainable label.

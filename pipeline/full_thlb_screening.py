@@ -83,8 +83,8 @@ def _transport_costs(
 
     return (
         configured_cost_lookup(fhops_config),
-        "representative_fhops_phase_i",
-        "UBC-FRESH/fhops#187 at f788d7a6",
+        "upstream_fhops_fixture_api_test",
+        "UBC-FRESH/fhops#187 at f788d7a6; not GNN geography",
     )
 
 
@@ -119,7 +119,7 @@ def main() -> None:
         "--fhops-config",
         type=Path,
         default=DEFAULT_FHOPS_CONFIG,
-        help="FHOPS marine transport config used by --transport fhops-marine.",
+        help="FHOPS marine API-test config used by --transport fhops-marine; not GNN geography.",
     )
     args = parser.parse_args()
 

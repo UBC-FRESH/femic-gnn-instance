@@ -1,14 +1,16 @@
 # FHOPS marine transport cases for the GNN instance.
 #
-# These cases are a utilisation sensitivity on the redistributable
-# Sunshine Coast -> Howe Sound fixture. They are not current carrier or
-# terminal quotes, and they are not a GNN terminal inventory.
+# These cases are a utilisation sensitivity on the upstream FHOPS
+# Sunshine Coast -> Howe Sound fixture. That fixture is NOT the GNN geography:
+# the GNN AOI is northern Vancouver Island. This is an API/cost-path test, not
+# a GNN transport estimate, terminal inventory, or current carrier quote.
 schema_version: 1
 currency: CAD
-data_status: representative_fhops_phase_i
+data_status: upstream_fhops_fixture_api_test
 scenario: config/cost_revenue/transport/fhops_marine/scenario.yaml
 horizon_days: 1
-source: "UBC-FRESH/fhops#187; merged commit f788d7a6; examples/hauling_marine"
+source: "UBC-FRESH/fhops#187; merged commit f788d7a6; examples/hauling_marine; not GNN geography"
+geography_status: not_gnn_geography
 upstream_issue: "https://github.com/UBC-FRESH/fhops/issues/187"
 upstream_commit: "f788d7a63113c52159b3a9dbef449d6faf8325e9"
 cases:
@@ -22,7 +24,9 @@ cases:
     utilization: 0.5
     note: "1,500 m3 barge; high unit cost from under-utilisation."
 notes:
-  - "The fixture's route, port, barge, truck, and terminal values are synthetic."
+  - "The fixture is Sunshine Coast -> Howe Sound, while the GNN AOI is northern Vancouver Island."
+  - "The fixture is an API/cost-path test; it is not a GNN route or terminal inventory."
+  - "The fixture route, port, barge, truck, and terminal values are synthetic."
   - "The adapter adds contract fixed dispatch costs because FHOPS Phase I excludes them."
   - "The adapter sizes drayage trucks and barges for one representative day."
   - "Storage and daily terminal throughput are uncapped for the aggregate lane."

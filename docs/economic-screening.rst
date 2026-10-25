@@ -70,42 +70,25 @@ Method and limits
 - Provisional recovery matrix; reject/waste 2/5/10%.
 - No road/landing construction, overhead, profit, or silviculture cost.
 
-FHOPS marine sensitivity
-------------------------
+FHOPS marine API test (not GNN geography)
+-----------------------------------------
 
-FHOPS marine/barge hauling is now available from upstream issue `#187` (merged
-as `f788d7a6`). The GNN instance has an opt-in adapter and a synthetic
-Sunshine Coast -> Howe Sound fixture:
+FHOPS marine/barge hauling is available from upstream issue `#187` (merged as
+`f788d7a6`), and the instance has an opt-in adapter:
 
 ```bash
 python pipeline/fhops_marine_transport.py --out runtime/p4/fhops_marine_cost.csv
 python pipeline/full_thlb_screening.py ... --transport fhops-marine
 ```
 
-The 2026-10-25 full-THLB sensitivity, which includes contract fixed dispatch
-costs, is:
+The only marine fixture is a synthetic **Sunshine Coast -> Howe Sound** case.
+The GNN AOI is **northern Vancouver Island**. The fixture is an API/cost-path
+test, not a GNN transport estimate, terminal inventory, or current quote. There
+is no GNN-specific terminal, route, distance, or carrier-rate dataset yet. The
+published screen remains the legacy CLEWs/FFCM result above.
 
-.. list-table::
-   :header-rows: 1
-   :widths: 30 20 20 20
-
-   * - Transport path
-     - Low case
-     - Base
-     - High case
-   * - Legacy CLEWs/FFCM
-     - 88.0%
-     - 95.5%
-     - 96.8%
-   * - FHOPS marine
-     - 90.2%
-     - 95.8%
-     - 97.0%
-
-The FHOPS route, terminals, distances, and tariff values are synthetic fixture
-values, not GNN terminal data or current quotes. This sensitivity does not
-replace the published legacy screen and does not authorize a sustainable or
-profitable label.
+See `notes/reference/gnn-marine-geography.md
+<https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reference/gnn-marine-geography.md>`_.
 
 This is a screening estimate. It does not justify a sustainable or profitable
 label, and it does not replace a reviewed GNN netdown, current carrier quotes,

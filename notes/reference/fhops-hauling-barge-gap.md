@@ -34,8 +34,9 @@ that test are now part of the resolved implementation.
   reports a cost breakdown.
 - The screens support `--transport fhops-marine`; legacy CLEWs/FFCM remains the
   default published comparison.
-- The FHOPS case is a representative synthetic fixture, not a GNN terminal
-  inventory or a current quote.
+- The FHOPS case is a synthetic Sunshine Coast -> Howe Sound fixture. It is not
+  the GNN geography (northern Vancouver Island), a GNN terminal inventory, or a
+  current quote.
 - Do not treat the FHOPS Phase I result as a full Phase II/III schedule.
 - The sustainable gate must keep transport labelled diagnostic until actual
   terminals, distances, and carrier/terminal quotes are available.
