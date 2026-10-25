@@ -360,3 +360,18 @@ followed the workflow at the time.
 - P5.1 is `pr-open` in PR #35. The P5 close-out report is queued at
   `notes/reports/p5-closeout.md`; no published transport switch or model change is authorized.
 - P5 merged as `fab4e0a` (PR #35); task #34 and parent #33 are closed. The phase is complete as a geography/data correction; the published transport base remains legacy.
+### P6.1 Quatsino Sound to Ladysmith public-route proxy
+
+- Added a diagnostic GNN proxy using the public Quatsino Sound -> Ladysmith Harbour route
+  (Seaspan Log Barging 101, 2023) and historical TFL 6 Quatsino Dryland Log Sort / Seaspan
+  barging evidence.
+- The route is approximately 589 km and 1,910 minutes one way at 10 knots. Barge capacity,
+  rates, road legs, terminal handling, and fleet size are explicit assumptions.
+- Cases: **8.125 / 9.203 / 11.360 CAD/m3** at 100/75/50% utilisation. The P4 API fixture was
+  5.642/6.100/7.097; the proxy is higher because the water leg is much longer.
+- FHOPS Phase I cannot solve the 3,955-minute voyage with one barge under its daily fleet
+  constraint. Added an analytical proxy from the FHOPS marine lane contract and opened
+  `UBC-FRESH/fhops#196`.
+- The proxy is labelled `public_route_assumption_rates`; it is not a quote, not the published
+  base, and does not authorize a sustainable label.
+- Dashboard GREEN, validator 0/0, docs clean.

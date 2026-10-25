@@ -17,6 +17,12 @@ drayage trucks and barges for that day, solves Phase I, and reports:
   itself excludes fixed costs; Phase II charges them);
 - total and per-cubic-metre cost.
 
+The adapter has two modes:
+
+- ``solve``: run FHOPS Phase I for day-trip cycles; and
+- ``analytical``: use the validated FHOPS marine lane terms for a multi-day
+  voyage that Phase I cannot represent.
+
 The legacy CLEWs/FFCM transport assumption remains a separate comparison path.
 """
 
@@ -46,7 +52,7 @@ class MarineTransportEstimate:
     case:
         Case label from the transport config, or ``custom``.
     status:
-        FHOPS Phase I status.
+        FHOPS Phase I status, or ``analytical_proxy`` for the multi-day proxy.
     volume_m3:
         One-day volume sent through the marine lane.
     horizon_days:
@@ -181,6 +187,7 @@ def _fit_scenario(
     volume_m3: float,
     horizon_days: int,
     *,
+    demand_mode: str = "spread",
     fhops: tuple[Any, ...],
 ) -> tuple[Any, int, int]:
     """Scale the fixture to one volume and size a feasible day fleet.
@@ -206,6 +213,8 @@ def _fit_scenario(
         raise ValueError("volume_m3 must be positive")
     if horizon_days < 1:
         raise ValueError("horizon_days must be at least 1")
+    if demand_mode not in {"spread", "last_day"}:
+        raise ValueError("demand_mode must be 'spread' or 'last_day'")
 
     config = scenario.hauling
     if config is None:
@@ -234,15 +243,27 @@ def _fit_scenario(
             unsorted_m3=0.0,
         )
     ]
-    config.demand = [
-        HaulingDemand(
-            yard_id=config.sort_yards[0].id,
-            log_sort_id=config.log_sorts[0].id,
-            day=day,
-            volume_m3=per_day if day < horizon_days else volume_m3 - per_day * (horizon_days - 1),
-        )
-        for day in range(1, horizon_days + 1)
-    ]
+    if demand_mode == "last_day":
+        config.demand = [
+            HaulingDemand(
+                yard_id=config.sort_yards[0].id,
+                log_sort_id=config.log_sorts[0].id,
+                day=horizon_days,
+                volume_m3=volume_m3,
+            )
+        ]
+    else:
+        config.demand = [
+            HaulingDemand(
+                yard_id=config.sort_yards[0].id,
+                log_sort_id=config.log_sorts[0].id,
+                day=day,
+                volume_m3=per_day
+                if day < horizon_days
+                else volume_m3 - per_day * (horizon_days - 1),
+            )
+            for day in range(1, horizon_days + 1)
+        ]
 
     # A representative aggregate lane is not a terminal-inventory study. Keep
     # storage unconstrained and daily handling uncapped, and record that.
@@ -261,13 +282,28 @@ def _fit_scenario(
             yard.total_processing_m3_per_day, per_day * 1.1
         )
 
+    origin_leg = config.port_leg_for(route, PortSide.ORIGIN)
+    destination_leg = config.port_leg_for(route, PortSide.DESTINATION)
+    pickup_cycle_minutes = 2 * origin_leg.travel_minutes
+    delivery_cycle_minutes = 2 * destination_leg.travel_minutes
     cycle_minutes = _truck_cycle_minutes(config, route, PortSide)
     regular_minutes = config.driver_policy.regular_minutes
     loads = math.ceil(volume_m3 / truck_type.capacity_m3)
-    trucks_needed = max(
-        2,
-        math.ceil(loads * cycle_minutes / (regular_minutes * horizon_days)) + 1,
-    )
+    if demand_mode == "last_day":
+        trucks_needed = max(
+            2,
+            math.ceil(
+                loads
+                * max(pickup_cycle_minutes, delivery_cycle_minutes)
+                / regular_minutes
+            )
+            + 1,
+        )
+    else:
+        trucks_needed = max(
+            2,
+            math.ceil(loads * cycle_minutes / (regular_minutes * horizon_days)) + 1,
+        )
     existing_trucks = list(config.trucks)
     for index in range(len(existing_trucks), trucks_needed):
         existing_trucks.append(
@@ -304,8 +340,10 @@ def estimate_marine_transport(
     *,
     case: str = "custom",
     horizon_days: int = 1,
+    demand_mode: str = "spread",
     scenario_path: Path = DEFAULT_SCENARIO,
     source: str = DEFAULT_SOURCE,
+    data_status: str = DATA_STATUS,
 ) -> MarineTransportEstimate:
     """Solve one FHOPS marine transport case.
 
@@ -317,10 +355,15 @@ def estimate_marine_transport(
         Label for the estimate.
     horizon_days:
         Hauling horizon length. The default is one representative barge day.
+    demand_mode:
+        ``spread`` for even daily demand, or ``last_day`` for one voyage that
+        unloads at the end of the horizon.
     scenario_path:
         FHOPS scenario bundle.
     source:
         Upstream provenance string.
+    data_status:
+        Status carried into the output row.
 
     Returns
     -------
@@ -348,7 +391,11 @@ def estimate_marine_transport(
 
     scenario = load_scenario(scenario_path)
     scenario, trucks_used, barges_used = _fit_scenario(
-        scenario, volume_m3, horizon_days, fhops=fhops
+        scenario,
+        volume_m3,
+        horizon_days,
+        demand_mode=demand_mode,
+        fhops=fhops,
     )
     result = solve_flow(build_flow_problem(scenario), objective="cost", solver="highs")
     if result.status not in {"optimal", "feasible"}:
@@ -411,7 +458,100 @@ def estimate_marine_transport(
         trucks_used=trucks_used,
         barges_used=barges_used,
         source=source,
-        data_status=DATA_STATUS,
+        data_status=data_status,
+    )
+
+
+def estimate_analytical_proxy(
+    volume_m3: float,
+    *,
+    case: str = "custom",
+    horizon_days: int = 1,
+    demand_mode: str = "last_day",
+    scenario_path: Path = DEFAULT_SCENARIO,
+    source: str = DEFAULT_SOURCE,
+    data_status: str = DATA_STATUS,
+) -> MarineTransportEstimate:
+    """Estimate a multi-day marine voyage from the FHOPS lane contract.
+
+    FHOPS Phase I limits a barge's fleet capacity to one day of working
+    minutes. A multi-day voyage such as Quatsino Sound -> Ladysmith therefore
+    cannot be solved by the Phase I model without inventing a fleet of extra
+    barges. This function uses the validated FHOPS marine lane (cycle, capacity,
+    drayage, and handling terms) to calculate an explicit analytical proxy
+    instead. It is not a solved FHOPS plan.
+    """
+    fhops = _load_fhops()
+    build_flow_problem = fhops[6]
+    load_scenario = fhops[8]
+    scenario = load_scenario(scenario_path)
+    scenario, _, _ = _fit_scenario(
+        scenario,
+        volume_m3,
+        horizon_days,
+        demand_mode=demand_mode,
+        fhops=fhops,
+    )
+    problem = build_flow_problem(scenario)
+    if len(problem.marine_lanes) != 1:
+        raise ValueError("The analytical proxy expects exactly one marine lane")
+    lane = next(iter(problem.marine_lanes.values()))
+    config = scenario.hauling
+    if config is None:
+        raise RuntimeError("Scenario lost its hauling config")
+    route = config.marine_routes[0]
+    truck_type = next(
+        item for item in config.truck_types if item.id == route.truck_type_id
+    )
+    barge_type = config.barge_type(config.water_arc(route.water_arc_id).barge_type_id)
+    trips = max(1, math.ceil(volume_m3 / lane.barge_capacity))
+    terminal_handling = trips * (
+        lane.origin_handling_cost + lane.destination_handling_cost
+    )
+    barge_variable = trips * max(
+        0.0,
+        lane.barge_cost_per_trip
+        - lane.origin_handling_cost
+        - lane.destination_handling_cost,
+    )
+    drayage = volume_m3 * lane.drayage_cost_per_m3
+    barge_days = max(1, math.ceil(lane.barge_cycle_minutes / config.driver_policy.regular_minutes))
+    barge_fixed = trips * barge_days * barge_type.fixed_cost
+    loads = math.ceil(volume_m3 / truck_type.capacity_m3)
+    trucks_used = max(
+        2,
+        math.ceil(
+            loads
+            * max(lane.pickup_cycle_minutes, lane.delivery_cycle_minutes)
+            / config.driver_policy.regular_minutes
+        )
+        + 1,
+    )
+    truck_fixed = trucks_used * truck_type.fixed_cost
+    phase_i = drayage + barge_variable + terminal_handling
+    fixed = barge_fixed + truck_fixed
+    total = phase_i + fixed
+    utilization = 100.0 * volume_m3 / (trips * lane.barge_capacity)
+    return MarineTransportEstimate(
+        case=case,
+        status="analytical_proxy",
+        volume_m3=round(volume_m3, 3),
+        horizon_days=horizon_days,
+        barge_capacity_m3=round(lane.barge_capacity, 3),
+        barge_utilization_pct=round(utilization, 3),
+        barge_trips=trips,
+        water_m3=round(volume_m3, 3),
+        drayage_cost_cad=round(drayage, 2),
+        barge_variable_cost_cad=round(barge_variable, 2),
+        terminal_handling_cost_cad=round(terminal_handling, 2),
+        phase_i_cost_cad=round(phase_i, 2),
+        contract_fixed_cost_cad=round(fixed, 2),
+        total_cost_cad=round(total, 2),
+        cost_per_m3_cad=round(total / volume_m3, 6),
+        trucks_used=trucks_used,
+        barges_used=trips,
+        source=source,
+        data_status=data_status,
     )
 
 
@@ -426,6 +566,10 @@ def estimate_configured_cases(
     if not scenario_path.is_absolute():
         scenario_path = ROOT / scenario_path
     source = str(config.get("source", DEFAULT_SOURCE))
+    data_status = str(config.get("data_status", DATA_STATUS))
+    mode = str(config.get("mode", "solve"))
+    if mode not in {"solve", "analytical"}:
+        raise ValueError("mode must be 'solve' or 'analytical'")
     fhops = _load_fhops()
     scenario = fhops[-1](scenario_path)
     config_model = scenario.hauling
@@ -433,13 +577,28 @@ def estimate_configured_cases(
         raise ValueError("Scenario has no hauling section")
     barge_type = config_model.barge_type(config_model.water_arcs[0].barge_type_id)
     cases = _case_volumes(config, barge_type.capacity_m3)
+    if mode == "analytical":
+        return [
+            estimate_analytical_proxy(
+                volume,
+                case=label,
+                horizon_days=int(config.get("horizon_days", 1)),
+                demand_mode=str(config.get("demand_mode", "last_day")),
+                scenario_path=scenario_path,
+                source=source,
+                data_status=data_status,
+            )
+            for label, volume in cases
+        ]
     return [
         estimate_marine_transport(
             volume,
             case=label,
             horizon_days=int(config.get("horizon_days", 1)),
+            demand_mode=str(config.get("demand_mode", "spread")),
             scenario_path=scenario_path,
             source=source,
+            data_status=data_status,
         )
         for label, volume in cases
     ]

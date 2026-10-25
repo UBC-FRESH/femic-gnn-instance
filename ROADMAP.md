@@ -18,6 +18,7 @@ after its parent issue exists and the maintainer approves it.
 | P3 Operability, cost, and net revenue | #22 | `feature/p3-operability-cost-revenue` | complete |
 | P4 FHOPS-native marine transport | #30 | `feature/p4-fhops-marine` | complete |
 | P5 GNN marine geography and terminal data | #33 | `feature/p5-marine-data` | complete |
+| P6 Quatsino Sound to Ladysmith public-route proxy | #36 | `feature/p6-marine-proxy` | active |
 
 ## Lifecycle Map
 
@@ -261,12 +262,44 @@ sources, missing-data list, and the next decision. The maintainer approves
 before merge. P5 does not authorize a GNN-specific scenario or a transport
 switch.
 
+## Phase 6: Quatsino Sound to Ladysmith public-route proxy
+
+Parent issue: #36
+Branch: `feature/p6-marine-proxy`
+Status: active
+
+Goal: build a labelled GNN-specific marine proxy using the public Quatsino
+Sound -> Ladysmith Harbour log-barge route. Capacity, road legs, terminal
+handling, and rates are explicit assumptions; the proxy is not a quote and not
+the published base.
+
+- [ ] P6.1 Build the Quatsino Sound -> Ladysmith public-route proxy (#37)
+  - [x] Add the scenario bundle and config.
+  - [x] Record the public route and assumption table.
+  - [x] Run the proxy cases.
+  - [x] Compare with the P4 API fixture.
+  - [x] Update docs/notes and the roadmap/changelog.
+  - [x] Run dashboard, validator, and docs.
+
+Acceptance criteria:
+
+- The proxy scenario validates and the adapter solves all cases.
+- The note distinguishes public route evidence from assumed rates/capacity.
+- The proxy is clearly not the published base.
+- No current-quote or sustainable claim is added.
+- FHOPS Phase I multi-day limitation is recorded upstream.
+
+Closeout requirement: a P6 report with the public route evidence, assumptions,
+solved cases, comparison, FHOPS #196 limitation, and next decision. The
+maintainer approves before merge.
+
 ## Detailed Next Steps Notes
 
 1. P0-P2 are complete; `v0.1.0-prototype` is a volume-only pre-release.
 2. P3 is complete as a **diagnostic** operability/cost/revenue screen, not a release.
 3. Full-THLB legacy screening: 95.5% positive base, 88.0-96.8% range; class-average costs, coarse DEM, provisional recovery, legacy transport.
-4. FHOPS #187 is resolved. The GNN adapter solves the synthetic Sunshine Coast -> Howe Sound marine fixture; full-THLB FHOPS sensitivity is 95.8% base, 90.2-97.0% range. The fixture is not a current quote.
+4. FHOPS #187 is resolved. The P4 API fixture is Sunshine Coast -> Howe Sound; it is not a GNN route and is no longer presented as a GNN transport sensitivity in public docs.
 5. P4 is complete as a diagnostic transport integration. The published screen remains the legacy comparison.
 6. P5 is complete: the GNN AOI is northern Vancouver Island, while the FHOPS fixture is Sunshine Coast -> Howe Sound. The fixture is an API test, not a GNN route. Candidate terminals and missing quote data are recorded without inventing data.
-7. No release change or sustainable label is authorized by P4 or P5.
+7. P6 is active: the public Quatsino Sound -> Ladysmith route proxy is diagnostic only. Cases are 8.125/9.203/11.360 CAD/m3 at 100/75/50% utilisation, with assumed capacity and rates. FHOPS Phase I does not support the multi-day barge cycle; tracked at `UBC-FRESH/fhops#196`.
+8. No release change or sustainable label is authorized by P4, P5, or P6.

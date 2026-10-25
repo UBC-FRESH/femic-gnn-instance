@@ -73,6 +73,10 @@ road network, water distances, or current carrier/terminal quotes. See
 default published comparison. The screens accept
 `--transport fhops-marine` for a separate diagnostic sensitivity.
 
+P6 also provides a separate public-route proxy for Quatsino Sound ->
+Ladysmith Harbour, with explicit assumed rates and capacity. It is diagnostic
+only and not the published base. See `notes/reference/gnn-marine-proxy.md`.
+
 ## What must replace it
 
 - Road network and landing/transfer locations.

@@ -1,0 +1,48 @@
+# GNN public-route proxy cases: Quatsino Sound -> Ladysmith Harbour.
+#
+# Public route evidence:
+#   https://www.seaspan.com/stories/log-barging-101/
+# Historical terminal evidence:
+#   TFL 6 Annual Reports 1999/2000 (Quatsino Dryland Log Sort; Seaspan barging;
+#   Pacific Towing; southern mills including Ladysmith).
+#
+# This is a diagnostic proxy. Barge capacity, rates, road legs, terminal
+# handling, and fleet size are assumptions, not current quotes or confirmation
+# of current operations. The water leg is an approximate waypoint distance,
+# not a navigation route.
+schema_version: 1
+currency: CAD
+data_status: public_route_assumption_rates
+geography_status: gnn_public_route_proxy
+scenario: config/cost_revenue/transport/fhops_marine_quatsino_ladysmith/scenario.yaml
+horizon_days: 8
+demand_mode: last_day
+mode: analytical
+source: "Seaspan Log Barging 101 (2023-05-12); TFL 6 Annual Reports 1999/2000; FHOPS marine mechanics"
+upstream_issue: "https://github.com/UBC-FRESH/fhops/issues/187"
+upstream_commit: "f788d7a63113c52159b3a9dbef449d6faf8325e9"
+cases:
+  - id: low_cost
+    utilization: 1.0
+    note: "10,000 m3 proxy barge; lowest unit cost."
+  - id: base
+    utilization: 0.75
+    note: "7,500 m3 proxy barge; base utilisation assumption."
+  - id: high_cost
+    utilization: 0.5
+    note: "5,000 m3 proxy barge; high unit cost from under-utilisation."
+assumptions:
+  route_distance_km: 589
+  route_speed_knots: 10
+  route_minutes_one_way: 1910
+  water_leg: "Approximate waypoint path: Quatsino Sound -> Cape Scott -> west coast -> Juan de Fuca -> Victoria -> Ladysmith."
+  barge_capacity_m3: 10000
+  barge_rate: "FHOPS fixture proxy: CAD 5/min variable, CAD 1,500/day fixed."
+  truck_rate: "FHOPS fixture proxy: CAD 1.20/min variable, CAD 120/day fixed."
+  road_legs: "50 km block-to-Quatsino and 10 km Ladysmith-to-yard; assumptions."
+  terminal_handling: "CAD 150/trip origin and CAD 180/trip destination; assumptions."
+notes:
+  - "The route is public, but the current terminal status and rates are not."
+  - "The barge is not identified as a specific current vessel."
+  - "The proxy is not a current quote and is not the published transport base."
+  - "The sustainable gate must reject this data status."
