@@ -339,3 +339,5 @@ followed the workflow at the time.
 - `python scripts/dashboard.py`: GREEN on all six gates. `check_workflow.py`: 0 errors, 0 warnings.
   Sphinx build clean.
 - No release, sustainable label, or model change is authorized by P4.
+- P4.1 is `pr-open` in PR #32. The P4 close-out report is queued at
+  `notes/reports/p4-closeout.md`; no merge, release, or sustainable label is authorized.
