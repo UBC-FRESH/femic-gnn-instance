@@ -98,3 +98,12 @@ followed the workflow at the time.
   horizon and age-structure end-effect, not a curve or target error.
 - Added `notes/reference/decade10-diagnostic.md` and a docs summary.
 - No curve, target, THLB, AAC, or benchmark change.
+### P1.6 UI/docs release gate and P1 close-out
+
+- Verified the built docs carry the proposed-boundary and derived/non-legal
+  labels; the UI remains loopback-only and is not a public deployment.
+- P1.2-P1.5 are complete. P1.1 is deferred: the review packet is prepared, not
+  sent, and issue #10 remains open.
+- P1 is queued for close-out; P2 is not activated until the close-out is
+  approved and the boundary review is resolved or explicitly carried forward.
+- No model, curve, target, THLB, AAC, or benchmark change.

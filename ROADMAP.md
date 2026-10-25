@@ -13,7 +13,7 @@ after its parent issue exists and the maintainer approves it.
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
 | P0 Bootstrap and workflow retrofit | #2 | `feature/p0-bootstrap` | complete |
-| P1 Validation and hardening | #1 | `feature/p1-validation-hardening` | active |
+| P1 Validation and hardening | #1 | `feature/p1-validation-hardening` | pr-open |
 | P2 Release and hand-off | TBD | `feature/p2-release` | planned |
 
 ## Lifecycle Map
@@ -83,7 +83,7 @@ Acceptance criteria:
 
 Parent issue: #1
 Branch: `feature/p1-validation-hardening`
-Status: active
+Status: pr-open
 
 Goal: harden the prototype with reviewed boundary inputs, better ground-plot
 evidence, an explicit SI/origin decision, and a documented THLB/AAC status. Do
@@ -92,6 +92,7 @@ not tune curves to the derived AAC.
 - [ ] P1.1 Confirm the proposed SOI boundary and public-output plan (#10)
   - [ ] Record the GNN review outcome or the blocking question.
   - [ ] Keep the public site labelled prototype until confirmed.
+  - Note: deferred. The review packet is prepared; GNN confirmation is external. Issue #10 stays open.
 - [x] P1.2 Expand GNN-area ground-plot validation (#11)
   - [x] Filter public plots to the GNN AOI.
   - [x] Report sample size, source, and bias by type.
@@ -106,9 +107,9 @@ not tune curves to the derived AAC.
 - [x] P1.5 Diagnose the decade-10 schedule miss without curve tuning (#14)
   - [x] Test schedule/seed sensitivity only.
   - [x] Record whether the miss is capacity, ordering, or data.
-- [ ] P1.6 Make the UI/docs release gate and close out P1 (#15)
-  - [ ] Confirm the UI and docs caveats.
-  - [ ] Queue the P1 close-out report.
+- [x] P1.6 Make the UI/docs release gate and close out P1 (#15)
+  - [x] Confirm the UI and docs caveats.
+  - [x] Queue the P1 close-out report.
 
 Acceptance criteria:
 
@@ -143,6 +144,6 @@ Acceptance criteria:
 ## Detailed Next Steps Notes
 
 1. P0 is complete: PR #9 merged as `f9a11c5`; dashboard and CI were green.
-2. P1 is active on `feature/p1-validation-hardening`; child issues #10-#15 are linked to parent #1.
-3. Start with P1.1: prepare the boundary/public-output review packet. Do not claim GNN confirmation.
-4. P1.2-P1.5 follow; no curve or target tuning.
+2. P1 is queued in its phase PR. P1.2-P1.5 are complete; P1.1 is deferred pending GNN review (#10 stays open).
+3. Do not launch P2 until the P1 close-out is approved and P1.1 is resolved or explicitly carried forward.
+4. No curve, target, THLB, AAC, or benchmark tuning.
