@@ -10,7 +10,7 @@ proposed GNN Statement of Intent boundary.
 
 ## Status
 
-Prototype release `v0.1.0-prototype` is being prepared. Phase 2 (release and hand-off) is active. `ROADMAP.md` is the plan of
+Prototype release `v0.1.0-prototype` is available. Phase 2 (release and hand-off) is complete. `ROADMAP.md` is the plan of
 record, and the GitHub issues carry the live status. The model is a **prototype**, not a legal or
 operational release.
 

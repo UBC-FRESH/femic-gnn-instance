@@ -14,7 +14,7 @@ after its parent issue exists and the maintainer approves it.
 | --- | --- | --- | --- |
 | P0 Bootstrap and workflow retrofit | #2 | `feature/p0-bootstrap` | complete |
 | P1 Validation and hardening | #1 | `feature/p1-validation-hardening` | complete |
-| P2 Release and hand-off | #17 | `feature/p2-release` | pr-open |
+| P2 Release and hand-off | #17 | `feature/p2-release` | complete |
 
 ## Lifecycle Map
 
@@ -124,16 +124,16 @@ Acceptance criteria:
 
 Parent issue: #17
 Branch: `feature/p2-release`
-Status: pr-open
+Status: complete
 
 Goal: release the prototype only after the P1 gates and a separate approval.
 
 - [x] P2.1 Write release notes and the known-gaps list (#18)
   - [x] State the proposed boundary, derived THLB/AAC, and validation limits.
   - [x] List the known gaps and deferred review.
-- [ ] P2.2 Tag, publish, and verify from a clean checkout (#19)
-  - [ ] Tag and publish a pre-release.
-  - [ ] Verify the published docs and a clean checkout.
+- [x] P2.2 Tag, publish, and verify from a clean checkout (#19)
+  - [x] Tag and publish a pre-release.
+  - [x] Verify the published docs and a clean checkout.
 
 Acceptance criteria:
 
@@ -143,8 +143,8 @@ Acceptance criteria:
 
 ## Detailed Next Steps Notes
 
-1. P0 is complete: PR #9 merged as `f9a11c5`. P1 is complete: PR #16 merged as `a3af911`.
-2. P1.1 is closed as deferred by the maintainer; no external review is being sought. The packet remains available.
-3. P2 is active on `feature/p2-release`; child issues #18/#19 are linked to parent #17.
-4. Write the release notes and known gaps, then tag and verify a prototype pre-release.
+1. P0, P1, and P2 are complete. P2 merged as `ea70b26`; release `v0.1.0-prototype` is published as a pre-release.
+2. Pages and `llms.txt` return HTTP 200; the clean-checkout dashboard and validator are green.
+3. P1.1 is closed as deferred by the maintainer; no external review is being sought. The packet remains available.
+4. Maintenance continues under `ROADMAP.md` and the open base-model issue `UBC-FRESH/femic#343`.
 5. No curve, target, THLB, AAC, or benchmark tuning.
