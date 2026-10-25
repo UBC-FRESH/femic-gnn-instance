@@ -104,6 +104,8 @@ followed the workflow at the time.
   labels; the UI remains loopback-only and is not a public deployment.
 - P1.2-P1.5 are complete. P1.1 is deferred: the review packet is prepared, not
   sent, and issue #10 remains open.
-- P1 is queued for close-out; P2 is not activated until the close-out is
-  approved and the boundary review is resolved or explicitly carried forward.
+- P1 is queued for close-out in PR #16; CI run `40171639796` passed. The report
+  is `notes/reports/p1-closeout.md`.
+- P2 is not activated until the close-out is approved and the boundary review is
+  resolved or explicitly carried forward.
 - No model, curve, target, THLB, AAC, or benchmark change.
