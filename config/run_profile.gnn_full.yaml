@@ -1,0 +1,21 @@
+selection:
+  # Custom-boundary mode: the GNN model is not a legal TSA.
+  tsa: []
+  boundary_path: "data/source/aoi/gnn_full.gpkg"
+  boundary_layer: "gnn_full"
+  boundary_code: "gnn"
+  strata: []
+
+modes:
+  resume: true
+  dry_run: false
+  verbose: true
+  skip_checks: false
+  # Upstream data-prep lane. The production managed curves will reuse the
+  # merged TSA 46/47 TSR lane after AU harmonization.
+  vdyp_sampling_mode: auto
+  managed_curve_mode: vdyp_transform
+
+run:
+  run_id: "gnn_full_20261025"
+  log_dir: "runtime/logs"
