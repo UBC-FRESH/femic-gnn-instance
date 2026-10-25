@@ -21,7 +21,7 @@ boundary and public-output plan with GNN before release.
 - 100% 5-40 ha patches
 - 9/10 decades met; decade 10 is 781.4 m3 below the derived band
 
-See `notes/reference/model-build.md` and `notes/reference/validation.md`. The available GNN-area ground-plot sample is only 34 rows / 10 sites, so the prototype is not GNN-specifically validated.
+See `notes/reference/model-build.md` and `notes/reference/validation.md`. The available GNN-area ground-plot sample is only 34 rows / 10 sites, so the prototype is not GNN-specifically validated. TSA-prefixed AUs are kept because TSA 46/47 curves are not interchangeable; see `notes/reference/au-harmonization.md`.
 
 ## AOI
 

@@ -56,4 +56,5 @@ See :doc:`model-build`, :doc:`benchmark`, and :doc:`aoi`.
 
    benchmark
    model-build
+   aus
    aoi
