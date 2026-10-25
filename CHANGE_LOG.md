@@ -90,3 +90,11 @@ followed the workflow at the time.
   explicit AAC decision.
 - The P2 release gate must state this condition.
 - No curve, THLB, AAC, or benchmark change.
+### P1.5 decade-10 diagnostic
+
+- The scheduler is deterministic; no seed exists.
+- A band-floor run (2,526,000 m3) still left decade 10 at 2,524,255.0 m3.
+- The last period has the most scheduled blocks (866), so the miss is a 100-year
+  horizon and age-structure end-effect, not a curve or target error.
+- Added `notes/reference/decade10-diagnostic.md` and a docs summary.
+- No curve, target, THLB, AAC, or benchmark change.

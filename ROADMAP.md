@@ -103,9 +103,9 @@ not tune curves to the derived AAC.
 - [x] P1.4 Decide the derived THLB/AAC status (#13)
   - [x] Keep the derived values labelled non-legal.
   - [x] Decide whether a reviewed netdown is required before release.
-- [ ] P1.5 Diagnose the decade-10 schedule miss without curve tuning (#14)
-  - [ ] Test schedule/seed sensitivity only.
-  - [ ] Record whether the miss is capacity, ordering, or data.
+- [x] P1.5 Diagnose the decade-10 schedule miss without curve tuning (#14)
+  - [x] Test schedule/seed sensitivity only.
+  - [x] Record whether the miss is capacity, ordering, or data.
 - [ ] P1.6 Make the UI/docs release gate and close out P1 (#15)
   - [ ] Confirm the UI and docs caveats.
   - [ ] Queue the P1 close-out report.

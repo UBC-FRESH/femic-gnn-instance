@@ -98,3 +98,16 @@ are not sufficient for operational, legal, or investment decisions. An
 operational release requires a reviewed GNN netdown and an explicit AAC
 decision. See ADR 0006.
 
+
+Decade-10 diagnostic
+--------------------
+
+The scheduler is deterministic. Lowering the target to the band floor
+(2,526,000 m3) did not fix decade 10: it produced 2,524,255.0 m3, still below
+the band. The last period already has the most scheduled blocks (866), so the
+miss is a 100-year horizon and age-structure end-effect, not a curve or target
+error. The 522 openings that become ready after year 90 are dropped.
+
+No curve, target, THLB, AAC, or benchmark change is made. See
+`notes/reference/decade10-diagnostic.md` in the repository.
+
