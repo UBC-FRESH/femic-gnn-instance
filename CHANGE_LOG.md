@@ -286,3 +286,11 @@ followed the workflow at the time.
 - Bottleneck approximation, not a solved FHOPS shift schedule; cablesystem uses
   mechanised felling and may not be safe on the 39% block.
 - Added `pipeline/full_system_cost.py`, the sample table, and the note.
+### P3.5 positive net revenue share of sampled THLB
+
+- Priced cable/heli THLB in the current screen: 242.5 ha, 0.46% of the derived
+  GNN THLB.
+- Positive in the best case: 88.5% of priced THLB; worst case: 63.5%.
+- Ground THLB in the sample (86.0 ha) remains unpriced.
+- This is not a full-THLB fraction; the sample is not representative and uses
+  one-machine costs.
