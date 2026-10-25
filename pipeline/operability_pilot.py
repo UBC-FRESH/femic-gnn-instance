@@ -35,6 +35,7 @@ def main() -> None:
     parser.add_argument("--checkpoint", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--count", type=int, default=12)
+    parser.add_argument("--per-group", type=int, default=0)
     parser.add_argument("--zoom", type=int, default=12)
     parser.add_argument("--seed", type=int, default=42)
     args = parser.parse_args()
@@ -58,7 +59,14 @@ def main() -> None:
     points = gpd.GeoDataFrame(blocks[["block_id", "area_ha"]], geometry=blocks.centroid, crs=3005)
     approx = gpd.sjoin(
         points,
-        checkpoint[["LIVE_STAND_VOLUME_125", "geometry"]],
+        checkpoint[
+            [
+                "LIVE_STAND_VOLUME_125",
+                "VRI_LIVE_STEMS_PER_HA",
+                "SPECIES_CD_1",
+                "geometry",
+            ]
+        ],
         predicate="within",
         how="inner",
     ).drop_duplicates("block_id")
@@ -70,7 +78,29 @@ def main() -> None:
     ].drop_duplicates("block_id")
     if len(candidates) < args.count:
         raise SystemExit(f"only {len(candidates)} candidates for count={args.count}")
-    sample = candidates.sample(n=args.count, random_state=args.seed)
+    if args.per_group > 0:
+        group_map = {
+            "H": "hembal",
+            "BA": "hembal",
+            "HM": "hembal",
+            "CW": "cedar",
+            "YC": "cypress",
+            "FD": "fir",
+            "S": "spruce",
+            "SX": "spruce",
+            "SE": "spruce",
+        }
+        candidates = candidates.copy()
+        candidates["strata_group"] = (
+            candidates["SPECIES_CD_1"].astype(str).str.upper().str.strip().map(group_map).fillna("other")
+        )
+        samples = [
+            group.sample(n=min(args.per_group, len(group)), random_state=args.seed)
+            for _, group in candidates.groupby("strata_group")
+        ]
+        sample = pd.concat(samples).drop_duplicates("block_id")
+    else:
+        sample = candidates.sample(n=args.count, random_state=args.seed)
 
     cable_prod = estimate_cable_yarder_productivity_tr125_single_span(
         slope_distance_m=300.0, lateral_distance_m=25.0, payload_m3=1.6
