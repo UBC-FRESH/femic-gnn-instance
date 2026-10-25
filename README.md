@@ -21,6 +21,10 @@ operational release.
 > boundary and the public-output plan with GNN before operational use. The THLB
 > and AAC are derived prototype values, not legal determinations.
 
+## Economic screening (diagnostic)
+
+Full derived THLB: **95.5% positive** in the base screening case (88.0-96.8% across price/recovery). It uses class-average full-system costs, coarse terrain, provisional recovery, and legacy transport. Not a sustainable or financially calibrated result.
+
 ## Prototype result
 
 - Combined calibrated THLB: **52,984.42 ha**

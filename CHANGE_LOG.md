@@ -310,3 +310,10 @@ followed the workflow at the time.
 - Opened upstream issue `UBC-FRESH/fhops#187` with a Sunshine Coast -> Howe Sound fixture and
   acceptance criteria.
 - GNN barge transport remains a diagnostic assumption, not a solved FHOPS haul plan.
+### P3 close-out queued
+
+- Added `docs/economic-screening.rst` with the full-THLB diagnostic screen.
+- P3 is `pr-open`; all tasks are checked with stated limits.
+- The release stays volume-only. The screen is not a sustainable or financially
+  calibrated result.
+- FHOPS barge support remains upstream issue #187.

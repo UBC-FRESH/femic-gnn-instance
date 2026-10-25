@@ -9,7 +9,7 @@ What fraction of THLB has positive net unit revenue now?
 
 ## Answer
 
-It cannot be answered for the full THLB from the current model.
+**Superseded by the full-THLB screen** in `notes/reference/full-thlb-screening.md` and `docs/economic-screening.rst`. The earlier 0.46% sample answer below is retained as a sampling audit.
 
 The current net screening covers only **242.5 ha of priced cable/heli THLB**,
 which is **0.46% of the 52,984.42 ha derived GNN THLB**. Ground blocks are

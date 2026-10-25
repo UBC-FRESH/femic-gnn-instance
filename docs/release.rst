@@ -52,6 +52,16 @@ Known gaps
 - The decade-10 miss is a 100-year horizon and age-structure end-effect.
 - TSA-prefixed AUs are retained; the reporting crosswalk is not a model merge.
 
+
+Economic screening (diagnostic)
+--------------------------------
+
+A P3 screening covers the full derived THLB: **95.5% positive** in the base
+case, 88.0-96.8% across the price/recovery range. It uses class-average system
+costs, coarse terrain, provisional recovery, and legacy barge/truck rates. It is
+**not** a financial assessment, not a current quote, and not a sustainable
+label. See :doc:`economic-screening`.
+
 Links
 -----
 
