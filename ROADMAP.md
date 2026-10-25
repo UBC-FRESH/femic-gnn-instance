@@ -19,7 +19,7 @@ after its parent issue exists and the maintainer approves it.
 | P4 FHOPS-native marine transport | #30 | `feature/p4-fhops-marine` | complete |
 | P5 GNN marine geography and terminal data | #33 | `feature/p5-marine-data` | complete |
 | P6 Quatsino Sound to Ladysmith public-route proxy | #36 | `feature/p6-marine-proxy` | complete |
-| P7 Solved multi-day marine transport | #39 | `feature/p7-solved-marine` | active |
+| P7 Solved multi-day marine transport | #39 | `feature/p7-solved-marine` | complete |
 
 ## Lifecycle Map
 
@@ -298,18 +298,18 @@ maintainer approves before merge.
 
 Parent issue: #39
 Branch: `feature/p7-solved-marine`
-Status: active
+Status: complete
 
 Goal: switch the GNN Quatsino Sound -> Ladysmith proxy from the analytical
 workaround to solved FHOPS Phase I now that FHOPS P13 supports multi-day
 voyages, compare both paths, and keep the published legacy screen unchanged.
 
 - [x] P7.1 Switch the GNN proxy to solved FHOPS Phase I (#40)
-  - [ ] Change the proxy config to `mode: solve`.
-  - [ ] Run the three utilisation cases.
-  - [ ] Compare solved and analytical components.
-  - [ ] Update docs, notes, roadmap, and changelog.
-  - [ ] Run dashboard, validator, and docs.
+  - [x] Change the proxy config to `mode: solve`.
+  - [x] Run the three utilisation cases.
+  - [x] Compare solved and analytical components.
+  - [x] Update docs, notes, roadmap, and changelog.
+  - [x] Run dashboard, validator, and docs.
 
 Acceptance criteria:
 
@@ -329,5 +329,6 @@ provenance, and remaining data limits. The maintainer approves before merge.
 4. FHOPS #187 is resolved. The P4 API fixture is Sunshine Coast -> Howe Sound; it is not a GNN route and is no longer presented as a GNN transport sensitivity in public docs.
 5. P4 is complete as a diagnostic transport integration. The published screen remains the legacy comparison.
 6. P5 is complete: the GNN AOI is northern Vancouver Island, while the FHOPS fixture is Sunshine Coast -> Howe Sound. The fixture is an API test, not a GNN route. Candidate terminals and missing quote data are recorded without inventing data.
-7. P6 is complete: the public Quatsino Sound -> Ladysmith route proxy is diagnostic only. Cases are 8.125/9.203/11.360 CAD/m3 at 100/75/50% utilisation, with assumed capacity and rates. FHOPS Phase I does not support the multi-day barge cycle; tracked at `UBC-FRESH/fhops#196`.
-8. No release change or sustainable label is authorized by P4, P5, or P6.
+7. P6 is complete: the public Quatsino Sound -> Ladysmith route proxy is diagnostic only. Cases are 8.125/9.203/11.360 CAD/m3 at 100/75/50% utilisation, with assumed capacity and rates.
+8. P7 is complete: the proxy now runs as a solved FHOPS Phase I case after FHOPS P13; solved and analytical results match. The published screen remains legacy; current terminal/rate data is still required.
+9. No release change or sustainable label is authorized by P4, P5, P6, or P7.
