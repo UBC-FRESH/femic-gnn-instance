@@ -255,3 +255,16 @@ followed the workflow at the time.
 - The source labels these "rough prototype only" and says cost year/assumptions
   are unclear. They are legacy diagnostic, not current quotes.
 - Replaced the earlier 31 CAD/m3 placeholder with the legacy diagnostic basis.
+### P3.5 screening net revenue ranges
+
+- Ran a range-based net revenue screen for cable/heli blocks using the local
+  reviewed price deck, provisional recovery matrix, legacy CLEWs transport, and
+  one-machine cable/heli screening costs.
+- Random 40-block sample: 25 priced blocks, 229,015 m3; net range +5.21M to
+  +50.30M CAD; 0% unprofitable even in the optimistic case.
+- Species-stratified sample: 25 priced blocks, 232,482 m3; net range -1.70M to
+  +36.32M CAD; 13.1% of priced volume unprofitable even in the best case.
+- The range is dominated by price/recovery assumptions. Ground blocks remain
+  unpriced. This is **screening only**, not a net revenue or sustainable claim.
+- Detailed per-block outputs stay local because the BC price table is not
+  redistributable.
