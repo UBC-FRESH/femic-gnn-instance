@@ -6,7 +6,7 @@ Pull request: #9, `feature/p0-bootstrap` into `main`
 Evidence head: `c23eb54`, the code head that the gates and CI runs below cover
 Report commit: the commit that adds this report. Its CI run is posted on the pull request.
 Date: 2026-10-25
-Status: queued for approval. Not merged.
+Status: approved by the maintainer on 2026-10-25. Merge queued.
 
 ## Recommendation
 
@@ -126,5 +126,5 @@ P1.1, because the boundary and public-output review is the external gate.
 
 ## 7. Decision
 
-- [ ] Approve as written.
+- [x] Approve as written.
 - [ ] Approve with the changes stated here: <changes>.
