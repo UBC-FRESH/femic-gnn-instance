@@ -90,3 +90,11 @@ not a managed-young TIPSY benchmark. It does not change the conclusion: the
 managed-curve evidence remains too sparse.
 
 
+Release condition
+-----------------
+
+The derived THLB and AAC are sufficient for a labelled **prototype** only. They
+are not sufficient for operational, legal, or investment decisions. An
+operational release requires a reviewed GNN netdown and an explicit AAC
+decision. See ADR 0006.
+

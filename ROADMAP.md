@@ -100,9 +100,9 @@ not tune curves to the derived AAC.
   - [x] Link the base-model issue.
   - [x] Record the GNN consequence for the dominant CWH_CW H cell.
   - [x] Do not merge AUs to hide the difference.
-- [ ] P1.4 Decide the derived THLB/AAC status (#13)
-  - [ ] Keep the derived values labelled non-legal.
-  - [ ] Decide whether a reviewed netdown is required before release.
+- [x] P1.4 Decide the derived THLB/AAC status (#13)
+  - [x] Keep the derived values labelled non-legal.
+  - [x] Decide whether a reviewed netdown is required before release.
 - [ ] P1.5 Diagnose the decade-10 schedule miss without curve tuning (#14)
   - [ ] Test schedule/seed sensitivity only.
   - [ ] Record whether the miss is capacity, ordering, or data.

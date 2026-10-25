@@ -82,3 +82,11 @@ followed the workflow at the time.
   13.9%, CWH_CW M 7.1%, and CWH_HW H 5.3%.
 - Kept TSA-prefixed AUs; no managed-SI switch and no AAC tuning. The base issue
   remains an open dependency.
+### P1.4 prototype-only THLB/AAC release condition
+
+- Added ADR 0006: the derived THLB and AAC are sufficient for a labelled
+  prototype only.
+- Operational, legal, or investment use requires a reviewed GNN netdown and an
+  explicit AAC decision.
+- The P2 release gate must state this condition.
+- No curve, THLB, AAC, or benchmark change.
