@@ -36,7 +36,7 @@ def _decode(image: Image.Image) -> np.ndarray:
     return rgb[:, :, 0] * 256.0 + rgb[:, :, 1] + rgb[:, :, 2] / 256.0 - 32768.0
 
 
-def _mosaic(bbox: tuple[float, float, float, float], zoom: int) -> tuple[np.ndarray, int, int, int, int]:
+def _mosaic(bbox: tuple[float, float, float, float], zoom: int, cache: dict[tuple[int, int, int], np.ndarray] | None = None) -> tuple[np.ndarray, int, int, int, int]:
     min_lon, min_lat, max_lon, max_lat = bbox
     x0, y0 = _tile_xy(min_lon, max_lat, zoom)
     x1, y1 = _tile_xy(max_lon, min_lat, zoom)
@@ -44,9 +44,16 @@ def _mosaic(bbox: tuple[float, float, float, float], zoom: int) -> tuple[np.ndar
     for x in range(x0, x1 + 1):
         tiles: list[np.ndarray] = []
         for y in range(y0, y1 + 1):
+            key = (zoom, x, y)
+            if cache is not None and key in cache:
+                tiles.append(cache[key])
+                continue
             response = requests.get(TILE_URL.format(z=zoom, x=x, y=y), timeout=30)
             response.raise_for_status()
-            tiles.append(_decode(Image.open(io.BytesIO(response.content))))
+            tile = _decode(Image.open(io.BytesIO(response.content)))
+            if cache is not None:
+                cache[key] = tile
+            tiles.append(tile)
         rows.append(np.concatenate(tiles, axis=0))
     return np.concatenate(rows, axis=1), x0, y0, x1, y1
 
