@@ -98,6 +98,8 @@ Missing or not yet materialized:
 
 ## References
 
+- Price source and use limits: `notes/reference/log-price-sources.md`
+- FHOPS smoke test: `notes/reference/fhops-smoke-test.md`
 - FHOPS data contract: `fhops/docs/howto/data_contract.rst`
 - FHOPS harvest systems: `fhops/docs/reference/harvest_systems.rst`
 - FHOPS tactical-operational contract:

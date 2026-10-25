@@ -162,3 +162,14 @@ followed the workflow at the time.
   harvest system cost; this pipeline supplies operability, haul/barge, sorts,
   prices, and net revenue.
 - No GNN price, cost, slope, or recovery value is implied by the fixture.
+### P3.3/P3.4 progress: price source and FHOPS smoke test
+
+- Identified the BC Coast Log Market Reports (Vancouver Log Market, species and
+  grade, three months ending January 2026) as the primary public price source.
+- Recorded the copyright/use limit: keep the extracted deck local and
+  gitignored; do not republish the raw BC table.
+- Confirmed the FHOPS cost core runs via `PYTHONPATH=src`; the CLI still needs
+  `optuna`, and the MIP path needs `pyomo`/`highspy`.
+- Ran a synthetic single-machine cost smoke test; it is not a GNN result.
+- The grade/sort recovery matrix is still missing; net revenue is not credible
+  until it exists.
