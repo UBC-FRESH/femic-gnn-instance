@@ -20,6 +20,7 @@ after its parent issue exists and the maintainer approves it.
 | P5 GNN marine geography and terminal data | #33 | `feature/p5-marine-data` | complete |
 | P6 Quatsino Sound to Ladysmith public-route proxy | #36 | `feature/p6-marine-proxy` | complete |
 | P7 Solved multi-day marine transport | #39 | `feature/p7-solved-marine` | complete |
+| P8 Solved-proxy full-THLB sensitivity | #42 | `feature/p8-proxy-sensitivity` | active |
 
 ## Lifecycle Map
 
@@ -321,6 +322,34 @@ Acceptance criteria:
 Closeout requirement: a P7 report with the solved/analytical comparison,
 provenance, and remaining data limits. The maintainer approves before merge.
 
+## Phase 8: Solved-proxy full-THLB sensitivity
+
+Parent issue: #42
+Branch: `feature/p8-proxy-sensitivity`
+Status: active
+
+Goal: run the solved Quatsino proxy through the full-THLB screen, carry its
+`public_route_assumption_rates` metadata, and compare it with the legacy and P4
+API paths without switching the published base.
+
+- [ ] P8.1 Run and document the solved-proxy full-THLB sensitivity (#43)
+  - [x] Add config-derived transport metadata.
+  - [x] Run the solved-proxy full-THLB screen.
+  - [x] Compare legacy, API, and proxy shares.
+  - [x] Update docs/notes/changelog.
+  - [x] Run dashboard, validator, and docs.
+
+Acceptance criteria:
+
+- Proxy output identifies `public_route_assumption_rates`.
+- The separate sensitivity output is written locally.
+- Legacy, API, and proxy shares are documented.
+- The published legacy screen remains unchanged.
+- No current-quote or sustainable claim is added.
+
+Closeout requirement: a P8 report with the comparison, provenance, limits, and
+next decision. The maintainer approves before merge.
+
 ## Detailed Next Steps Notes
 
 1. P0-P2 are complete; `v0.1.0-prototype` is a volume-only pre-release.
@@ -331,4 +360,5 @@ provenance, and remaining data limits. The maintainer approves before merge.
 6. P5 is complete: the GNN AOI is northern Vancouver Island, while the FHOPS fixture is Sunshine Coast -> Howe Sound. The fixture is an API test, not a GNN route. Candidate terminals and missing quote data are recorded without inventing data.
 7. P6 is complete: the public Quatsino Sound -> Ladysmith route proxy is diagnostic only. Cases are 8.125/9.203/11.360 CAD/m3 at 100/75/50% utilisation, with assumed capacity and rates.
 8. P7 is complete: the proxy now runs as a solved FHOPS Phase I case after FHOPS P13; solved and analytical results match. The published screen remains legacy; current terminal/rate data is still required.
-9. No release change or sustainable label is authorized by P4, P5, P6, or P7.
+9. P8 is active: the solved proxy full-THLB sensitivity is 89.1% low / 95.7% base / 96.8% high, versus legacy 88.0/95.5/96.8 and the P4 API 90.2/95.8/97.0. It is diagnostic only.
+10. No release change or sustainable label is authorized by P4-P8.

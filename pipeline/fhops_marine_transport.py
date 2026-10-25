@@ -620,6 +620,15 @@ def estimate_configured_cases(
     ]
 
 
+def configured_metadata(config_path: Path = DEFAULT_CONFIG) -> tuple[str, str]:
+    """Return the config's data status and source for downstream reporting."""
+    config = _read_config(config_path)
+    return (
+        str(config.get("data_status", DATA_STATUS)),
+        str(config.get("source", DEFAULT_SOURCE)),
+    )
+
+
 def configured_cost_lookup(
     config_path: Path = DEFAULT_CONFIG,
     *,

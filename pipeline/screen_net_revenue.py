@@ -32,13 +32,10 @@ def _transport_costs(
             "legacy_diagnostic",
             "CLEWs-C2070/FFCM at 71b3d45",
         )
-    from fhops_marine_transport import configured_cost_lookup
+    from fhops_marine_transport import configured_cost_lookup, configured_metadata
 
-    return (
-        configured_cost_lookup(fhops_config),
-        "upstream_fhops_fixture_api_test",
-        "UBC-FRESH/fhops#187 at f788d7a6; not GNN geography",
-    )
+    status, source = configured_metadata(fhops_config)
+    return configured_cost_lookup(fhops_config), status, source
 
 
 CABLE_LOW = 17.61
