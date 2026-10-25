@@ -56,3 +56,28 @@ by a single ground-based cost average.
 4. Only then aggregate to a scenario net revenue.
 
 No GNN net revenue is claimed from this sample.
+
+## Cable/heli screening costs
+
+Using the block's actual stand and terrain, with documented assumptions for
+distance/payload, the FHOPS cable/heli productivity models and machine rates give:
+
+| System | Model | Productivity | Cost |
+| --- | --- | ---: | ---: |
+| Helicopter longline | KMAX, 1000 m | 29.82 m3/PMH | 87.09 CAD/m3 |
+| Helicopter longline | Bell 214B, 1000 m | 47.91 m3/PMH | 59.66 CAD/m3 |
+| Cable yarder | Skylead C40, TR125 300 m | 19.03 m3/PMH | 17.61 CAD/m3 |
+| Cable yarder | Cypress 7280, TR125 300 m | 19.03 m3/PMH | 37.50 CAD/m3 |
+
+These are **screening costs**: one productivity model plus one machine rate.
+They exclude move-in, landing construction, truck haul, barge, overhead, and
+profit. They are not a delivered cost and not a net revenue result.
+
+The range is large enough to change the conclusion: at 12,746.6 m3, the
+helicopter KMAX harvest cost alone is about 1.11 million CAD; cable is roughly
+0.22-0.48 million CAD. A ground-based average would have hidden this.
+
+Files:
+
+- `config/cost_revenue/samples/block_14379_cost_screening.csv`
+- `config/cost_revenue/samples/block_14379.csv`

@@ -1,0 +1,5 @@
+block_id,system,model,productivity_m3_per_pmh,rental_rate_smh_cad,utilisation,cost_per_m3_cad,assumptions,source,data_status
+14379,helicopter_longline,helicopter_kmax,29.82,2596.94,1.00,87.09,1000 m one-way flight; no move-in/landing/haul/barge,FHOPS ADV6N25 helicopter model + machine rate,screening_only
+14379,helicopter_longline,helicopter_bell214b,47.91,2858.04,1.00,59.66,1000 m one-way flight; no move-in/landing/haul/barge,FHOPS ADV6N25 helicopter model + machine rate,screening_only
+14379,cable_yarder,grapple_yarder_skyleadc40,19.03,281.46,0.84,17.61,TR125 single span 300 m slope distance 25 m lateral 1.6 m3 payload; no move-in/landing/haul/barge,FHOPS TR125 model + machine rate,screening_only
+14379,cable_yarder,grapple_yarder_cypress7280,19.03,563.67,0.79,37.50,TR125 single span 300 m slope distance 25 m lateral 1.6 m3 payload; no move-in/landing/haul/barge,FHOPS TR125 model + machine rate,screening_only

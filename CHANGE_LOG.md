@@ -205,3 +205,12 @@ followed the workflow at the time.
 - Added `config/cost_revenue/samples/block_14379.csv` and
   `notes/reference/block-sample-14379.md`.
 - No GNN net revenue or sustainable label is claimed.
+### P3.4 cable/heli screening on the real block
+
+- Block 14379: 58.75% mean slope, 749.6 m3/ha; FHOPS ground model rejects it.
+- Cable/heli screening: helicopter KMAX 87.09 CAD/m3 at 1000 m; Bell 214B
+  59.66 CAD/m3; cable Skylead C40 17.61 CAD/m3; Cypress 7280 37.50 CAD/m3.
+- These are one-machine/one-model screening costs, excluding move-in, landing,
+  haul, barge, overhead, and profit.
+- Added the screening table and updated the block note.
+- No GNN net revenue or sustainable label is claimed.
