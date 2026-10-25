@@ -17,6 +17,7 @@ each result.
 2. Post closeout comments on child issues #3 through #8 and close them.
 3. Close parent issue #2 with a closeout comment that cites the merge commit.
 4. Launch P1: create `feature/p1-validation-hardening`, set P0 to `complete` and P1 to `active` in `ROADMAP.md`, create the P1 child issues as sub-issues, and start P1.1.
+5. After the GNN merge, update the `femic` submodule pointer and comment on `femic#341`. That pointer update follows the `femic` review and merge rules, not this PR.
 
 Settings changes, each with its exact command. Each one runs only after its own
 approval.
