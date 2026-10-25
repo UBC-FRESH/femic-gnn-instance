@@ -47,3 +47,18 @@ followed the workflow at the time.
 - Pull request #9 is open with `Part of #2`. The P0 close-out report is queued in
   `notes/reports/p0-closeout.md`.
 - The model, curves, THLB, AAC, and derived benchmark are unchanged.
+### P1 activation
+
+- P0 merged as `f9a11c5`; parent #2 and child #3-#8 are closed.
+- P1 is active on `feature/p1-validation-hardening`; parent #1 and child
+  #10-#15 are linked.
+- The first task is P1.1: prepare the boundary and public-output review packet.
+  GNN confirmation is external and blocking.
+### P1.1 boundary and public-output review packet
+
+- Added `notes/reference/gnn-review-packet.md` with boundary provenance, the
+  public-output inventory, review questions, and the no-confirmation rule.
+- Added `docs/review.html` to the public docs and linked it from the docs index
+  and `docs/llms.txt`.
+- P1.1 remains open: the packet is prepared, not sent, and no GNN confirmation
+  has been received.

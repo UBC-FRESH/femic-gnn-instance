@@ -9,6 +9,7 @@
 - [Model build](model-build.html): the combined TSA 46/47 build method and commands.
 - [AU structure](aus.html): why TSA-prefixed AUs are kept and why a reporting crosswalk is used.
 - [AOI](aoi.html): proposed GNN Statement of Intent boundary provenance and areas.
+- [Boundary review](review.html): review status, questions, and the no-confirmation rule.
 - [API reference](api/index.html): workflow validator and dashboard entry points.
 
 ## Status

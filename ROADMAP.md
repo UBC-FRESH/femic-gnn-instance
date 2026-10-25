@@ -12,8 +12,8 @@ after its parent issue exists and the maintainer approves it.
 
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
-| P0 Bootstrap and workflow retrofit | #2 | `feature/p0-bootstrap` | pr-open |
-| P1 Validation and hardening | #1 | `feature/p1-validation-hardening` | planned |
+| P0 Bootstrap and workflow retrofit | #2 | `feature/p0-bootstrap` | complete |
+| P1 Validation and hardening | #1 | `feature/p1-validation-hardening` | active |
 | P2 Release and hand-off | TBD | `feature/p2-release` | planned |
 
 ## Lifecycle Map
@@ -36,7 +36,7 @@ after its parent issue exists and the maintainer approves it.
 
 Parent issue: #2
 Branch: `feature/p0-bootstrap`
-Status: pr-open
+Status: complete
 
 Goal: bring the GNN instance into the UBC-FRESH dev workflow without changing
 the prototype model, and queue a reviewable close-out.
@@ -83,30 +83,30 @@ Acceptance criteria:
 
 Parent issue: #1
 Branch: `feature/p1-validation-hardening`
-Status: planned
+Status: active
 
 Goal: harden the prototype with reviewed boundary inputs, better ground-plot
 evidence, an explicit SI/origin decision, and a documented THLB/AAC status. Do
 not tune curves to the derived AAC.
 
-- [ ] P1.1 Confirm the proposed SOI boundary and public-output plan
+- [ ] P1.1 Confirm the proposed SOI boundary and public-output plan (#10)
   - [ ] Record the GNN review outcome or the blocking question.
   - [ ] Keep the public site labelled prototype until confirmed.
-- [ ] P1.2 Expand GNN-area ground-plot validation
+- [ ] P1.2 Expand GNN-area ground-plot validation (#11)
   - [ ] Filter public plots to the GNN AOI.
   - [ ] Report sample size, source, and bias by type.
   - [ ] State whether the evidence supports an accuracy conclusion.
-- [ ] P1.3 Resolve the TSA 46 SI/origin accuracy issue with the base-model owner
+- [ ] P1.3 Resolve the TSA 46 SI/origin accuracy issue with the base-model owner (#12)
   - [ ] Link the base-model issue.
   - [ ] Record the GNN consequence for the dominant CWH_CW H cell.
   - [ ] Do not merge AUs to hide the difference.
-- [ ] P1.4 Decide the derived THLB/AAC status
+- [ ] P1.4 Decide the derived THLB/AAC status (#13)
   - [ ] Keep the derived values labelled non-legal.
   - [ ] Decide whether a reviewed netdown is required before release.
-- [ ] P1.5 Diagnose the decade-10 schedule miss without curve tuning
+- [ ] P1.5 Diagnose the decade-10 schedule miss without curve tuning (#14)
   - [ ] Test schedule/seed sensitivity only.
   - [ ] Record whether the miss is capacity, ordering, or data.
-- [ ] P1.6 Make the UI/docs release gate and close out P1
+- [ ] P1.6 Make the UI/docs release gate and close out P1 (#15)
   - [ ] Confirm the UI and docs caveats.
   - [ ] Queue the P1 close-out report.
 
@@ -142,6 +142,7 @@ Acceptance criteria:
 
 ## Detailed Next Steps Notes
 
-1. P0 is queued in PR #9. The dashboard and CI are green on the code head.
-2. Wait for the maintainer to approve `notes/reports/p0-closeout.md` before merging, closing issues, or activating P1.
-3. P1 starts with the GNN boundary/output review and the ground-plot evidence, not with curve tuning.
+1. P0 is complete: PR #9 merged as `f9a11c5`; dashboard and CI were green.
+2. P1 is active on `feature/p1-validation-hardening`; child issues #10-#15 are linked to parent #1.
+3. Start with P1.1: prepare the boundary/public-output review packet. Do not claim GNN confirmation.
+4. P1.2-P1.5 follow; no curve or target tuning.

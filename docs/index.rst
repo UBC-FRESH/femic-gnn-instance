@@ -58,4 +58,5 @@ See :doc:`model-build`, :doc:`benchmark`, and :doc:`aoi`.
    model-build
    aus
    aoi
+   review
    api/index
