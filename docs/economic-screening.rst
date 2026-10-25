@@ -91,7 +91,8 @@ See `notes/reference/gnn-marine-geography.md
 <https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reference/gnn-marine-geography.md>`_.
 
 A separate internal proxy uses the public Quatsino Sound -> Ladysmith Harbour
-route. It is diagnostic only, not used in this screen, and documented in
+route and runs as a solved FHOPS Phase I case. It is diagnostic only, not used in
+this screen, and documented in
 `notes/reference/gnn-marine-proxy.md
 <https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reference/gnn-marine-proxy.md>`_.
 

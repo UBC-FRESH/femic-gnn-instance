@@ -19,6 +19,7 @@ after its parent issue exists and the maintainer approves it.
 | P4 FHOPS-native marine transport | #30 | `feature/p4-fhops-marine` | complete |
 | P5 GNN marine geography and terminal data | #33 | `feature/p5-marine-data` | complete |
 | P6 Quatsino Sound to Ladysmith public-route proxy | #36 | `feature/p6-marine-proxy` | complete |
+| P7 Solved multi-day marine transport | #39 | `feature/p7-solved-marine` | active |
 
 ## Lifecycle Map
 
@@ -292,6 +293,33 @@ Acceptance criteria:
 Closeout requirement: a P6 report with the public route evidence, assumptions,
 solved cases, comparison, FHOPS #196 limitation, and next decision. The
 maintainer approves before merge.
+
+## Phase 7: Solved multi-day marine transport
+
+Parent issue: #39
+Branch: `feature/p7-solved-marine`
+Status: active
+
+Goal: switch the GNN Quatsino Sound -> Ladysmith proxy from the analytical
+workaround to solved FHOPS Phase I now that FHOPS P13 supports multi-day
+voyages, compare both paths, and keep the published legacy screen unchanged.
+
+- [x] P7.1 Switch the GNN proxy to solved FHOPS Phase I (#40)
+  - [ ] Change the proxy config to `mode: solve`.
+  - [ ] Run the three utilisation cases.
+  - [ ] Compare solved and analytical components.
+  - [ ] Update docs, notes, roadmap, and changelog.
+  - [ ] Run dashboard, validator, and docs.
+
+Acceptance criteria:
+
+- All three solved cases are optimal.
+- Solved and analytical costs are compared and documented.
+- The published legacy screen is unchanged.
+- No current-quote or sustainable claim is added.
+
+Closeout requirement: a P7 report with the solved/analytical comparison,
+provenance, and remaining data limits. The maintainer approves before merge.
 
 ## Detailed Next Steps Notes
 
