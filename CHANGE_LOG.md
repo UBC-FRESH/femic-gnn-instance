@@ -377,3 +377,4 @@ followed the workflow at the time.
 - Dashboard GREEN, validator 0/0, docs clean.
 - P6.1 is `pr-open` in PR #38. The P6 close-out report is queued at
   `notes/reports/p6-closeout.md`; no published transport switch or model change is authorized.
+- P6 merged as `c9fcb8c` (PR #38); task #37 and parent #36 are closed. The public-route proxy is complete as a diagnostic; the published transport base remains legacy.
