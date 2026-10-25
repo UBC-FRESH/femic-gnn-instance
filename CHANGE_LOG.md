@@ -402,3 +402,5 @@ followed the workflow at the time.
   is unchanged.
 - The proxy remains `public_route_assumption_rates` and is not a quote or sustainable result.
 - Verification: dashboard GREEN, validator 0/0, docs clean; proxy screen status `public_route_assumption_rates`; output at `runtime/p8/full_thlb_screening_proxy_solved.csv`.
+- P8.1 is `pr-open` in PR #44. The P8 close-out report is queued at
+  `notes/reports/p8-closeout.md`; no release, tag, or published transport switch is authorized.
