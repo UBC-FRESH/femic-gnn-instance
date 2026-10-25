@@ -302,3 +302,11 @@ followed the workflow at the time.
 - Sensitivities: 87.8% at 2x harvest cost; 92.3% at 30 CAD/m3 transport.
 - Screening only: class-average system costs, coarse DEM, provisional
   prices/recovery, legacy transport. No sustainable label.
+### P3.4 FHOPS hauling barge gap
+
+- Tested FHOPS main at `52462d2a` (P11 hauling). The layer is truck-only: no transport mode,
+  vessel, port, or barge cycle.
+- A barge-named `TruckType` validates as a truck; `haul plan` is infeasible under the truck model.
+- Opened upstream issue `UBC-FRESH/fhops#187` with a Sunshine Coast -> Howe Sound fixture and
+  acceptance criteria.
+- GNN barge transport remains a diagnostic assumption, not a solved FHOPS haul plan.
