@@ -62,3 +62,23 @@ Decade result
 
 The decade-10 miss is recorded, not hidden. It is a prototype result; no
 production curve or legal AAC was changed.
+
+Ground-plot validation
+-----------------------
+
+The available non-PSP ground plots were filtered to the GNN AOI:
+
+- 34 matched rows, 10 sites, TSA 47 only
+- VRI 31, CMI 1, NFI 2
+
+| Sample | n | Volume bias | DBH bias | Height bias | Stems bias |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| VRI | 31 | -118.1 m3/ha | -5.1 cm | +0.1 m | -341.9 sph |
+| NFI | 2 | -104.4 m3/ha | +1.2 cm | -2.3 m | -434.1 sph |
+| CMI | 1 | -149.4 m3/ha | -7.5 cm | -6.0 m | +160.8 sph |
+
+This is too sparse for a GNN-specific accuracy conclusion. The direction is
+consistent with the larger TSA 47 validation, but no TSA 46 managed plots fall
+inside the AOI. The inherited base-model validation remains the primary
+accuracy evidence. No curve or AAC target was changed.
+
