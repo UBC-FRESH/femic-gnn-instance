@@ -341,3 +341,4 @@ followed the workflow at the time.
 - No release, sustainable label, or model change is authorized by P4.
 - P4.1 is `pr-open` in PR #32. The P4 close-out report is queued at
   `notes/reports/p4-closeout.md`; no merge, release, or sustainable label is authorized.
+- P4 merged as `6a8d94f` (PR #32); task #31 and parent #30 are closed. The phase is complete as a diagnostic transport integration.

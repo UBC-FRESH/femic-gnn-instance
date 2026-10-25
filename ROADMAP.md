@@ -16,7 +16,7 @@ after its parent issue exists and the maintainer approves it.
 | P1 Validation and hardening | #1 | `feature/p1-validation-hardening` | complete |
 | P2 Release and hand-off | #17 | `feature/p2-release` | complete |
 | P3 Operability, cost, and net revenue | #22 | `feature/p3-operability-cost-revenue` | complete |
-| P4 FHOPS-native marine transport | #30 | `feature/p4-fhops-marine` | active |
+| P4 FHOPS-native marine transport | #30 | `feature/p4-fhops-marine` | complete |
 
 ## Lifecycle Map
 
@@ -200,20 +200,20 @@ Acceptance criteria:
 
 Parent issue: #30
 Branch: `feature/p4-fhops-marine`
-Status: active
+Status: complete
 
 Goal: replace the legacy barge constant as the only transport path with a
 solved FHOPS Phase I marine transport adapter, while keeping the legacy path
 and the published screen reproducible. The FHOPS fixture is representative, not
 a GNN terminal inventory or a current quote.
 
-- [ ] P4.1 Wire FHOPS marine transport into the GNN cost pipeline (#31)
+- [x] P4.1 Wire FHOPS marine transport into the GNN cost pipeline (#31)
   - [x] Add the FHOPS marine scenario bundle and provenance.
   - [x] Add the phase I adapter and fixed-dispatch accounting.
   - [x] Add low/base/high utilisation cases.
   - [x] Add opt-in screen paths and retain legacy.
   - [x] Run the adapter and full-THLB sensitivity.
-  - [ ] Update docs, changelog, and close out the task.
+  - [x] Update docs, changelog, and close out the task.
 
 Acceptance criteria:
 
@@ -235,5 +235,5 @@ approves before merge.
 2. P3 is complete as a **diagnostic** operability/cost/revenue screen, not a release.
 3. Full-THLB legacy screening: 95.5% positive base, 88.0-96.8% range; class-average costs, coarse DEM, provisional recovery, legacy transport.
 4. FHOPS #187 is resolved. The GNN adapter solves the synthetic Sunshine Coast -> Howe Sound marine fixture; full-THLB FHOPS sensitivity is 95.8% base, 90.2-97.0% range. The fixture is not a current quote.
-5. P4 is active. The published screen remains the legacy comparison until actual GNN terminals, distances, and carrier/terminal quotes are available.
+5. P4 is complete as a diagnostic transport integration. The published screen remains the legacy comparison until actual GNN terminals, distances, and carrier/terminal quotes are available.
 6. No release change or sustainable label is authorized by P4.
