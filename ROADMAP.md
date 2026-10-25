@@ -158,10 +158,10 @@ revenue, and net revenue first-class. A scenario may not be labelled
   - [x] Audit public terrain/access/barge data.
   - [x] Audit price/sort data.
   - [x] Write the gap list.
-- [ ] P3.2 Define the per-block-per-treatment cost/revenue contract (#24)
-  - [ ] Write the contract schema.
-  - [ ] Add a synthetic contract fixture.
-  - [ ] Record the ws4/FHOPS boundary.
+- [x] P3.2 Define the per-block-per-treatment cost/revenue contract (#24)
+  - [x] Write the contract schema.
+  - [x] Add a synthetic contract fixture.
+  - [x] Record the ws4/FHOPS boundary.
 - [ ] P3.3 Build grade/sort decomposition and the price deck (#25)
   - [ ] Define the sort/grade taxonomy.
   - [ ] Build a recovery matrix with provenance.

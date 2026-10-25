@@ -65,4 +65,5 @@ See :doc:`model-build`, :doc:`benchmark`, and :doc:`aoi`.
    aoi
    review
    release
+   cost-revenue-contract
    api/index

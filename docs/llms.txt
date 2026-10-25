@@ -11,6 +11,7 @@
 - [AOI](aoi.html): proposed GNN Statement of Intent boundary provenance and areas.
 - [Boundary review](review.html): review status, questions, and the no-confirmation rule.
 - [Release notes](release.html): the prototype release, known gaps, and caveats.
+- [Cost and revenue contract](cost-revenue-contract.html): the per-block cost, grade/sort, price, and net revenue schema.
 - [API reference](api/index.html): workflow validator and dashboard entry points.
 
 ## Status

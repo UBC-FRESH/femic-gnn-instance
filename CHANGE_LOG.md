@@ -151,3 +151,14 @@ followed the workflow at the time.
 - Recorded that the current release is volume-only and is not an operable,
   financially assessed, or "sustainable" harvest level.
 - No price, cost, slope, or recovery value was fabricated.
+### P3.2 cost and revenue contract
+
+- Added `docs/cost-revenue-contract.rst` with the block/treatment cost table,
+  assortment/price table, validation rules, net revenue formula, and sustainable
+  gate.
+- Added a synthetic fixture under `config/cost_revenue/synthetic/`, explicitly
+  marked `SYNTHETIC_FIXTURE_DO_NOT_USE`.
+- Recorded the integration boundary: ws4 supplies volume/area; FHOPS supplies
+  harvest system cost; this pipeline supplies operability, haul/barge, sorts,
+  prices, and net revenue.
+- No GNN price, cost, slope, or recovery value is implied by the fixture.
