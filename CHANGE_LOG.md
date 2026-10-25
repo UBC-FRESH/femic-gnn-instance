@@ -294,3 +294,11 @@ followed the workflow at the time.
 - Ground THLB in the sample (86.0 ha) remains unpriced.
 - This is not a full-THLB fraction; the sample is not representative and uses
   one-machine costs.
+### P3.5 full-THLB screening
+
+- Covered all 52,984.43 ha of derived THLB at the VRI checkpoint-polygon level.
+- Positive net unit revenue: **95.5% base**; 88.0% low case; 96.8% high case.
+- By class: ground 96.6%, cable 97.4%, heli candidate 90.8% positive.
+- Sensitivities: 87.8% at 2x harvest cost; 92.3% at 30 CAD/m3 transport.
+- Screening only: class-average system costs, coarse DEM, provisional
+  prices/recovery, legacy transport. No sustainable label.
