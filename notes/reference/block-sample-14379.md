@@ -73,6 +73,11 @@ These are **screening costs**: one productivity model plus one machine rate.
 They exclude move-in, landing construction, truck haul, barge, overhead, and
 profit. They are not a delivered cost and not a net revenue result.
 
+Using the legacy CLEWs/FFCM diagnostic transport values at 100 km truck + 100 km
+barge + transload adds about 10.961 CAD/m3. That makes cable ~28.57 CAD/m3 and
+helicopter KMAX ~98.05 CAD/m3 before move-in, landing, overhead, and profit.
+Those are still diagnostic, not quotes.
+
 The range is large enough to change the conclusion: at 12,746.6 m3, the
 helicopter KMAX harvest cost alone is about 1.11 million CAD; cable is roughly
 0.22-0.48 million CAD. A ground-based average would have hidden this.

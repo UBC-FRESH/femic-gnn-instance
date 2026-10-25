@@ -245,3 +245,13 @@ followed the workflow at the time.
 - Base transport allowance is about 31 CAD/m3 (12 truck + 15 barge + 4 terminal),
   not a quote.
 - No net revenue or sustainable label is claimed.
+### P3.4 CLEWs/FFCM barge and truck cost evidence
+
+- Found legacy FFCM transport costs in `UBC-FRESH/clews-c2070-fresh`.
+- Log barge: 3,000 m3, 25 km/h, 120 CAD/h operating, 18.345 CAD/km fuel,
+  4.57 CAD/m3 transload.
+- Truck: 46.1 m3, 90 km/h, 120 CAD/h operating, 1.257 CAD/km fuel.
+- Derived at 100 km truck + 100 km barge + transload: **10.961 CAD/m3**.
+- The source labels these "rough prototype only" and says cost year/assumptions
+  are unclear. They are legacy diagnostic, not current quotes.
+- Replaced the earlier 31 CAD/m3 placeholder with the legacy diagnostic basis.

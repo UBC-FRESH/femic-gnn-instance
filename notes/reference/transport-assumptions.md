@@ -18,16 +18,35 @@ for:
 
 Every value is `data_status=assumption`.
 
-## Base envelope
+## Legacy CLEWs/FFCM evidence
 
-At base values (0.12 CAD/m3/km x 100 km, 15 CAD/m3 barge, 4 CAD/m3 terminal),
-the transport allowance is approximately:
+`UBC-FRESH/clews-c2070-fresh` documents a legacy log barge:
 
-``12 + 15 + 4 = 31 CAD/m3``
+- 3,000 m3 capacity
+- 25 km/h
+- 120 CAD/h operating
+- 18.345336 CAD/km fuel
+- 4.57 CAD/m3 transload
 
-That is an allowance, not a quote. It is large relative to many log grades and
-must be replaced with actual road/terminal/carrier data before a net revenue
-claim.
+Derived: 0.007715 CAD/m3/km; 100 km barge = 0.7715 CAD/m3; plus transload
+= 5.3415 CAD/m3.
+
+The same archive has a BC logging truck:
+
+- 46.1 m3 capacity
+- 90 km/h
+- 120 CAD/h operating
+- 1.257304 CAD/km fuel
+
+Derived: 0.056195 CAD/m3/km; 100 km truck = 5.6195 CAD/m3; plus transload
+= 10.1895 CAD/m3.
+
+A 100 km truck + 100 km barge + transload = **10.961 CAD/m3**.
+
+These are **legacy diagnostic values**. The source repository labels them
+"rough prototype only" and says the cost year and assumptions are unclear. They
+are not current carrier/terminal quotes. See
+`notes/reference/clews-transport-costs.md`.
 
 ## What must replace it
 
