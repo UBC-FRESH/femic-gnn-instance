@@ -10,6 +10,7 @@
 - [AU structure](aus.html): why TSA-prefixed AUs are kept and why a reporting crosswalk is used.
 - [AOI](aoi.html): proposed GNN Statement of Intent boundary provenance and areas.
 - [Boundary review](review.html): review status, questions, and the no-confirmation rule.
+- [Release notes](release.html): the prototype release, known gaps, and caveats.
 - [API reference](api/index.html): workflow validator and dashboard entry points.
 
 ## Status

@@ -59,4 +59,5 @@ See :doc:`model-build`, :doc:`benchmark`, and :doc:`aoi`.
    aus
    aoi
    review
+   release
    api/index

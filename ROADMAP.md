@@ -128,9 +128,9 @@ Status: active
 
 Goal: release the prototype only after the P1 gates and a separate approval.
 
-- [ ] P2.1 Write release notes and the known-gaps list (#18)
-  - [ ] State the proposed boundary, derived THLB/AAC, and validation limits.
-  - [ ] List the known gaps and deferred review.
+- [x] P2.1 Write release notes and the known-gaps list (#18)
+  - [x] State the proposed boundary, derived THLB/AAC, and validation limits.
+  - [x] List the known gaps and deferred review.
 - [ ] P2.2 Tag, publish, and verify from a clean checkout (#19)
   - [ ] Tag and publish a pre-release.
   - [ ] Verify the published docs and a clean checkout.

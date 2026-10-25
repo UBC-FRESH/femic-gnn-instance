@@ -116,3 +116,10 @@ followed the workflow at the time.
 - P2 is active on `feature/p2-release`; parent #17 and child #18/#19 are linked.
 - Next: write the release notes and known gaps, then tag and verify a prototype
   pre-release.
+### P2.1 release notes and known gaps
+
+- Added `notes/releases/v0.1.0-prototype.md` and a public `docs/release.rst`.
+- The notes state the proposed-boundary and derived/non-legal labels, the sparse
+  ground-plot evidence, the TSA 46 SI dependency, and the decade-10 end-effect.
+- P1.1 is recorded as deferred by the maintainer; no external review is claimed.
+- No model, curve, target, THLB, AAC, or benchmark change.
