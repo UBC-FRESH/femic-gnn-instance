@@ -375,3 +375,5 @@ followed the workflow at the time.
 - The proxy is labelled `public_route_assumption_rates`; it is not a quote, not the published
   base, and does not authorize a sustainable label.
 - Dashboard GREEN, validator 0/0, docs clean.
+- P6.1 is `pr-open` in PR #38. The P6 close-out report is queued at
+  `notes/reports/p6-closeout.md`; no published transport switch or model change is authorized.
