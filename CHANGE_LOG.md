@@ -268,3 +268,10 @@ followed the workflow at the time.
   unpriced. This is **screening only**, not a net revenue or sustainable claim.
 - Detailed per-block outputs stay local because the BC price table is not
   redistributable.
+### P3.3 local price deck validation
+
+- Manually checked the second-growth cedar/fir/Hembal/spruce rows against the
+  BC Coast Log Market Report for 2026-01-31.
+- Recorded the local deck SHA-256 and the license/redistribution limit.
+- Second-growth cypress is missing; old-growth cypress is only a proxy.
+- The deck remains a screening input, not a calibrated netback.
