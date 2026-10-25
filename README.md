@@ -10,7 +10,7 @@ proposed GNN Statement of Intent boundary.
 
 ## Status
 
-Phase 0 (bootstrap and workflow retrofit) is active. `ROADMAP.md` is the plan of
+Phase 1 (validation and hardening) is active. `ROADMAP.md` is the plan of
 record, and the GitHub issues carry the live status. The model is a **prototype**,
 not a release.
 

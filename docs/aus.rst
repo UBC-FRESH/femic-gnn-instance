@@ -69,3 +69,19 @@ chunk inherits that issue. It is a base-model accuracy question, not a reason
 to merge AUs. No curve or AAC target was changed.
 
 Files: ``config/tsr/gnn_au/`` and ``notes/reference/au-harmonization.md``.
+
+Inherited TSA 46 SI issue
+-------------------------
+
+TSA 46 height validation found that the checkpoint SI understates managed-stand
+SI in the dominant CWH_HW H cell: 16.3 m in the checkpoint versus 23.0-26.0 m
+observed. A holdout managed-SI test reduced the height bias, but a managed-SI
+switch can overcorrect VRI audits and needs an origin-separated decision first.
+
+TSA 46 is **34.7%** of the GNN THLB. The largest exposure is CWH_CW H (13.9%),
+followed by CWH_CW M (7.1%) and CWH_HW H (5.3%). The strongest evidence is for
+CWH_HW H; do not generalize the correction to every TSA 46 AU.
+
+The base-model issue is `UBC-FRESH/femic#343 <https://github.com/UBC-FRESH/femic/issues/343>`_.
+The GNN model keeps TSA-prefixed AUs and does not switch curves until that issue
+records an origin-separated decision. No AAC tuning.
