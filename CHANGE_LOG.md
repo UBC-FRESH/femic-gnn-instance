@@ -214,3 +214,13 @@ followed the workflow at the time.
   haul, barge, overhead, and profit.
 - Added the screening table and updated the block note.
 - No GNN net revenue or sustainable label is claimed.
+### P3.4 12-block operability pilot
+
+- Random pilot of 12 blocks: 41.6% of sampled volume is non-ground under coarse
+  slope thresholds (28.3% cable, 13.2% heli candidate).
+- Cable screening 17.61-37.50 CAD/m3; helicopter 59.66-87.09 CAD/m3, before
+  move-in, landing, haul, barge, overhead, and profit.
+- Added `config/cost_revenue/samples/operability_pilot.csv` and
+  `notes/reference/operability-pilot.md`.
+- Pilot only: coarse DEM, arbitrary thresholds, one machine/model, provisional
+  price/recovery. No net revenue or sustainable label.
