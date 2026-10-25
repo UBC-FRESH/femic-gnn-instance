@@ -11,8 +11,8 @@ proposed GNN Statement of Intent boundary.
 ## Status
 
 Prototype release `v0.1.0-prototype` is being prepared. Phase 2 (release and hand-off) is active. `ROADMAP.md` is the plan of
-record, and the GitHub issues carry the live status. The model is a **prototype**,
-not a release.
+record, and the GitHub issues carry the live status. The model is a **prototype**, not a legal or
+operational release.
 
 > **Warning:** The boundary is the **proposed GNN Statement of Intent** polygon,
 > not a final treaty boundary or a legal title determination. Confirm the
