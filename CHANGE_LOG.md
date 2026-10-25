@@ -357,3 +357,5 @@ followed the workflow at the time.
 - Candidate public infrastructure includes Port Hardy, Port McNeill, Beaver Cove, Coal Harbour,
   Alert Bay, and Port Alice. None is confirmed as a GNN log-barge terminal.
 - Current carrier and terminal quotes remain missing and are not public.
+- P5.1 is `pr-open` in PR #35. The P5 close-out report is queued at
+  `notes/reports/p5-closeout.md`; no published transport switch or model change is authorized.
