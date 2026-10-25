@@ -1,5 +1,8 @@
 # FEMIC GNN Instance
 
+Public prototype: https://github.com/UBC-FRESH/femic-gnn-instance  
+Registered in `femic` as `external/femic-gnn-instance`.
+
 Local bootstrap for a third FEMIC/ws4 model covering the
 Gwa'sala-'Nakwaxda'xw Nations (GNN) traditional territory. The model is the
 union of the TSA 46 and TSA 47 portions of the proposed GNN Statement of Intent
