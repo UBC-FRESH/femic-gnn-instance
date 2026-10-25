@@ -109,3 +109,10 @@ followed the workflow at the time.
 - P2 is not activated until the close-out is approved and the boundary review is
   resolved or explicitly carried forward.
 - No model, curve, target, THLB, AAC, or benchmark change.
+### P1 merge and P2 activation
+
+- P1 merged as `a3af911` (PR #16); parent #1 is closed. P1.1 was closed as
+  deferred by the maintainer; no external review is being sought.
+- P2 is active on `feature/p2-release`; parent #17 and child #18/#19 are linked.
+- Next: write the release notes and known gaps, then tag and verify a prototype
+  pre-release.
