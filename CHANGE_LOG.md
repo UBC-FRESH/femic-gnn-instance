@@ -132,3 +132,12 @@ followed the workflow at the time.
 - The P2 close-out is queued at `notes/reports/p2-closeout.md`.
 - The tag `v0.1.0-prototype` and GitHub pre-release execute after the merge.
 - No model, curve, target, THLB, AAC, or benchmark change.
+### P2.2 prototype pre-release
+
+- P2 merged as `ea70b26`; PR #20 is closed.
+- Tag `v0.1.0-prototype` published as a GitHub **pre-release**:
+  https://github.com/UBC-FRESH/femic-gnn-instance/releases/tag/v0.1.0-prototype
+- Pages and `llms.txt` return HTTP 200.
+- Clean checkout of `ea70b26`: validator 0 errors, 0 warnings; dashboard 6/6 green.
+- CI run `40172423658` and Docs run `40172423704` passed on `main`.
+- The release is a prototype, not a legal or operational release.
