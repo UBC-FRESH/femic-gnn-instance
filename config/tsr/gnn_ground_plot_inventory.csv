@@ -1,0 +1,8 @@
+source,sample_type,sites
+PSP,PSP_G,7
+PSP,PSP_R,17
+non-PSP GBR North,CMI,3
+non-PSP GBR North,YSM,1
+non-PSP GBR South,CMI,3
+non-PSP GBR South,NFI,1
+non-PSP GBR South,VRI,19

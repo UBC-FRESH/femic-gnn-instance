@@ -92,10 +92,10 @@ not tune curves to the derived AAC.
 - [ ] P1.1 Confirm the proposed SOI boundary and public-output plan (#10)
   - [ ] Record the GNN review outcome or the blocking question.
   - [ ] Keep the public site labelled prototype until confirmed.
-- [ ] P1.2 Expand GNN-area ground-plot validation (#11)
-  - [ ] Filter public plots to the GNN AOI.
-  - [ ] Report sample size, source, and bias by type.
-  - [ ] State whether the evidence supports an accuracy conclusion.
+- [x] P1.2 Expand GNN-area ground-plot validation (#11)
+  - [x] Filter public plots to the GNN AOI.
+  - [x] Report sample size, source, and bias by type.
+  - [x] State whether the evidence supports an accuracy conclusion.
 - [ ] P1.3 Resolve the TSA 46 SI/origin accuracy issue with the base-model owner (#12)
   - [ ] Link the base-model issue.
   - [ ] Record the GNN consequence for the dominant CWH_CW H cell.

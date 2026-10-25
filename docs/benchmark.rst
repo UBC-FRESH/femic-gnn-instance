@@ -82,3 +82,11 @@ consistent with the larger TSA 47 validation, but no TSA 46 managed plots fall
 inside the AOI. The inherited base-model validation remains the primary
 accuracy evidence. No curve or AAC target was changed.
 
+
+The P1.2 inventory also found 24 PSP sites inside the AOI: 17 experimental
+(``PSP_R``) and 7 natural-growth (``PSP_G``). A filtered PSP check produced 55
+observations from 12 sites, but the median age is 101 years and the sample is
+not a managed-young TIPSY benchmark. It does not change the conclusion: the
+managed-curve evidence remains too sparse.
+
+

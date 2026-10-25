@@ -62,3 +62,15 @@ followed the workflow at the time.
   and `docs/llms.txt`.
 - P1.1 remains open: the packet is prepared, not sent, and no GNN confirmation
   has been received.
+### P1.2 public-plot inventory and PSP check
+
+- Inventory found 51 public sites inside the GNN AOI: 24 PSP (17 PSP_R, 7 PSP_G)
+  and 27 non-PSP (22 VRI/CMI/NFI, 4 CMI/YSM, plus the south CMI/NFI set).
+- The filtered PSP check produced 55 observations from 12 sites. Median age is
+  101 years; PSP_R is experimental and PSP_G is natural growth, so this is not a
+  managed-young TIPSY benchmark.
+- The non-PSP matched sample remains 34 rows / 10 sites. The combined evidence is
+  still too sparse for a GNN-specific managed-curve accuracy conclusion.
+- Added `config/tsr/gnn_ground_plot_inventory.csv`,
+  `config/tsr/gnn_psp_validation_tsa46.csv`, and the summary table.
+- No curve, THLB, AAC, or benchmark change.
