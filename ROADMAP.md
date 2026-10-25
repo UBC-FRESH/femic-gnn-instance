@@ -17,7 +17,7 @@ after its parent issue exists and the maintainer approves it.
 | P2 Release and hand-off | #17 | `feature/p2-release` | complete |
 | P3 Operability, cost, and net revenue | #22 | `feature/p3-operability-cost-revenue` | complete |
 | P4 FHOPS-native marine transport | #30 | `feature/p4-fhops-marine` | complete |
-| P5 GNN marine geography and terminal data | #33 | `feature/p5-marine-data` | active |
+| P5 GNN marine geography and terminal data | #33 | `feature/p5-marine-data` | complete |
 
 ## Lifecycle Map
 
@@ -235,7 +235,7 @@ approves before merge.
 
 Parent issue: #33
 Branch: `feature/p5-marine-data`
-Status: active
+Status: complete
 
 Goal: establish the actual GNN marine geography and correct the upstream FHOPS
 Sunshine Coast -> Howe Sound fixture caveat. Record candidate public terminals
@@ -268,5 +268,5 @@ switch.
 3. Full-THLB legacy screening: 95.5% positive base, 88.0-96.8% range; class-average costs, coarse DEM, provisional recovery, legacy transport.
 4. FHOPS #187 is resolved. The GNN adapter solves the synthetic Sunshine Coast -> Howe Sound marine fixture; full-THLB FHOPS sensitivity is 95.8% base, 90.2-97.0% range. The fixture is not a current quote.
 5. P4 is complete as a diagnostic transport integration. The published screen remains the legacy comparison.
-6. P5 is active: the GNN AOI is northern Vancouver Island, while the FHOPS fixture is Sunshine Coast -> Howe Sound. The fixture is an API test, not a GNN route. Candidate terminals and quotes are being audited without inventing data.
+6. P5 is complete: the GNN AOI is northern Vancouver Island, while the FHOPS fixture is Sunshine Coast -> Howe Sound. The fixture is an API test, not a GNN route. Candidate terminals and missing quote data are recorded without inventing data.
 7. No release change or sustainable label is authorized by P4 or P5.

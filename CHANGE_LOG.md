@@ -359,3 +359,4 @@ followed the workflow at the time.
 - Current carrier and terminal quotes remain missing and are not public.
 - P5.1 is `pr-open` in PR #35. The P5 close-out report is queued at
   `notes/reports/p5-closeout.md`; no published transport switch or model change is authorized.
+- P5 merged as `fab4e0a` (PR #35); task #34 and parent #33 are closed. The phase is complete as a geography/data correction; the published transport base remains legacy.
