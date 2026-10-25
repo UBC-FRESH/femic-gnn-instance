@@ -1,7 +1,7 @@
 # GNN marine geography and terminal data
 
 Date: 2026-10-25
-Status: public-source audit; no confirmed GNN log-barge terminal or route.
+Status: public-source audit; public route identified, current terminal and rates unconfirmed.
 
 ## Why this note exists
 
@@ -83,6 +83,39 @@ The FHOPS fixture's 80 km water leg is materially shorter than any of these
 straight-line distances. Using its solved cost as a GNN transport estimate would
 understate the water leg and misstate the geography.
 
+## Public route evidence
+
+Seaspan's public log-barging description identifies a common route from
+**Quatsino Sound to Ladysmith Harbour**, around Vancouver Island via Johnstone
+Strait, Queen Charlotte Strait, Cape Scott, and the west coast. The same article
+describes dumping logs at Ladysmith for sorting by species and grade.
+
+Historical TFL 6 annual reports identify the **Quatsino Dryland Log Sort** as a
+central facility on Quatsino Sound, name Seaspan International as the barging
+contractor and Pacific Towing as the towing contractor, and list southern
+processors including Ladysmith, Duke Point, Cowichan Bay, Squamish, and Nanaimo.
+
+These are public route and historical terminal facts. They do not confirm the
+current status, capacity, ownership, or rates of either end.
+
+Source: https://www.seaspan.com/stories/log-barging-101/
+
+## Public-route proxy
+
+P6.1 adds a diagnostic proxy using the public Quatsino -> Ladysmith route and
+explicit assumptions for capacity, rates, road legs, and terminal handling. It
+is labelled `public_route_assumption_rates` and is not the published base.
+
+The proxy is documented in `notes/reference/gnn-marine-proxy.md`.
+
+## FHOPS multi-day limitation
+
+FHOPS Phase I limits a barge fleet to one day of working minutes. The Quatsino
+-> Ladysmith barge cycle is about 3,955 minutes, so a single barge is infeasible
+and adding extra barges would fake the fleet. The proxy therefore uses an
+analytical calculation from the validated FHOPS marine lane contract, not a
+solved Phase I plan. Tracked upstream at `UBC-FRESH/fhops#196`.
+
 ## Missing data
 
 A GNN-specific FHOPS scenario needs all of the following:
@@ -101,7 +134,7 @@ maintainer, a carrier, or a terminal operator, and must be dated and cited.
 
 ## Decision
 
-Do not build a GNN-specific FHOPS scenario, switch the published transport base,
-or claim a GNN barge cost until the missing data is supplied. Keep the legacy
-CLEWs/FFCM path as the published comparison and the FHOPS adapter as an API
-cost-path test.
+Do not switch the published transport base or claim a GNN barge cost until the
+missing current data is supplied. The P6 proxy is a diagnostic scenario, not a
+quote. Keep the legacy CLEWs/FFCM path as the published comparison and the P4
+FHOPS fixture as an API cost-path test.

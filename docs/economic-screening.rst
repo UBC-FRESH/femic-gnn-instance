@@ -90,6 +90,11 @@ published screen remains the legacy CLEWs/FFCM result above.
 See `notes/reference/gnn-marine-geography.md
 <https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reference/gnn-marine-geography.md>`_.
 
+A separate internal proxy uses the public Quatsino Sound -> Ladysmith Harbour
+route. It is diagnostic only, not used in this screen, and documented in
+`notes/reference/gnn-marine-proxy.md
+<https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reference/gnn-marine-proxy.md>`_.
+
 This is a screening estimate. It does not justify a sustainable or profitable
 label, and it does not replace a reviewed GNN netdown, current carrier quotes,
 or observed grade/sort recovery.

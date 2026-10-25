@@ -62,6 +62,20 @@ The adapter also supports a custom volume:
 python pipeline/fhops_marine_transport.py --volume-m3 3000 --horizon-days 1
 ```
 
+## Public-route proxy
+
+P6.1 adds a separate GNN-specific proxy for the public
+Quatsino Sound -> Ladysmith Harbour route. It uses the FHOPS marine lane
+contract for cost terms but an analytical calculation for the multi-day voyage,
+because FHOPS Phase I cannot represent a barge cycle longer than one day's
+working minutes.
+
+- Path: `config/cost_revenue/transport/fhops_marine_quatsino_ladysmith/`
+- Config: `config/cost_revenue/transport/fhops_marine_quatsino_ladysmith.yaml`
+- Results: 8.125 / 9.203 / 11.360 CAD/m3 at 100/75/50% utilisation.
+- Status: `public_route_assumption_rates`; not a quote and not the published base.
+- Note: `notes/reference/gnn-marine-proxy.md`.
+
 ## API screen integration
 
 Both screens keep the legacy CLEWs/FFCM path and add an opt-in FHOPS path:
