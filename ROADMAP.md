@@ -9,11 +9,13 @@ until the proposed SOI boundary and public-output plan are reviewed with GNN.
 
 - [x] P0.1 Acquire the proposed GNN SOI polygon and provenance.
 - [x] P0.2 Clip the SOI to the TSA 46/47 union and write the AOI.
-- [ ] P0.3 Choose the FEMIC case code and custom-boundary run profile.
-- [ ] P0.4 Harmonize TSA 46/47 AUs or keep TSA-prefixed strata.
-- [ ] P0.5 Set the derived THLB and benchmark labels.
-- [ ] P0.6 Build the FEMIC bundle, ws4 matrix, benchmark, UI, and docs.
-- [ ] P0.7 Create the public repository and add the `femic` submodule.
+- [x] P0.3 Choose the custom-boundary run profile; prototype uses combined base bundles.
+- [x] P0.4 Keep TSA-prefixed AUs for the prototype.
+- [x] P0.5 Set the derived THLB and non-legal benchmark labels.
+- [x] P0.6 Build the combined FEMIC/ws4 matrix and derived opening-first benchmark.
+- [ ] P0.7 Add UI geometry, served model, and docs/Pages.
+- [ ] P0.8 GNN review of the proposed boundary and public outputs.
+- [x] P0.7 Create the public repository and add the `femic` submodule.
 
 ## Dependencies
 
