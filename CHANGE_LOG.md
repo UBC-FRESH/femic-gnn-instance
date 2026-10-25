@@ -317,3 +317,5 @@ followed the workflow at the time.
 - The release stays volume-only. The screen is not a sustainable or financially
   calibrated result.
 - FHOPS barge support remains upstream issue #187.
+- P3 PR #29 CI run `40219295693` passed. The close-out report is queued at
+  `notes/reports/p3-closeout.md`.
