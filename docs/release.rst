@@ -1,7 +1,14 @@
 Prototype release notes
 =======================
 
-Status: **prototype / pre-release**. Not a legal or operational release.
+Status: **volume-only prototype / pre-release**. Not a legal or operational release.
+
+.. warning::
+
+   **Volume-only caveat:** this release has no operability classification,
+   harvest cost, haul/barge cost, grade/sort decomposition, log prices, or net
+   revenue. It is not a "sustainable harvest level" and it is not financially
+   assessed.
 
 v0.1.0-prototype is a public model and method release for the proposed GNN
 Statement of Intent area. It combines the TSA 46 and TSA 47 portions of the
@@ -44,6 +51,16 @@ Known gaps
   claim.
 - The decade-10 miss is a 100-year horizon and age-structure end-effect.
 - TSA-prefixed AUs are retained; the reporting crosswalk is not a model merge.
+
+
+Economic screening (diagnostic)
+--------------------------------
+
+A P3 screening covers the full derived THLB: **95.5% positive** in the base
+case, 88.0-96.8% across the price/recovery range. It uses class-average system
+costs, coarse terrain, provisional recovery, and legacy barge/truck rates. It is
+**not** a financial assessment, not a current quote, and not a sustainable
+label. See :doc:`economic-screening`.
 
 Links
 -----

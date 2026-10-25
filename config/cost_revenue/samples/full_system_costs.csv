@@ -1,0 +1,4 @@
+block_id,system_id,primary_role,system_productivity_m3_per_pmh,machine_rate_per_pmh,hand_fall_cost_per_m3,move_in_per_m3,system_cost_per_m3,data_status
+14924,ground_fb_skid,grapple_skidder,54.84,807.96,0.0,0.64,15.37,screening_registry_bottleneck
+14811,cable_running_sr54,grapple_yarder,90.76,1375.97,0.0,2.6,17.77,screening_registry_bottleneck
+5620,helicopter,helicopter_longline,42.93,3266.65,1.11,0.92,78.13,screening_registry_bottleneck

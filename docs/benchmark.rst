@@ -1,6 +1,10 @@
 Prototype benchmark
 ===================
 
+This is a **volume-only prototype benchmark**, not a legal AAC and not a
+"sustainable harvest level". It has no operability, harvest cost, haul/barge
+cost, grade/sort revenue, or net revenue. See :doc:`release`.
+
 This is a **derived prototype benchmark**, not a legal AAC.
 
 The annual value is the THLB-weighted share of the published TSA 46 and TSA 47

@@ -15,6 +15,7 @@ after its parent issue exists and the maintainer approves it.
 | P0 Bootstrap and workflow retrofit | #2 | `feature/p0-bootstrap` | complete |
 | P1 Validation and hardening | #1 | `feature/p1-validation-hardening` | complete |
 | P2 Release and hand-off | #17 | `feature/p2-release` | complete |
+| P3 Operability, cost, and net revenue | #22 | `feature/p3-operability-cost-revenue` | pr-open |
 
 ## Lifecycle Map
 
@@ -141,10 +142,63 @@ Acceptance criteria:
 - The tag, release, and settings changes were each approved separately.
 - A clean checkout reproduces the documented verification.
 
+## Phase 3: Operability, cost, and net revenue
+
+Parent issue: #22
+Branch: `feature/p3-operability-cost-revenue`
+Status: pr-open
+
+Goal: make block operability, harvest cost, haul/barge cost, grade/sort
+revenue, and net revenue first-class. A scenario may not be labelled
+"sustainable" unless it is operable and financially assessed.
+
+- [x] P3.1 Audit operability and cost/revenue data (#23)
+  - [x] Audit FHOPS capabilities and gaps.
+  - [x] Audit GNN block attributes.
+  - [x] Audit public terrain/access/barge data.
+  - [x] Audit price/sort data.
+  - [x] Write the gap list.
+- [x] P3.2 Define the per-block-per-treatment cost/revenue contract (#24)
+  - [x] Write the contract schema.
+  - [x] Add a synthetic contract fixture.
+  - [x] Record the ws4/FHOPS boundary.
+- [x] P3.3 Build grade/sort decomposition and the price deck (#25)
+  - [x] Define the sort/grade taxonomy.
+  - [x] Build a recovery matrix with provenance.
+  - [x] Build the price deck with date and source.
+  - [x] Run a sensitivity case.
+  - Note: met with limits; second-growth cypress is a proxy and recovery is an assumption.
+- [x] P3.4 Implement FHOPS harvest, haul, and barge cost estimates (#26)
+  - [x] Install FHOPS and validate a sample scenario.
+  - [x] Build the block/system cost bridge.
+  - [x] Add haul and barge assumptions.
+  - [x] Produce a cost table with provenance.
+  - Note: met with limits; FHOPS hauling is truck-only (#187) and barge remains a legacy diagnostic rate.
+- [x] P3.5 Integrate net revenue and define the sustainable gate (#27)
+  - [x] Add net revenue outputs.
+  - [x] Add the operability and financial gate.
+  - [x] Run base and sensitivity cases.
+  - [x] Record the full-THLB screening result; decade-level financial gate deferred.
+  - Note: diagnostic screen, not a per-decade financial schedule.
+- [x] P3.6 Validate, document, and close out P3 (#28)
+  - [x] Validate cost/revenue coverage.
+  - [x] Update docs and release caveat.
+  - [x] Write and post the P3 close-out.
+
+Acceptance criteria:
+
+- Every scheduled block has an explicit operability class, harvest system, landing/access assumption, and cost record.
+- Cable and helicopter blocks are identified and costed, not hidden in an average.
+- Haul and barge costs are explicit and sourced.
+- Volume is decomposed into species/grade/sort assortments with a documented price deck.
+- The scenario reports gross revenue, harvest cost, haul/barge cost, net revenue, and NPV.
+- A "sustainable" label requires the operability and financial gates, not just volume.
+- The current release is clearly marked volume-only until those gates pass.
+
 ## Detailed Next Steps Notes
 
-1. P0, P1, and P2 are complete. P2 merged as `ea70b26`; release `v0.1.0-prototype` is published as a pre-release.
-2. Pages and `llms.txt` return HTTP 200; the clean-checkout dashboard and validator are green.
-3. P1.1 is closed as deferred by the maintainer; no external review is being sought. The packet remains available.
-4. Maintenance continues under `ROADMAP.md` and the open base-model issue `UBC-FRESH/femic#343`.
-5. No curve, target, THLB, AAC, or benchmark tuning.
+1. P0-P2 are complete; `v0.1.0-prototype` is a volume-only pre-release.
+2. P3 is queued in its phase PR as a **diagnostic** operability/cost/revenue screen, not a release.
+3. Full-THLB screening: 95.5% positive base, 88.0-96.8% range; class-average costs, coarse DEM, provisional recovery, legacy transport.
+4. FHOPS barge support is upstream issue #187; barge remains diagnostic.
+5. No P4 until current quotes, observed recovery, finer terrain, and solved FHOPS systems are available.

@@ -1,0 +1,4 @@
+block_id,volume_m3,volume_per_ha,stems_per_ha,avg_stem_size_m3,slope_percent,system_id
+14924,9050.0,498.3,583.0,0.855,3.48,ground_fb_skid
+14811,8941.3,525.3,525.0,1.001,39.12,cable_running_sr54
+5620,3569.3,307.9,249.0,1.236,78.01,helicopter

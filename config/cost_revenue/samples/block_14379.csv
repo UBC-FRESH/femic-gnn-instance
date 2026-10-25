@@ -1,0 +1,2 @@
+block_id,area_ha,volume_m3,volume_per_ha,stems,stems_per_ha,avg_stem_size_m3,slope_percent,slope_p90_percent,elevation_mean_m,stand_source,terrain_source,data_status
+14379,17.005,12746.6,749.6,13297.8,782.0,0.959,58.75,79.05,548.9,VRI checkpoint clipped to block,AWS Open Data Terrarium terrain tiles,one_block_coarse_dem_sample

@@ -1,0 +1,3 @@
+schema_version,block_id,treatment,year,operability_class,harvest_system,area_ha,volume_m3,harvest_cost_cad,move_in_cost_cad,road_cost_cad,haul_cost_cad,barge_cost_cad,overhead_cost_cad,total_cost_cad,currency,cost_source,cost_date,confidence,data_status
+1,S001,CC,2026,cable,cable_running,10.0,1000.0,100.0,10.0,5.0,20.0,15.0,5.0,155.0,CAD,SYNTHETIC_FIXTURE_DO_NOT_USE,2026-01-01,low,synthetic
+1,S002,CC,2027,heli,helicopter,8.0,800.0,200.0,20.0,0.0,30.0,10.0,10.0,270.0,CAD,SYNTHETIC_FIXTURE_DO_NOT_USE,2026-01-01,low,synthetic

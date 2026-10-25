@@ -1,0 +1,52 @@
+schema_version: 1
+currency: CAD
+data_status: legacy_diagnostic
+source: "UBC-FRESH/clews-c2070-fresh at 71b3d45, metadata/ffcm-archive/parsed; repo labels these 'rough prototype only' with 'cost year and assumptions unclear'."
+legacy_ffcm:
+  truck:
+    mode: ROAD
+    speed_kmh: 90.0
+    operating_cost_per_hour: 120.0
+    fuel_cost_per_km: 1.25730374
+    capacity_m3: 46.1
+  barge:
+    mode: WATER
+    speed_kmh: 25.0
+    operating_cost_per_hour: 120.0
+    fuel_cost_per_km: 18.34533632287
+    capacity_m3: 3000.0
+  transload:
+    commodity: log
+    cost_per_m3: 4.57
+  derived_at_100_km:
+    truck_cost_per_m3: 5.6195
+    barge_cost_per_m3: 0.7715
+    transload_cost_per_m3: 4.57
+    truck_plus_transload_per_m3: 10.1895
+    truck_plus_barge_plus_transload_per_m3: 10.961
+assumption_sensitivity:
+  truck_cost_per_m3_km:
+    low: 0.03
+    base: 0.056195
+    high: 0.08
+  barge_cost_per_m3_km:
+    low: 0.004
+    base: 0.007715
+    high: 0.02
+  road_distance_km:
+    low: 50
+    base: 100
+    high: 150
+  water_distance_km:
+    low: 50
+    base: 100
+    high: 200
+  terminal_handling_per_m3:
+    low: 2.0
+    base: 4.57
+    high: 7.0
+notes:
+  - "Legacy FFCM diagnostic values; not a current carrier or terminal quote."
+  - "Cost year and assumptions are unclear in the source repository."
+  - "No road construction, storage, handling delay, or profit is included."
+  - "The sustainable gate must reject legacy_diagnostic unless explicitly accepted."

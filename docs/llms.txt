@@ -11,9 +11,13 @@
 - [AOI](aoi.html): proposed GNN Statement of Intent boundary provenance and areas.
 - [Boundary review](review.html): review status, questions, and the no-confirmation rule.
 - [Release notes](release.html): the prototype release, known gaps, and caveats.
+- [Economic screening](economic-screening.html): full-THLB diagnostic net revenue screen and limits.
+- [Cost and revenue contract](cost-revenue-contract.html): the per-block cost, grade/sort, price, and net revenue schema.
 - [API reference](api/index.html): workflow validator and dashboard entry points.
 
 ## Status
 
-The model is a prototype. The boundary is proposed, and the THLB and AAC are
-derived and non-legal. GNN review is required before public or operational use.
+The model is a volume-only prototype. The boundary is proposed; the THLB and AAC
+are derived and non-legal. There is no operability, harvest cost, haul/barge,
+grade/sort revenue, or net revenue model yet. It is not a sustainable harvest
+level. GNN review is required before public or operational use.
