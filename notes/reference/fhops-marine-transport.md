@@ -1,7 +1,11 @@
 # FHOPS marine transport adapter
 
 Date: 2026-10-25
-Status: diagnostic implementation; representative fixture, not a current quote.
+Status: diagnostic implementation; upstream fixture, not GNN geography or a current quote.
+
+> **Geography warning:** the fixture is Sunshine Coast -> Howe Sound. The GNN AOI
+> is northern Vancouver Island. This adapter tests the FHOPS marine cost path; it
+> does not estimate a GNN barge route. See `notes/reference/gnn-marine-geography.md`.
 
 ## Upstream capability
 
@@ -16,7 +20,7 @@ Status: diagnostic implementation; representative fixture, not a current quote.
 - Phase II/III barge-cycle scheduling; and
 - a redistributable synthetic Sunshine Coast -> Howe Sound fixture.
 
-## GNN adapter
+## Adapter
 
 `pipeline/fhops_marine_transport.py` loads the FHOPS fixture in
 `config/cost_revenue/transport/fhops_marine/`, scales it to an explicit
@@ -34,10 +38,10 @@ The fixed dispatch cost is added explicitly because FHOPS Phase I charges
 variable, handling, and trip cost only; the FHOPS Phase II model charges the
 fixed truck and barge costs.
 
-## Base cases
+## API fixture cases
 
 The fixture barge capacity is 3,000 m3. The cases vary utilisation, not the
-tariff:
+tariff. They are API test cases, not GNN rates:
 
 | Case | Volume | Utilisation | Total CAD/m3 |
 | --- | ---: | ---: | ---: |
@@ -58,7 +62,7 @@ The adapter also supports a custom volume:
 python pipeline/fhops_marine_transport.py --volume-m3 3000 --horizon-days 1
 ```
 
-## Screen integration
+## API screen integration
 
 Both screens keep the legacy CLEWs/FFCM path and add an opt-in FHOPS path:
 
@@ -81,20 +85,23 @@ python pipeline/full_thlb_screening.py \
   --transport fhops-marine
 ```
 
-Full-THLB re-run on 2026-10-25:
+Full-THLB API smoke test on 2026-10-25 (not a GNN transport sensitivity):
 
 | Transport path | Low case | Base | High case |
 | --- | ---: | ---: | ---: |
 | Legacy CLEWs/FFCM | 88.0% | 95.5% | 96.8% |
 | FHOPS marine | 90.2% | 95.8% | 97.0% |
 
-The FHOPS path does not change the published screen. It is a separate
-sensitivity and remains diagnostic.
+The FHOPS path does not change the published screen. It is a separate API
+smoke test and remains diagnostic. It is not a GNN distance or cost estimate.
+The percentages above must not be cited as GNN transport results.
 
 ## Limits
 
 - The FHOPS route, ports, distances, barge cost, truck cost, and terminal
   handling values are synthetic fixture values, not GNN or current quotes.
+- The fixture geography is Sunshine Coast -> Howe Sound, not northern Vancouver
+  Island. The GNN AOI centroid is about 51.185 N, -127.408 W.
 - The GNN instance has no actual barge terminal, road, or water-route inventory.
 - The adapter uses one representative day and uncaps terminal storage and daily
   handling for an aggregate lane.

@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Estimate GNN marine transport with the FHOPS log-hauling model.
+"""Exercise the FHOPS marine transport path for the GNN instance.
 
 This adapter uses the FHOPS Phase I marine path merged in
-``UBC-FRESH/fhops#187`` (commit ``f788d7a6``). It is a representative
-Sunshine Coast -> Howe Sound case, not a GNN terminal inventory or a current
-carrier quote.
+``UBC-FRESH/fhops#187`` (commit ``f788d7a6``). The fixture is a synthetic
+Sunshine Coast -> Howe Sound case. It is **not** the GNN geography: the GNN AOI
+is northern Vancouver Island. This is an API/cost-path test, not a GNN
+transport estimate, terminal inventory, or current carrier quote.
 
 The adapter scales the FHOPS fixture to an explicit one-day volume, sizes enough
 drayage trucks and barges for that day, solves Phase I, and reports:
@@ -31,8 +32,8 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SCENARIO = ROOT / "config/cost_revenue/transport/fhops_marine/scenario.yaml"
 DEFAULT_CONFIG = ROOT / "config/cost_revenue/transport/fhops_marine.yaml"
-DEFAULT_SOURCE = "UBC-FRESH/fhops#187 / f788d7a6 / examples/hauling_marine"
-DATA_STATUS = "representative_fhops_phase_i"
+DEFAULT_SOURCE = "UBC-FRESH/fhops#187 / f788d7a6 / examples/hauling_marine; not GNN geography"
+DATA_STATUS = "upstream_fhops_fixture_api_test"
 COST_TOLERANCE_CAD = 0.01
 
 
@@ -79,7 +80,7 @@ class MarineTransportEstimate:
     source:
         Upstream source and commit.
     data_status:
-        ``representative_fhops_phase_i``.
+        ``upstream_fhops_fixture_api_test``.
     """
 
     case: str

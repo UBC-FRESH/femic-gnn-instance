@@ -14,8 +14,9 @@ Status: screening only; not a net revenue result.
   ground blocks are excluded because a full ground system is not yet costed.
 - Transport: legacy CLEWs/FFCM diagnostic 100 km truck + 100 km barge + 4.57
   CAD/m3 transload, with 7.77-14.54 CAD/m3 range. An opt-in FHOPS marine path
-  is available with `--transport fhops-marine`; its synthetic fixture is not a
-  current quote.
+  is available with `--transport fhops-marine`; its synthetic Sunshine
+  Coast -> Howe Sound fixture is not the GNN geography and is not a current
+  quote.
 - Revenue range uses low/high recovery shares and low/high prices; net range is
   best/worst case, not a confidence interval.
 

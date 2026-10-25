@@ -49,15 +49,13 @@ Sensitivity:
 - harvest cost x2.0: 87.8%
 - transport 30 CAD/m3: 92.3%
 
-FHOPS marine transport sensitivity (2026-10-25):
+FHOPS marine API test (not a GNN transport sensitivity):
 
-- FHOPS #187 marine Phase I adapter, opt-in with `--transport fhops-marine`.
-- Low/base/high barge utilisation: 5.642/6.100/7.097 CAD/m3, including
-  contract fixed dispatch costs.
-- Positive THLB: 90.2% low case, 95.8% base, 97.0% high case.
-- The FHOPS route/terminals are a synthetic Sunshine Coast -> Howe Sound
-  fixture, not a GNN terminal inventory or current quote.
-- The published result above remains the legacy transport comparison.
+- The adapter and fixture are available, but the fixture is Sunshine
+  Coast -> Howe Sound while the GNN AOI is northern Vancouver Island.
+- The fixture is a code-path test, not a GNN terminal, distance, or rate deck.
+- No FHOPS marine cost is used in the published result above.
+- See `notes/reference/gnn-marine-geography.md`.
 
 ## Caveats
 
@@ -69,6 +67,7 @@ FHOPS marine transport sensitivity (2026-10-25):
 - Log prices are applied after a reject/waste factor; merchantability and
   utilization still need review.
 - Transport is legacy diagnostic, not a current quote.
+- FHOPS marine is an API test only; the fixture is not the GNN geography.
 - No road/landing construction, overhead, profit, or silviculture cost.
 - This is a screening estimate, not a sustainable harvest level.
 
