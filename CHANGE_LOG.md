@@ -320,3 +320,22 @@ followed the workflow at the time.
 - P3 PR #29 CI run `40219295693` passed. The close-out report is queued at
   `notes/reports/p3-closeout.md`.
 - P3 merged as `fff6435` (PR #29); parent #22 and children #25-#28 are closed. The phase is complete as a diagnostic screen.
+### P4 activation and FHOPS marine transport
+
+- Activated P4 on `feature/p4-fhops-marine` (parent #30, task #31).
+- `UBC-FRESH/fhops#187` is resolved in `f788d7a6`; FHOPS now models barges, ports, water arcs,
+  terminal handling, and barge trips explicitly.
+- Added the representative FHOPS Sunshine Coast -> Howe Sound fixture under
+  `config/cost_revenue/transport/fhops_marine/` and the adapter
+  `pipeline/fhops_marine_transport.py`.
+- The adapter solves Phase I at 100/75/50% barge utilisation and adds contract fixed dispatch
+  costs: **5.642 / 6.100 / 7.097 CAD/m3** before caveats. The fixture is synthetic, not a quote.
+- Added `--transport fhops-marine` to both net revenue screens; legacy remains selectable and
+  reproduces the published result exactly.
+- Full-THLB sensitivity with FHOPS marine transport: **90.2% low / 95.8% base / 97.0% high**,
+  versus legacy 88.0 / 95.5 / 96.8. The published screen remains legacy.
+- Added `notes/reference/fhops-marine-transport.md`, updated the barge-gap and transport notes, and
+  added the FHOPS sensitivity to `docs/economic-screening.rst`.
+- `python scripts/dashboard.py`: GREEN on all six gates. `check_workflow.py`: 0 errors, 0 warnings.
+  Sphinx build clean.
+- No release, sustainable label, or model change is authorized by P4.

@@ -14,9 +14,33 @@ from pathlib import Path
 import pandas as pd
 
 # Legacy CLEWs/FFCM diagnostic transport, 100 km truck + 100 km barge + transload.
-TRANSPORT_BASE = 10.961
-TRANSPORT_LOW = 7.77
-TRANSPORT_HIGH = 14.54
+LEGACY_TRANSPORT = {"low": 7.77, "base": 10.961, "high": 14.54}
+DEFAULT_FHOPS_CONFIG = (
+    Path(__file__).resolve().parents[1]
+    / "config/cost_revenue/transport/fhops_marine.yaml"
+)
+
+
+def _transport_costs(
+    mode: str,
+    fhops_config: Path,
+) -> tuple[dict[str, float], str, str]:
+    """Return transport costs, status, and source for the selected path."""
+    if mode == "legacy":
+        return (
+            dict(LEGACY_TRANSPORT),
+            "legacy_diagnostic",
+            "CLEWs-C2070/FFCM at 71b3d45",
+        )
+    from fhops_marine_transport import configured_cost_lookup
+
+    return (
+        configured_cost_lookup(fhops_config),
+        "representative_fhops_phase_i",
+        "UBC-FRESH/fhops#187 at f788d7a6",
+    )
+
+
 CABLE_LOW = 17.61
 CABLE_HIGH = 37.50
 HELI_LOW = 59.66
@@ -69,8 +93,23 @@ def main() -> None:
     parser.add_argument("--prices", type=Path, required=True)
     parser.add_argument("--recovery", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument(
+        "--transport",
+        choices=("legacy", "fhops-marine"),
+        default="legacy",
+        help="Transport cost path; legacy remains the published comparison.",
+    )
+    parser.add_argument(
+        "--fhops-config",
+        type=Path,
+        default=DEFAULT_FHOPS_CONFIG,
+        help="FHOPS marine transport config used by --transport fhops-marine.",
+    )
     args = parser.parse_args()
 
+    transport, transport_status, transport_source = _transport_costs(
+        args.transport, args.fhops_config
+    )
     sample = pd.read_csv(args.sample)
     prices = pd.read_csv(args.prices)
     recovery = pd.read_csv(args.recovery)
@@ -109,8 +148,8 @@ def main() -> None:
                 revenue_base += row.volume_m3 * share * shares.get(species_label, {}).get(product, 0.0) * pmean
                 revenue_high += row.volume_m3 * share * high_shares.get(species_label, {}).get(product, 0.0) * pmax
         if harvest_low is not None and harvest_high is not None:
-            net_low = revenue_low - harvest_high * row.volume_m3 - TRANSPORT_HIGH * row.volume_m3
-            net_high = revenue_high - harvest_low * row.volume_m3 - TRANSPORT_LOW * row.volume_m3
+            net_low = revenue_low - harvest_high * row.volume_m3 - transport["high"] * row.volume_m3
+            net_high = revenue_high - harvest_low * row.volume_m3 - transport["low"] * row.volume_m3
         records.append(
             {
                 "block_id": row.block_id,
@@ -122,8 +161,14 @@ def main() -> None:
                 "revenue_high_cad": round(revenue_high, 0),
                 "harvest_low_cad": None if harvest_low is None else round(harvest_low * row.volume_m3, 0),
                 "harvest_high_cad": None if harvest_high is None else round(harvest_high * row.volume_m3, 0),
-                "transport_low_cad": round(TRANSPORT_LOW * row.volume_m3, 0),
-                "transport_high_cad": round(TRANSPORT_HIGH * row.volume_m3, 0),
+                "transport_low_cad": round(transport["low"] * row.volume_m3, 0),
+                "transport_high_cad": round(transport["high"] * row.volume_m3, 0),
+                "transport_low_per_m3": round(transport["low"], 6),
+                "transport_base_per_m3": round(transport["base"], 6),
+                "transport_high_per_m3": round(transport["high"], 6),
+                "transport_path": args.transport,
+                "transport_status": transport_status,
+                "transport_source": transport_source,
                 "net_low_cad": None if net_low is None else round(net_low, 0),
                 "net_high_cad": None if net_high is None else round(net_high, 0),
                 "cost_status": cost_status,
@@ -144,6 +189,11 @@ def main() -> None:
             "share of priced volume unprofitable even in best case: "
             f"{100*priced.loc[priced.net_high_cad < 0, 'volume_m3'].sum()/priced.volume_m3.sum():.1f}%"
         )
+    print(
+        "transport: "
+        f"{args.transport} ({transport_status}); "
+        f"{transport['low']:.3f}/{transport['base']:.3f}/{transport['high']:.3f} CAD/m3"
+    )
     print(frame.groupby(["operability", "cost_status"]).volume_m3.sum().to_string())
 
 

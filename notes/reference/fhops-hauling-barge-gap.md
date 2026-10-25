@@ -1,39 +1,43 @@
-# FHOPS hauling gap: barge/marine legs
+# FHOPS hauling marine/barge support
 
 Date: 2026-10-25
-Status: upstream feature request open; no barge support in FHOPS hauling yet.
+Status: upstream gap resolved; GNN adapter implemented as a diagnostic path.
 
-## Tested
+## Resolution
 
-FHOPS `main` at `52462d2a` (P11 log hauling and mill delivery).
+`UBC-FRESH/fhops#187` is closed. FHOPS PR #195 merged as
+`f788d7a63113c52159b3a9dbef449d6faf8325e9`.
 
-The new `fhops.hauling` layer models truckloads, truck types, trucks, depots, sort yards, haul
-arcs, loader locations, and driver policy. It has no transport mode, vessel/barge entity, port,
-or barge-cycle structure.
+The hauling layer now has an explicit marine path:
 
-A Sunshine Coast -> Howe Sound barge-shaped case was derived from `examples/hauling/`:
+- `TransportMode` distinguishes road and water;
+- `BargeType` and `Barge` are first-class vessels, not truck aliases;
+- `Port`, `WaterArc`, `PortLeg`, and `MarineRoute` carry the terminal and water
+  topology;
+- Phase I reports pickup, water, and delivery volumes, barge trips, port
+  inventory, and drayage/terminal/barge costs;
+- Phase II/III add a deterministic barge-cycle scheduler and synchronized road
+  windows; and
+- `examples/hauling_marine/` is a synthetic Sunshine Coast -> Howe Sound
+  fixture.
 
-- one `log_barge` `TruckType` with 3,000 m3 capacity
-- one barge-named `Truck`
-- three water-length haul arcs (240-280 minutes)
-- one sort yard
+## Historical test
 
-`fhops haul validate` accepts it as a truck scenario. `fhops haul plan` returns infeasible under
-the truck-only model. Validation is a schema alias, not marine support.
-
-## Upstream issue
-
-`UBC-FRESH/fhops#187`:
-https://github.com/UBC-FRESH/fhops/issues/187
-
-Requested: explicit water mode, barge/vessel type, ports/terminals, water arcs, terminal handling,
-barge cycles, Phase I/II/III support, a Sunshine Coast -> Howe Sound fixture, and tests/docs.
+FHOPS `main` at `52462d2a` was truck-only. A barge-named `TruckType` validated
+as a truck, and `fhops haul plan` was infeasible under the truck model. That
+was a schema alias, not marine support. The upstream issue and fixture from
+that test are now part of the resolved implementation.
 
 ## Consequence for the GNN model
 
-- Do not treat a `log_barge` `TruckType` as marine support.
-- The GNN transport layer currently uses the legacy CLEWs/FFCM diagnostic barge rates, not the FHOPS
-  hauling optimizer.
-- Until FHOPS #187 lands, barge scheduling and port synchronization remain a separate screening
-  assumption, not a solved haul plan.
-- The sustainable gate must keep transport labelled diagnostic for barge legs.
+- `pipeline/fhops_marine_transport.py` solves the FHOPS marine fixture and
+  reports a cost breakdown.
+- The screens support `--transport fhops-marine`; legacy CLEWs/FFCM remains the
+  default published comparison.
+- The FHOPS case is a representative synthetic fixture, not a GNN terminal
+  inventory or a current quote.
+- Do not treat the FHOPS Phase I result as a full Phase II/III schedule.
+- The sustainable gate must keep transport labelled diagnostic until actual
+  terminals, distances, and carrier/terminal quotes are available.
+
+See `notes/reference/fhops-marine-transport.md`.

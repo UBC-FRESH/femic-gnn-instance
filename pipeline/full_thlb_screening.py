@@ -19,7 +19,11 @@ from pyproj import Transformer
 from sample_block_terrain import _mosaic, _slope_percent
 
 COSTS = {"ground": 15.37, "cable": 17.77, "heli_candidate": 78.13}
-TRANSPORT = {"low": 7.77, "base": 10.961, "high": 14.54}
+LEGACY_TRANSPORT = {"low": 7.77, "base": 10.961, "high": 14.54}
+DEFAULT_FHOPS_CONFIG = (
+    Path(__file__).resolve().parents[1]
+    / "config/cost_revenue/transport/fhops_marine.yaml"
+)
 REJECT = {"low": 0.02, "base": 0.05, "high": 0.10}
 GRADES = {
     "high": {
@@ -64,6 +68,26 @@ SPECIES = {
 }
 
 
+def _transport_costs(
+    mode: str,
+    fhops_config: Path,
+) -> tuple[dict[str, float], str, str]:
+    """Return transport costs, status, and source for the selected path."""
+    if mode == "legacy":
+        return (
+            dict(LEGACY_TRANSPORT),
+            "legacy_diagnostic",
+            "CLEWs-C2070/FFCM at 71b3d45",
+        )
+    from fhops_marine_transport import configured_cost_lookup
+
+    return (
+        configured_cost_lookup(fhops_config),
+        "representative_fhops_phase_i",
+        "UBC-FRESH/fhops#187 at f788d7a6",
+    )
+
+
 def _prices(prices: pd.DataFrame, species: str, product: str, age: float) -> tuple[float, float, float]:
     grades = GRADES[product].get(species, [])
     sale = "old_growth" if age >= 141 or species == "Cypress" else "second_growth"
@@ -85,8 +109,23 @@ def main() -> None:
     parser.add_argument("--recovery", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--zoom", type=int, default=11)
+    parser.add_argument(
+        "--transport",
+        choices=("legacy", "fhops-marine"),
+        default="legacy",
+        help="Transport cost path; legacy remains the published comparison.",
+    )
+    parser.add_argument(
+        "--fhops-config",
+        type=Path,
+        default=DEFAULT_FHOPS_CONFIG,
+        help="FHOPS marine transport config used by --transport fhops-marine.",
+    )
     args = parser.parse_args()
 
+    transport, transport_status, transport_source = _transport_costs(
+        args.transport, args.fhops_config
+    )
     import geopandas as gpd
 
     aoi = gpd.read_file(args.aoi).to_crs(3005)
@@ -205,10 +244,15 @@ def main() -> None:
             "revenue_base_cad": revenue["base"],
             "revenue_high_cad": revenue["high"],
             "harvest_cost_per_m3": cost,
-            "transport_base_per_m3": TRANSPORT["base"],
-            "net_base_per_m3": (revenue["base"] / volume.where(volume > 0)) - cost - TRANSPORT["base"],
-            "net_high_per_m3": (revenue["high"] / volume.where(volume > 0)) - cost - TRANSPORT["low"],
-            "net_low_per_m3": (revenue["low"] / volume.where(volume > 0)) - cost - TRANSPORT["high"],
+            "transport_low_per_m3": transport["low"],
+            "transport_base_per_m3": transport["base"],
+            "transport_high_per_m3": transport["high"],
+            "transport_path": args.transport,
+            "transport_status": transport_status,
+            "transport_source": transport_source,
+            "net_base_per_m3": (revenue["base"] / volume.where(volume > 0)) - cost - transport["base"],
+            "net_high_per_m3": (revenue["high"] / volume.where(volume > 0)) - cost - transport["low"],
+            "net_low_per_m3": (revenue["low"] / volume.where(volume > 0)) - cost - transport["high"],
         }
     )
     result = result[np.isfinite(result["net_base_per_m3"])]
@@ -216,6 +260,11 @@ def main() -> None:
     result.to_csv(args.out, index=False)
     total = result.thlb_ha.sum()
     print(f"THLB covered: {total:.2f} ha")
+    print(
+        "transport: "
+        f"{args.transport} ({transport_status}); "
+        f"{transport['low']:.3f}/{transport['base']:.3f}/{transport['high']:.3f} CAD/m3"
+    )
     for case in ("low", "base", "high"):
         col = f"net_{case}_per_m3"
         positive = result[result[col] > 0].thlb_ha.sum()

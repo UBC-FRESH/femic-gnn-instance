@@ -23,7 +23,7 @@ operational release.
 
 ## Economic screening (diagnostic)
 
-Full derived THLB: **95.5% positive** in the base screening case (88.0-96.8% across price/recovery). It uses class-average full-system costs, coarse terrain, provisional recovery, and legacy transport. Not a sustainable or financially calibrated result.
+Full derived THLB: **95.5% positive** in the base screening case (88.0-96.8% across price/recovery). It uses class-average full-system costs, coarse terrain, provisional recovery, and legacy transport. A separate FHOPS marine sensitivity is available with `--transport fhops-marine`; its fixture is synthetic, so it is not a current quote. Neither result is sustainable or financially calibrated.
 
 ## Prototype result
 

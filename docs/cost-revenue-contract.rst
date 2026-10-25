@@ -87,7 +87,7 @@ One row per block x treatment x year.
      - `low`, `medium`, or `high`.
    * - `data_status`
      - text
-     - `synthetic`, `prototype`, or `reviewed`.
+     - `synthetic`, `prototype`, `representative_fhops_phase_i`, or `reviewed`.
 
 ### 2. `block_treatment_assortment.csv`
 
