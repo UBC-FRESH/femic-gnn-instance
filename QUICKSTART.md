@@ -1,15 +1,21 @@
-﻿# FEMIC Deployment Instance Quickstart
+# FEMIC GNN Instance Quickstart
 
-1. Validate CLI install:
-   `femic --help`
-2. Validate case templates and external paths:
-   `femic prep validate-case --run-config config/run_profile.case_template.yaml`
-3. Validate geospatial runtime dependencies (Fiona/GDAL):
-   `femic prep geospatial-preflight`
-4. Copy and customize `config/run_profile.case_template.yaml`.
-5. Copy and customize `config/rebuild.spec.yaml` for your case sequence/invariants.
-6. Optionally update `config/rebuild.allowlist.yaml` for intentional baseline diffs.
-7. Add case-specific instructions to `runbooks/REBUILD_RUNBOOK.md`.
-8. Add/edit `config/tipsy/tsa<code>.yaml` from `config/tipsy/template.case.yaml`
-   (legacy filename pattern retained even for non-TSA FMU cases).
-9. Run compile workflow from this instance root.
+1. Read `AGENTS.md` and `ROADMAP.md`.
+2. Create and activate a local environment:
+   `python -m venv .venv && . .venv/bin/activate`
+3. Install the dev requirements:
+   `python -m pip install -r requirements-dev.txt`
+4. Install the pre-commit hooks:
+   `pre-commit install`
+5. Run the green dashboard:
+   `python scripts/dashboard.py`
+6. Run the workflow validator:
+   `python scripts/check_workflow.py`
+7. Build the prototype (requires the TSA 46/47 base instances):
+   `pipeline/build_gnn_model.sh`
+8. Serve the local UI:
+   `./serve_gnn_calibrated.sh`
+
+The model is a prototype. The boundary is the proposed GNN Statement of Intent
+polygon, and the THLB and AAC are derived, non-legal values. See `docs/` and
+`notes/reference/` before using an output.

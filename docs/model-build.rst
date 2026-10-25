@@ -1,6 +1,15 @@
 Model build
 ===========
 
+Workflow versus pipeline
+------------------------
+
+``scripts/`` holds the workflow validator and green dashboard. ``pipeline/``
+holds the build and analysis entry points. The strict lint, type, docstring,
+and coverage gates apply to ``scripts/`` and ``tests/``; the pipeline is
+validated by execution and ``ws4 validate``. See ``pipeline/README.md`` in the
+repository.
+
 Method
 ------
 
@@ -19,7 +28,7 @@ Command
 
 .. code-block:: bash
 
-   scripts/build_gnn_model.sh
+   pipeline/build_gnn_model.sh
 
 The base instances are expected at ``../femic-tsa46-instance`` and
 ``../femic-tsa47-instance``. Runtime outputs are gitignored.

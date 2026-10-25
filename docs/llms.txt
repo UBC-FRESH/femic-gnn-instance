@@ -1,0 +1,17 @@
+# FEMIC GNN Instance
+
+> Agent-facing index for the GNN prototype. Read the linked pages before you change the model or its public outputs.
+
+## Start here
+
+- [Home](index.html): model status, caveats, and the derived benchmark at a glance.
+- [Benchmark](benchmark.html): opening-first result and ground-plot validation limits.
+- [Model build](model-build.html): the combined TSA 46/47 build method and commands.
+- [AU structure](aus.html): why TSA-prefixed AUs are kept and why a reporting crosswalk is used.
+- [AOI](aoi.html): proposed GNN Statement of Intent boundary provenance and areas.
+- [API reference](api/index.html): workflow validator and dashboard entry points.
+
+## Status
+
+The model is a prototype. The boundary is proposed, and the THLB and AAC are
+derived and non-legal. GNN review is required before public or operational use.
