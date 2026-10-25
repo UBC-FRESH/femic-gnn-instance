@@ -1,0 +1,19 @@
+{
+  "aoi": "data/source/aoi/gnn_full.gpkg",
+  "tsa": {
+    "46": {
+      "source_rows": 171826,
+      "clipped_rows": 6183,
+      "clipped_area_ha": 105308.02,
+      "clipped_calibrated_thlb_ha": 18411.68
+    },
+    "47": {
+      "source_rows": 74170,
+      "clipped_rows": 13284,
+      "clipped_area_ha": 145153.37,
+      "clipped_calibrated_thlb_ha": 34572.74
+    }
+  },
+  "combined_rows": 19467,
+  "combined_calibrated_thlb_ha": 52984.42
+}

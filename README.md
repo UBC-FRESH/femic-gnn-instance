@@ -13,6 +13,16 @@ Pages site exists yet. The boundary is the proposed Statement of Intent
 polygon, not a final treaty boundary or legal title determination. Confirm the
 boundary and public-output plan with GNN before release.
 
+## Prototype result
+
+- Combined calibrated THLB: **52,984.42 ha**
+- Derived annual AAC: **252,636.75 m3/yr** (not legal)
+- Opening-first: 3,158 openings, 5,618 blocks, 39,558.5 ha
+- 100% 5-40 ha patches
+- 9/10 decades met; decade 10 is 781.4 m3 below the derived band
+
+See `notes/reference/model-build.md`.
+
 ## AOI
 
 - `data/source/aoi/gnn_soi.gpkg` — proposed GNN SOI polygon, EPSG:3005.

@@ -1,0 +1,75 @@
+# Derived GNN prototype benchmark.
+# This is NOT a legal AAC. The annual value is the THLB-weighted share of the
+# TSA 46 and TSA 47 published AACs within the proposed GNN SOI boundary.
+targets:
+  - account: product.Yield.managed.Total
+    period: 1
+    period_width: 10
+    minimum: 2526000
+    maximum: 2527000
+    min_weight: 1
+    max_weight: 1
+    notes: "Derived GNN decade target; THLB-weighted TSA 46/47 share."
+  - account: product.Yield.managed.Total
+    period: 2
+    period_width: 10
+    minimum: 2526000
+    maximum: 2527000
+    min_weight: 1
+    max_weight: 1
+  - account: product.Yield.managed.Total
+    period: 3
+    period_width: 10
+    minimum: 2526000
+    maximum: 2527000
+    min_weight: 1
+    max_weight: 1
+  - account: product.Yield.managed.Total
+    period: 4
+    period_width: 10
+    minimum: 2526000
+    maximum: 2527000
+    min_weight: 1
+    max_weight: 1
+  - account: product.Yield.managed.Total
+    period: 5
+    period_width: 10
+    minimum: 2526000
+    maximum: 2527000
+    min_weight: 1
+    max_weight: 1
+  - account: product.Yield.managed.Total
+    period: 6
+    period_width: 10
+    minimum: 2526000
+    maximum: 2527000
+    min_weight: 1
+    max_weight: 1
+  - account: product.Yield.managed.Total
+    period: 7
+    period_width: 10
+    minimum: 2526000
+    maximum: 2527000
+    min_weight: 1
+    max_weight: 1
+  - account: product.Yield.managed.Total
+    period: 8
+    period_width: 10
+    minimum: 2526000
+    maximum: 2527000
+    min_weight: 1
+    max_weight: 1
+  - account: product.Yield.managed.Total
+    period: 9
+    period_width: 10
+    minimum: 2526000
+    maximum: 2527000
+    min_weight: 1
+    max_weight: 1
+  - account: product.Yield.managed.Total
+    period: 10
+    period_width: 10
+    minimum: 2526000
+    maximum: 2527000
+    min_weight: 1
+    max_weight: 1

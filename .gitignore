@@ -26,3 +26,9 @@ plots/
 data/*.feather
 data/*.pkl
 data/model_input_bundle/
+
+runtime/
+
+data/model_input_bundle_gnn/
+
+data/gnn_combined_checkpoint.feather
