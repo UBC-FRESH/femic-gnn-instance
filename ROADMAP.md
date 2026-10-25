@@ -20,7 +20,7 @@ after its parent issue exists and the maintainer approves it.
 | P5 GNN marine geography and terminal data | #33 | `feature/p5-marine-data` | complete |
 | P6 Quatsino Sound to Ladysmith public-route proxy | #36 | `feature/p6-marine-proxy` | complete |
 | P7 Solved multi-day marine transport | #39 | `feature/p7-solved-marine` | complete |
-| P8 Solved-proxy full-THLB sensitivity | #42 | `feature/p8-proxy-sensitivity` | active |
+| P8 Solved-proxy full-THLB sensitivity | #42 | `feature/p8-proxy-sensitivity` | complete |
 
 ## Lifecycle Map
 
@@ -326,13 +326,13 @@ provenance, and remaining data limits. The maintainer approves before merge.
 
 Parent issue: #42
 Branch: `feature/p8-proxy-sensitivity`
-Status: active
+Status: complete
 
 Goal: run the solved Quatsino proxy through the full-THLB screen, carry its
 `public_route_assumption_rates` metadata, and compare it with the legacy and P4
 API paths without switching the published base.
 
-- [ ] P8.1 Run and document the solved-proxy full-THLB sensitivity (#43)
+- [x] P8.1 Run and document the solved-proxy full-THLB sensitivity (#43)
   - [x] Add config-derived transport metadata.
   - [x] Run the solved-proxy full-THLB screen.
   - [x] Compare legacy, API, and proxy shares.

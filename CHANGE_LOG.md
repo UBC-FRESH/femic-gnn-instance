@@ -404,3 +404,4 @@ followed the workflow at the time.
 - Verification: dashboard GREEN, validator 0/0, docs clean; proxy screen status `public_route_assumption_rates`; output at `runtime/p8/full_thlb_screening_proxy_solved.csv`.
 - P8.1 is `pr-open` in PR #44. The P8 close-out report is queued at
   `notes/reports/p8-closeout.md`; no release, tag, or published transport switch is authorized.
+- P8 merged as `38eee50` (PR #44); task #43 and parent #42 are closed. The solved-proxy full-THLB sensitivity is complete; the published screen remains legacy.
