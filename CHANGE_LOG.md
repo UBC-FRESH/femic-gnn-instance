@@ -224,3 +224,13 @@ followed the workflow at the time.
   `notes/reference/operability-pilot.md`.
 - Pilot only: coarse DEM, arbitrary thresholds, one machine/model, provisional
   price/recovery. No net revenue or sustainable label.
+### P3.4 40-block operability pilot
+
+- Expanded the pilot from 12 to 40 blocks.
+- Volume share: **36.9% ground, 34.8% cable, 28.3% heli candidate**.
+- **63.1% of sampled volume is non-ground** under the coarse thresholds.
+- Added species composition and per-block screening totals.
+- Cable screening 17.61-37.50 CAD/m3; helicopter 59.66-87.09 CAD/m3, before
+  access, haul, barge, overhead, or profit.
+- Pilot caveats remain: coarse DEM, arbitrary thresholds, one model/machine,
+  provisional price/recovery, no net revenue.

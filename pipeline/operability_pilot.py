@@ -155,6 +155,24 @@ def main() -> None:
             "operability": operability,
             "terrain_status": "coarse_dem_pilot",
         }
+        species_groups = {
+            "hembal": {"H", "BA", "HM"},
+            "cedar": {"CW"},
+            "cypress": {"YC"},
+            "fir": {"FD"},
+            "spruce": {"S", "SX", "SE"},
+        }
+        total_area = float(sub["clip_ha"].sum()) or 1.0
+        shares: dict[str, float] = {}
+        for group, codes in species_groups.items():
+            share = 0.0
+            for index in (1, 2, 3):
+                species = sub[f"SPECIES_CD_{index}"].astype(str).str.upper()
+                pct = pd.to_numeric(sub[f"SPECIES_PCT_{index}"], errors="coerce").fillna(0)
+                share += float((pct / 100.0 * sub["clip_ha"] * species.isin(codes)).sum())
+            shares[group] = round(100.0 * share / total_area, 1)
+        record.update({f"{group}_share_pct": value for group, value in shares.items()})
+        record["dominant_species_group"] = max(shares, key=shares.get)
         for name, rate in cable_rates.items():
             record[f"{name}_cad_per_m3"] = (
                 round(rate.total_cost_per_smh / (rate.default_utilization * cable_prod), 2)
