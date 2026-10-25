@@ -275,3 +275,14 @@ followed the workflow at the time.
 - Recorded the local deck SHA-256 and the license/redistribution limit.
 - Second-growth cypress is missing; old-growth cypress is only a proxy.
 - The deck remains a screening input, not a calibrated netback.
+### P3.4 full harvest-system screening costs
+
+- Used the FHOPS harvest-system registry for `ground_fb_skid`,
+  `cable_running_sr54`, and `helicopter`.
+- Screening system costs: ground 15.37 CAD/m3, cable 17.77 CAD/m3, helicopter
+  78.13 CAD/m3, before transport/overhead/profit.
+- Added the legacy 100 km transport allowance: ground 26.33, cable 28.73,
+  helicopter 89.09 CAD/m3.
+- Bottleneck approximation, not a solved FHOPS shift schedule; cablesystem uses
+  mechanised felling and may not be safe on the 39% block.
+- Added `pipeline/full_system_cost.py`, the sample table, and the note.
