@@ -319,3 +319,4 @@ followed the workflow at the time.
 - FHOPS barge support remains upstream issue #187.
 - P3 PR #29 CI run `40219295693` passed. The close-out report is queued at
   `notes/reports/p3-closeout.md`.
+- P3 merged as `fff6435` (PR #29); parent #22 and children #25-#28 are closed. The phase is complete as a diagnostic screen.

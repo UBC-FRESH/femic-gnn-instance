@@ -15,7 +15,7 @@ after its parent issue exists and the maintainer approves it.
 | P0 Bootstrap and workflow retrofit | #2 | `feature/p0-bootstrap` | complete |
 | P1 Validation and hardening | #1 | `feature/p1-validation-hardening` | complete |
 | P2 Release and hand-off | #17 | `feature/p2-release` | complete |
-| P3 Operability, cost, and net revenue | #22 | `feature/p3-operability-cost-revenue` | pr-open |
+| P3 Operability, cost, and net revenue | #22 | `feature/p3-operability-cost-revenue` | complete |
 
 ## Lifecycle Map
 
@@ -146,7 +146,7 @@ Acceptance criteria:
 
 Parent issue: #22
 Branch: `feature/p3-operability-cost-revenue`
-Status: pr-open
+Status: complete
 
 Goal: make block operability, harvest cost, haul/barge cost, grade/sort
 revenue, and net revenue first-class. A scenario may not be labelled
