@@ -65,3 +65,22 @@ range.
 5. Add validated price and recovery, then net revenue and the gate.
 
 File: `config/cost_revenue/samples/operability_pilot_40.csv`
+## Species-stratified sensitivity
+
+A second pilot sampled up to 8 blocks per leading-species group (cedar, cypress,
+hembal, fir, spruce, other; seed 42). Fir and spruce were not represented in the
+candidate set at this sampling depth, so this is not a balanced species sample.
+The available groups produced:
+
+| Operability | Volume share |
+| --- | ---: |
+| Ground | 18.7% |
+| Cable | 36.2% |
+| Heli candidate | 45.1% |
+
+**81.3% of this stratified sample is non-ground.** The gap from the random
+40-block pilot (63.1%) shows how sensitive the result is to sample composition.
+The defensible conclusion is not a single percentage; it is that non-ground
+volume is large enough that a ground-only cost assumption is unacceptable.
+
+File: `config/cost_revenue/samples/operability_pilot_stratified.csv`

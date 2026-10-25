@@ -234,3 +234,14 @@ followed the workflow at the time.
   access, haul, barge, overhead, or profit.
 - Pilot caveats remain: coarse DEM, arbitrary thresholds, one model/machine,
   provisional price/recovery, no net revenue.
+### P3.4 stratified operability and transport assumptions
+
+- Species-stratified pilot: 18.7% ground, 36.2% cable, 45.1% heli candidate by
+  volume; 81.3% non-ground. Fir/spruce were not represented at this depth.
+- The random 40-block pilot remains 63.1% non-ground. The defensible conclusion
+  is a large non-ground share, not one universal percentage.
+- Added provisional truck/barge/terminal assumptions with low/base/high ranges;
+  every value is `data_status=assumption`.
+- Base transport allowance is about 31 CAD/m3 (12 truck + 15 barge + 4 terminal),
+  not a quote.
+- No net revenue or sustainable label is claimed.

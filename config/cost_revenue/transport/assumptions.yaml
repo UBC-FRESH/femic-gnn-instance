@@ -1,0 +1,27 @@
+schema_version: 1
+currency: CAD
+data_status: assumption
+source: "No public coastal barge tariff found; UBC-FRESH provisional ranges. Replace with carrier/terminal quotes."
+truck_haul:
+  cost_per_m3_km:
+    low: 0.08
+    base: 0.12
+    high: 0.18
+  distance_km:
+    low: 50
+    base: 100
+    high: 150
+barge:
+  cost_per_m3:
+    low: 8.0
+    base: 15.0
+    high: 25.0
+terminal_handling:
+  cost_per_m3:
+    low: 2.0
+    base: 4.0
+    high: 7.0
+notes:
+  - "Truck and barge rates are assumptions, not observed tariffs."
+  - "Distance is one-way road/water distance; terminal handling is separate."
+  - "The sustainable gate must reject data_status=assumption."
