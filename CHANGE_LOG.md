@@ -109,3 +109,26 @@ followed the workflow at the time.
 - P2 is not activated until the close-out is approved and the boundary review is
   resolved or explicitly carried forward.
 - No model, curve, target, THLB, AAC, or benchmark change.
+### P1 merge and P2 activation
+
+- P1 merged as `a3af911` (PR #16); parent #1 is closed. P1.1 was closed as
+  deferred by the maintainer; no external review is being sought.
+- P2 is active on `feature/p2-release`; parent #17 and child #18/#19 are linked.
+- Next: write the release notes and known gaps, then tag and verify a prototype
+  pre-release.
+### P2.1 release notes and known gaps
+
+- Added `notes/releases/v0.1.0-prototype.md` and a public `docs/release.rst`.
+- The notes state the proposed-boundary and derived/non-legal labels, the sparse
+  ground-plot evidence, the TSA 46 SI dependency, and the decade-10 end-effect.
+- P1.1 is recorded as deferred by the maintainer; no external review is claimed.
+- No model, curve, target, THLB, AAC, or benchmark change.
+### P2.2 queue the prototype release
+
+- P2 release notes and known gaps are in `notes/releases/v0.1.0-prototype.md`
+  and `docs/release.rst`.
+- `CITATION.cff` is version `0.1.0`; PR #20 is open with CI run `40172281409`
+  passing.
+- The P2 close-out is queued at `notes/reports/p2-closeout.md`.
+- The tag `v0.1.0-prototype` and GitHub pre-release execute after the merge.
+- No model, curve, target, THLB, AAC, or benchmark change.

@@ -29,7 +29,7 @@ data/private/
 
 # Generated model outputs
 output/
-releases/
+/releases/
 plots/
 outputs/
 

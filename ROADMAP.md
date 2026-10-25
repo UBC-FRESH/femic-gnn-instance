@@ -13,8 +13,8 @@ after its parent issue exists and the maintainer approves it.
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
 | P0 Bootstrap and workflow retrofit | #2 | `feature/p0-bootstrap` | complete |
-| P1 Validation and hardening | #1 | `feature/p1-validation-hardening` | pr-open |
-| P2 Release and hand-off | TBD | `feature/p2-release` | planned |
+| P1 Validation and hardening | #1 | `feature/p1-validation-hardening` | complete |
+| P2 Release and hand-off | #17 | `feature/p2-release` | pr-open |
 
 ## Lifecycle Map
 
@@ -83,16 +83,16 @@ Acceptance criteria:
 
 Parent issue: #1
 Branch: `feature/p1-validation-hardening`
-Status: pr-open
+Status: complete
 
 Goal: harden the prototype with reviewed boundary inputs, better ground-plot
 evidence, an explicit SI/origin decision, and a documented THLB/AAC status. Do
 not tune curves to the derived AAC.
 
-- [ ] P1.1 Confirm the proposed SOI boundary and public-output plan (#10)
-  - [ ] Record the GNN review outcome or the blocking question.
-  - [ ] Keep the public site labelled prototype until confirmed.
-  - Note: deferred. The review packet is prepared; GNN confirmation is external. Issue #10 stays open.
+- [x] P1.1 Confirm the proposed SOI boundary and public-output plan (#10)
+  - [x] Record the review outcome or the blocking question. Outcome: deferred by the maintainer; no external review is being sought.
+  - [x] Keep the public site labelled prototype. The proposed-boundary and derived/non-legal labels remain.
+  - Note: deferred, not confirmed. The packet is prepared and retained; no GNN confirmation is claimed.
 - [x] P1.2 Expand GNN-area ground-plot validation (#11)
   - [x] Filter public plots to the GNN AOI.
   - [x] Report sample size, source, and bias by type.
@@ -122,18 +122,18 @@ Acceptance criteria:
 
 ## Phase 2: Release and hand-off
 
-Parent issue: TBD
+Parent issue: #17
 Branch: `feature/p2-release`
-Status: planned
+Status: pr-open
 
 Goal: release the prototype only after the P1 gates and a separate approval.
 
-- [ ] P2.1 Write release notes and the known-gaps list
-  - [ ] State the proposed boundary, derived THLB/AAC, and validation limits.
-  - [ ] List the GNN review outcome.
-- [ ] P2.2 Tag, publish, and verify from a clean checkout
-  - [ ] Obtain approval for the tag, release, and any settings change.
-  - [ ] Verify the published docs and model artifacts.
+- [x] P2.1 Write release notes and the known-gaps list (#18)
+  - [x] State the proposed boundary, derived THLB/AAC, and validation limits.
+  - [x] List the known gaps and deferred review.
+- [ ] P2.2 Tag, publish, and verify from a clean checkout (#19)
+  - [ ] Tag and publish a pre-release.
+  - [ ] Verify the published docs and a clean checkout.
 
 Acceptance criteria:
 
@@ -143,7 +143,8 @@ Acceptance criteria:
 
 ## Detailed Next Steps Notes
 
-1. P0 is complete: PR #9 merged as `f9a11c5`; dashboard and CI were green.
-2. P1 is queued in its phase PR. P1.2-P1.5 are complete; P1.1 is deferred pending GNN review (#10 stays open).
-3. Do not launch P2 until the P1 close-out is approved and P1.1 is resolved or explicitly carried forward.
-4. No curve, target, THLB, AAC, or benchmark tuning.
+1. P0 is complete: PR #9 merged as `f9a11c5`. P1 is complete: PR #16 merged as `a3af911`.
+2. P1.1 is closed as deferred by the maintainer; no external review is being sought. The packet remains available.
+3. P2 is active on `feature/p2-release`; child issues #18/#19 are linked to parent #17.
+4. Write the release notes and known gaps, then tag and verify a prototype pre-release.
+5. No curve, target, THLB, AAC, or benchmark tuning.
