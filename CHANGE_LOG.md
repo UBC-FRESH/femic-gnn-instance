@@ -36,3 +36,14 @@ followed the workflow at the time.
   `scripts/` and `tests/`. The `pipeline/` entry points are excluded because they
   are data-pipeline code validated by execution and `ws4 validate`, not library
   code. This is a deliberate gate-scope decision recorded in ADR 0005.
+
+### P0.6 verification and close-out queue
+
+- `python scripts/dashboard.py`: green on all six gates (lint, format, types,
+  tests, validator, docs).
+- `python scripts/check_workflow.py`: 0 errors, 0 warnings.
+- CI run `40169934846` passed all three jobs: Quality gates, Pre-commit parity,
+  and Green dashboard summary.
+- Pull request #9 is open with `Part of #2`. The P0 close-out report is queued in
+  `notes/reports/p0-closeout.md`.
+- The model, curves, THLB, AAC, and derived benchmark are unchanged.

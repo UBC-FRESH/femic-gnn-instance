@@ -12,7 +12,7 @@ after its parent issue exists and the maintainer approves it.
 
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
-| P0 Bootstrap and workflow retrofit | #2 | `feature/p0-bootstrap` | active |
+| P0 Bootstrap and workflow retrofit | #2 | `feature/p0-bootstrap` | pr-open |
 | P1 Validation and hardening | #1 | `feature/p1-validation-hardening` | planned |
 | P2 Release and hand-off | TBD | `feature/p2-release` | planned |
 
@@ -36,38 +36,38 @@ after its parent issue exists and the maintainer approves it.
 
 Parent issue: #2
 Branch: `feature/p0-bootstrap`
-Status: active
+Status: pr-open
 
 Goal: bring the GNN instance into the UBC-FRESH dev workflow without changing
 the prototype model, and queue a reviewable close-out.
 
-- [ ] P0.1 Add the workflow contract and quality gates (#3)
-  - [ ] Add `AGENTS.md`, `CONTRIBUTING.md`, and `CHANGE_LOG.md`.
-  - [ ] Add the notes index, ADR template, and close-out template.
-  - [ ] Add the validator, dashboard, tests, and CI.
-  - [ ] Add `docs/llms.txt` and the API reference pages.
-- [ ] P0.2 Retrofit the roadmap and GitHub issue tree (#4)
-  - [ ] Add phase metadata, unique task IDs, and acceptance criteria.
-  - [ ] Reconcile issue `#1` as the planned P1 parent.
-  - [ ] Link the P0 child issues to parent `#2`.
-- [ ] P0.3 Record the prototype decisions as ADRs (#5)
-  - [ ] Record the proposed boundary and derived THLB/AAC.
-  - [ ] Record the TSA-prefixed AU decision.
-  - [ ] Record the no-AAC-tuning rule.
-  - [ ] Record the workflow/pipeline separation.
-- [ ] P0.4 Separate pipeline scripts from workflow scripts (#6)
-  - [ ] Move the domain entry points to `pipeline/`.
-  - [ ] Update the build-script paths.
-  - [ ] Update docs and notes references.
-- [ ] P0.5 Reconstruct the changelog and docs index (#7)
-  - [ ] Reconstruct the pre-retrofit prototype entry.
-  - [ ] Add the P0 entry.
-  - [ ] Add `docs/llms.txt` and API pages.
-  - [ ] Correct the README status and reading paths.
-- [ ] P0.6 Verify with the dashboard and CI, then queue the close-out (#8)
-  - [ ] Run the dashboard, validator, and docs build.
-  - [ ] Open the phase pull request and confirm CI.
-  - [ ] Write and post the P0 close-out report.
+- [x] P0.1 Add the workflow contract and quality gates (#3)
+  - [x] Add `AGENTS.md`, `CONTRIBUTING.md`, and `CHANGE_LOG.md`.
+  - [x] Add the notes index, ADR template, and close-out template.
+  - [x] Add the validator, dashboard, tests, and CI.
+  - [x] Add `docs/llms.txt` and the API reference pages.
+- [x] P0.2 Retrofit the roadmap and GitHub issue tree (#4)
+  - [x] Add phase metadata, unique task IDs, and acceptance criteria.
+  - [x] Reconcile issue `#1` as the planned P1 parent.
+  - [x] Link the P0 child issues to parent `#2`.
+- [x] P0.3 Record the prototype decisions as ADRs (#5)
+  - [x] Record the proposed boundary and derived THLB/AAC.
+  - [x] Record the TSA-prefixed AU decision.
+  - [x] Record the no-AAC-tuning rule.
+  - [x] Record the workflow/pipeline separation.
+- [x] P0.4 Separate pipeline scripts from workflow scripts (#6)
+  - [x] Move the domain entry points to `pipeline/`.
+  - [x] Update the build-script paths.
+  - [x] Update docs and notes references.
+- [x] P0.5 Reconstruct the changelog and docs index (#7)
+  - [x] Reconstruct the pre-retrofit prototype entry.
+  - [x] Add the P0 entry.
+  - [x] Add `docs/llms.txt` and API pages.
+  - [x] Correct the README status and reading paths.
+- [x] P0.6 Verify with the dashboard and CI, then queue the close-out (#8)
+  - [x] Run the dashboard, validator, and docs build.
+  - [x] Open the phase pull request and confirm CI.
+  - [x] Write and post the P0 close-out report.
 
 Acceptance criteria:
 
@@ -142,8 +142,6 @@ Acceptance criteria:
 
 ## Detailed Next Steps Notes
 
-1. Complete P0.1-P0.6 on `feature/p0-bootstrap` and keep the model untouched.
-2. Run `python scripts/dashboard.py` and `python scripts/check_workflow.py`; fix every failure.
-3. Open the P0 pull request with `Part of #2`; confirm CI; write the P0 close-out report.
-4. Wait for the maintainer to approve the close-out before merging, closing issues, or activating P1.
-5. P1 starts with the GNN boundary/output review and the ground-plot evidence, not with curve tuning.
+1. P0 is queued in PR #9. The dashboard and CI are green on the code head.
+2. Wait for the maintainer to approve `notes/reports/p0-closeout.md` before merging, closing issues, or activating P1.
+3. P1 starts with the GNN boundary/output review and the ground-plot evidence, not with curve tuning.
