@@ -34,6 +34,14 @@ Working rule:
   only after a licence/provenance review.
 - Do not describe the deck as current without checking the report date.
 
+## Extraction status
+
+A draft extractor is at `pipeline/extract_coast_log_prices.py`. It writes a local
+deck under `runtime/p3/`; the values are not committed. The first run produced 47
+old-growth and 29 second-growth species/grade prices, but the PDF cell mapping is
+not yet validated: merged/centered cells can shift a value to a neighbouring
+species column. The draft deck must be checked against the PDF before use.
+
 ## Extraction plan
 
 1. Download the old-growth and second-growth three-month PDFs for the chosen

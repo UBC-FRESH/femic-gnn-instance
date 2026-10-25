@@ -30,8 +30,15 @@ Result:
 - productivity: 45.40 m3/PMH
 - single-machine cost: 5.51 CAD/m3
 
+The FHOPS CLI also runs after installing `optuna`, `pyomo`, and `highspy`. The
+same synthetic grapple-yarder case (`fhops dataset estimate-cost`) returned:
+
+- rental rate: 563.67 CAD/SMH
+- productivity: 45.40 m3/PMH15
+- cost: 13.80 CAD/m3
+
 This is **one machine**, not a full harvest system, and the stand values are
-synthetic. It proves the cost core runs; it is not a GNN cost estimate.
+synthetic. It proves the cost core and CLI run; it is not a GNN cost estimate.
 
 ## Next
 

@@ -173,3 +173,14 @@ followed the workflow at the time.
 - Ran a synthetic single-machine cost smoke test; it is not a GNN result.
 - The grade/sort recovery matrix is still missing; net revenue is not credible
   until it exists.
+### P3.3/P3.4 local price deck and FHOPS CLI smoke test
+
+- Added a draft local extractor for the BC Coast Log Market Reports; the first
+  run wrote 47 old-growth and 29 second-growth species/grade prices to the
+  gitignored `runtime/p3/` path.
+- The extraction is **not validated**: merged cells can shift values between
+  species columns. No price values are committed.
+- FHOPS CLI now runs after installing `optuna`, `pyomo`, and `highspy`; the
+  synthetic grapple-yarder estimate is 13.80 CAD/m3 for one machine.
+- The grade/sort recovery matrix is still missing; net revenue remains
+  incomplete.
