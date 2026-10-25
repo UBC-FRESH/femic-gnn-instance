@@ -96,8 +96,7 @@ Missing or not yet materialized:
 - No curves, AAC, THLB, or volume targets are changed to make a cost result look
   better.
 
-## References
-
+- One-block sample: `notes/reference/block-sample-14379.md`
 - Price source and use limits: `notes/reference/log-price-sources.md`
 - FHOPS smoke test: `notes/reference/fhops-smoke-test.md`
 - FHOPS data contract: `fhops/docs/howto/data_contract.rst`

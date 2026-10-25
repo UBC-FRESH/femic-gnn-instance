@@ -194,3 +194,14 @@ followed the workflow at the time.
   as partial public sources; documented what is still missing.
 - The sustainable gate must reject this matrix until observed cruise/mill
   recovery replaces it.
+### P3.4 one-block terrain and operability sample
+
+- Sampled block 14379: 17.0 ha, 749.6 m3/ha, 782 stems/ha, 0.959 m3 average
+  stem; VRI checkpoint clipped to the block.
+- Terrain from AWS Terrarium tiles: 58.75% mean slope, 79.05% p90, 548.9 m mean
+  elevation.
+- FHOPS's ground-based Lahrsen model rejects the block because 58.75% exceeds
+  its 48.9% observed range. The block must be cable/heli-costed.
+- Added `config/cost_revenue/samples/block_14379.csv` and
+  `notes/reference/block-sample-14379.md`.
+- No GNN net revenue or sustainable label is claimed.
