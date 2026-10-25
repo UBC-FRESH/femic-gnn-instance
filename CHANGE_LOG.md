@@ -123,3 +123,12 @@ followed the workflow at the time.
   ground-plot evidence, the TSA 46 SI dependency, and the decade-10 end-effect.
 - P1.1 is recorded as deferred by the maintainer; no external review is claimed.
 - No model, curve, target, THLB, AAC, or benchmark change.
+### P2.2 queue the prototype release
+
+- P2 release notes and known gaps are in `notes/releases/v0.1.0-prototype.md`
+  and `docs/release.rst`.
+- `CITATION.cff` is version `0.1.0`; PR #20 is open with CI run `40172281409`
+  passing.
+- The P2 close-out is queued at `notes/reports/p2-closeout.md`.
+- The tag `v0.1.0-prototype` and GitHub pre-release execute after the merge.
+- No model, curve, target, THLB, AAC, or benchmark change.

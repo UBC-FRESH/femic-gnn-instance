@@ -14,7 +14,7 @@ after its parent issue exists and the maintainer approves it.
 | --- | --- | --- | --- |
 | P0 Bootstrap and workflow retrofit | #2 | `feature/p0-bootstrap` | complete |
 | P1 Validation and hardening | #1 | `feature/p1-validation-hardening` | complete |
-| P2 Release and hand-off | #17 | `feature/p2-release` | active |
+| P2 Release and hand-off | #17 | `feature/p2-release` | pr-open |
 
 ## Lifecycle Map
 
@@ -124,7 +124,7 @@ Acceptance criteria:
 
 Parent issue: #17
 Branch: `feature/p2-release`
-Status: active
+Status: pr-open
 
 Goal: release the prototype only after the P1 gates and a separate approval.
 
