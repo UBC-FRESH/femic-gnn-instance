@@ -378,3 +378,16 @@ followed the workflow at the time.
 - P6.1 is `pr-open` in PR #38. The P6 close-out report is queued at
   `notes/reports/p6-closeout.md`; no published transport switch or model change is authorized.
 - P6 merged as `c9fcb8c` (PR #38); task #37 and parent #36 are closed. The public-route proxy is complete as a diagnostic; the published transport base remains legacy.
+
+### P7.1 solved Quatsino-Ladysmith marine transport
+
+- Switched the GNN Quatsino Sound -> Ladysmith proxy from the analytical workaround to solved FHOPS
+  Phase I after FHOPS P13 landed.
+- Solved results: **8.125 / 9.203 / 11.360 CAD/m3** at 100/75/50% utilisation; the analytical
+  cross-check matches to the cent.
+- Corrected the GNN adapter fixed-cost basis: truck fixed cost uses actual loading/unloading days,
+  and barge fixed cost uses the full voyage occupancy.
+- Solved voyage: departure day 1, cargo arrival day 5, occupancy 8 days, demand day 8.
+- Published legacy screen unchanged; the proxy remains diagnostic and not a quote.
+- P7.1 is `pr-open` in PR #41. The P7 close-out report is queued at
+  `notes/reports/p7-closeout.md`; no release, tag, or published transport switch is authorized.

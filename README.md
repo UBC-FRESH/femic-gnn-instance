@@ -23,7 +23,7 @@ operational release.
 
 ## Economic screening (diagnostic)
 
-Full derived THLB: **95.5% positive** in the base screening case (88.0-96.8% across price/recovery). It uses class-average full-system costs, coarse terrain, provisional recovery, and legacy transport. A separate FHOPS marine API test is available with `--transport fhops-marine`; its fixture is Sunshine Coast -> Howe Sound, not the northern Vancouver Island GNN geography, so it is not a GNN transport estimate. An internal public-route proxy uses Quatsino Sound -> Ladysmith Harbour; it is diagnostic only and not the published base. Neither result is sustainable or financially calibrated.
+Full derived THLB: **95.5% positive** in the base screening case (88.0-96.8% across price/recovery). It uses class-average full-system costs, coarse terrain, provisional recovery, and legacy transport. A separate FHOPS marine API test is available with `--transport fhops-marine`; its fixture is Sunshine Coast -> Howe Sound, not the northern Vancouver Island GNN geography, so it is not a GNN transport estimate. An internal public-route proxy uses Quatsino Sound -> Ladysmith Harbour; it now runs as a solved FHOPS Phase I case, is diagnostic only, and is not the published base. Neither result is sustainable or financially calibrated.
 
 ## Prototype result
 

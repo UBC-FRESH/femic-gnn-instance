@@ -108,13 +108,12 @@ is labelled `public_route_assumption_rates` and is not the published base.
 
 The proxy is documented in `notes/reference/gnn-marine-proxy.md`.
 
-## FHOPS multi-day limitation
+## Solved multi-day voyage
 
-FHOPS Phase I limits a barge fleet to one day of working minutes. The Quatsino
--> Ladysmith barge cycle is about 3,955 minutes, so a single barge is infeasible
-and adding extra barges would fake the fleet. The proxy therefore uses an
-analytical calculation from the validated FHOPS marine lane contract, not a
-solved Phase I plan. Tracked upstream at `UBC-FRESH/fhops#196`.
+FHOPS P13 resolved the earlier one-day limitation. The Quatsino -> Ladysmith
+proxy now runs as a solved Phase I voyage: departure day 1, cargo arrival day 5,
+barge occupancy 8 days, demand day 8, and one barge trip. The analytical
+calculation is retained only as a cross-check.
 
 ## Missing data
 

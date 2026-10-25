@@ -17,7 +17,7 @@ geography_status: gnn_public_route_proxy
 scenario: config/cost_revenue/transport/fhops_marine_quatsino_ladysmith/scenario.yaml
 horizon_days: 8
 demand_mode: last_day
-mode: analytical
+mode: solve
 source: "Seaspan Log Barging 101 (2023-05-12); TFL 6 Annual Reports 1999/2000; FHOPS marine mechanics"
 upstream_issue: "https://github.com/UBC-FRESH/fhops/issues/187"
 upstream_commit: "f788d7a63113c52159b3a9dbef449d6faf8325e9"

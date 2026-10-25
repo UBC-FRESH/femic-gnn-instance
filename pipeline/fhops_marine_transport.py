@@ -397,7 +397,8 @@ def estimate_marine_transport(
         demand_mode=demand_mode,
         fhops=fhops,
     )
-    result = solve_flow(build_flow_problem(scenario), objective="cost", solver="highs")
+    problem = build_flow_problem(scenario)
+    result = solve_flow(problem, objective="cost", solver="highs")
     if result.status not in {"optimal", "feasible"}:
         raise RuntimeError(f"FHOPS marine solve did not converge: status={result.status}")
     if result.cost_objective is None:
@@ -427,13 +428,27 @@ def estimate_marine_transport(
     if config is None:
         raise RuntimeError("Scenario lost its hauling config")
     route = config.marine_routes[0]
+    lane = problem.marine_lanes[route.id]
     truck_type = next(
         item for item in config.truck_types if item.id == route.truck_type_id
     )
     barge_type = config.barge_type(config.water_arc(route.water_arc_id).barge_type_id)
+    loads = math.ceil(water_m3 / truck_type.capacity_m3)
+    truck_days = max(
+        1,
+        math.ceil(
+            loads
+            * max(lane.pickup_cycle_minutes, lane.delivery_cycle_minutes)
+            / (trucks_used * config.driver_policy.regular_minutes)
+        ),
+    )
+    barge_days = max(
+        1,
+        math.ceil(lane.barge_cycle_minutes / config.driver_policy.regular_minutes),
+    )
     fixed_cost = (
-        trucks_used * truck_type.fixed_cost * horizon_days
-        + barges_used * barge_type.fixed_cost * horizon_days
+        trucks_used * truck_type.fixed_cost * truck_days
+        + barges_used * barge_type.fixed_cost * barge_days
     )
     total = float(result.cost_objective) + fixed_cost
     capacity = barge_type.capacity_m3
@@ -500,6 +515,7 @@ def estimate_analytical_proxy(
     if config is None:
         raise RuntimeError("Scenario lost its hauling config")
     route = config.marine_routes[0]
+    lane = problem.marine_lanes[route.id]
     truck_type = next(
         item for item in config.truck_types if item.id == route.truck_type_id
     )

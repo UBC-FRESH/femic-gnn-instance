@@ -1,7 +1,7 @@
 # GNN public-route marine proxy
 
 Date: 2026-10-25
-Status: diagnostic proxy; public route, assumed rates and capacity.
+Status: solved FHOPS Phase I proxy; public route and assumed rates/capacity.
 
 ## Route evidence
 
@@ -72,36 +72,35 @@ Run:
 ```bash
 python pipeline/fhops_marine_transport.py \
   --config config/cost_revenue/transport/fhops_marine_quatsino_ladysmith.yaml \
-  --out runtime/p6/quatsino_ladysmith_proxy.csv
+  --out runtime/p7/quatsino_ladysmith_solved.csv
 ```
 
-| Case | Volume | Utilization | CAD/m3 |
-| --- | ---: | ---: | ---: |
-| Low cost | 10,000 m3 | 100% | 8.125 |
-| Base | 7,500 m3 | 75% | 9.203 |
-| High cost | 5,000 m3 | 50% | 11.360 |
+| Case | Volume | Utilization | Solved Phase I | Analytical comparison |
+| --- | ---: | ---: | ---: | ---: |
+| Low cost | 10,000 m3 | 100% | 8.125 | 8.125 |
+| Base | 7,500 m3 | 75% | 9.203 | 9.203 |
+| High cost | 5,000 m3 | 50% | 11.360 | 11.360 |
 
 The P4 API fixture was 5.642/6.100/7.097 CAD/m3. The public-route proxy is
 higher because the water leg is much longer and the route cycle spans days.
 
-## FHOPS limitation
+## Solved Phase I
 
-FHOPS Phase I cannot solve this voyage directly. Its barge fleet constraint
-allows `regular_minutes` (510) of barge work per day. The Quatsino -> Ladysmith
-barge cycle is 3,955 minutes, so a single barge is infeasible and adding eight
-barges would be a fake fleet.
+FHOPS P13 merged the multi-day model at `de678318`. The Quatsino -> Ladysmith
+voyage is now solved by Phase I:
 
-The adapter therefore uses an **analytical proxy** built from the validated
-FHOPS marine lane contract:
+- departure day 1;
+- cargo arrival day 5;
+- barge occupancy 8 days;
+- demand day 8;
+- one barge trip.
 
-- barge trips = ceil(volume / barge capacity);
-- barge variable cost from the lane's cycle and per-minute rate;
-- drayage from the lane's pickup/delivery cost per m3;
-- terminal handling from the lane's per-trip costs;
-- barge fixed cost for the number of days the cycle spans; and
-- truck fixed cost for a feasible peak drayage fleet.
+The analytical calculation is retained as a cross-check. The two paths agree
+to the cent when the fixed-cost basis is the same: truck fixed cost uses the
+actual loading/unloading day count, while barge fixed cost uses the full
+voyage occupancy.
 
-It is not a solved Phase I plan. Tracked upstream at `UBC-FRESH/fhops#196`.
+The prior FHOPS limitation is closed at `UBC-FRESH/fhops#196`.
 
 ## Limits
 
