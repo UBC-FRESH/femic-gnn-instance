@@ -5,7 +5,7 @@ The prototype keeps **39 TSA-prefixed AUs**. Thirty-seven have clipped area;
 two TSA 46 CWH_FDC AUs have no rows.
 
 Why not merge?
--------------
+---------------
 
 Nominal matches such as ``CWH_CW H`` have very different TSA 46 and TSA 47
 curves. Volume at age 100:
