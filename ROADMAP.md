@@ -96,10 +96,10 @@ not tune curves to the derived AAC.
   - [x] Filter public plots to the GNN AOI.
   - [x] Report sample size, source, and bias by type.
   - [x] State whether the evidence supports an accuracy conclusion.
-- [ ] P1.3 Resolve the TSA 46 SI/origin accuracy issue with the base-model owner (#12)
-  - [ ] Link the base-model issue.
-  - [ ] Record the GNN consequence for the dominant CWH_CW H cell.
-  - [ ] Do not merge AUs to hide the difference.
+- [x] P1.3 Resolve the TSA 46 SI/origin accuracy issue with the base-model owner (#12)
+  - [x] Link the base-model issue.
+  - [x] Record the GNN consequence for the dominant CWH_CW H cell.
+  - [x] Do not merge AUs to hide the difference.
 - [ ] P1.4 Decide the derived THLB/AAC status (#13)
   - [ ] Keep the derived values labelled non-legal.
   - [ ] Decide whether a reviewed netdown is required before release.

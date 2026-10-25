@@ -74,3 +74,11 @@ followed the workflow at the time.
 - Added `config/tsr/gnn_ground_plot_inventory.csv`,
   `config/tsr/gnn_psp_validation_tsa46.csv`, and the summary table.
 - No curve, THLB, AAC, or benchmark change.
+### P1.3 inherited TSA 46 SI/origin issue
+
+- Opened base-model issue `UBC-FRESH/femic#343` for the TSA 46 checkpoint SI
+  understatement in managed stands.
+- Recorded the GNN exposure: TSA 46 is 34.7% of the derived THLB; CWH_CW H is
+  13.9%, CWH_CW M 7.1%, and CWH_HW H 5.3%.
+- Kept TSA-prefixed AUs; no managed-SI switch and no AAC tuning. The base issue
+  remains an open dependency.
