@@ -99,6 +99,29 @@ so individual block results will flip before the aggregate does. See
 <https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reports/shared-cost-headroom.md>`_.
 
 
+Public access exposure for the candidate schedule:
+
+- **11.9%** of candidate blocks touch a DRA road;
+- **26.3%** are within 100 m of a road;
+- **45.8%** are within 500 m;
+- **247 blocks** have mapped FWA stream intersections (**527** crossings);
+- median straight-line distance to a road is **631 m**;
+- median distance to the Natural Earth coastline is **9.4 km**.
+
+These are exposure measures, not road, crossing, terminal, haul, or barge
+costs. See `notes/reports/access-exposure.md
+<https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reports/access-exposure.md>`_.
+
+.. figure:: _static/access_exposure_map.png
+   :width: 100%
+   :alt: Candidate blocks colored by distance to existing DRA roads over a pale basemap
+   :align: center
+
+   Candidate schedule distance to existing DRA roads. Red blocks are over
+   500 m from a mapped road, not necessarily without access. Exposure only;
+   no cost is assigned.
+
+
 .. figure:: _static/block_revenue_map.png
    :width: 100%
    :alt: Map of direct-positive and direct-negative blocks, removed negative blocks, and the positive replacement schedule
