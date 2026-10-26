@@ -9,6 +9,8 @@
 - [Model build](model-build.html): the combined TSA 46/47 build method and commands, plus the optional terrain/canopy indicator path.
 - [Terrain/VRI/LiDAR indicators](indicators.html): what is model-wide, what is a bounded pilot, validation results, and the no-model-semantics rule.
 - [AU structure](aus.html): why TSA-prefixed AUs are kept and why a reporting crosswalk is used.
+- [AU curve appendix](au-curves.html): all 39 TSA-prefixed AU curve plots, with links to individual figures.
+- [Glossary](glossary.html): plain-language definitions for AAC, THLB, VRI, FHOPS, SI, and other terms.
 - [AOI](aoi.html): proposed GNN Statement of Intent boundary provenance and areas.
 - [Boundary review](review.html): review status, questions, and the no-confirmation rule.
 - [Release notes](release.html): the prototype release, known gaps, and caveats.

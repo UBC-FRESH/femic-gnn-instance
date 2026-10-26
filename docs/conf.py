@@ -22,6 +22,7 @@ napoleon_google_docstring = False
 napoleon_use_param = True
 napoleon_use_rtype = False
 
+html_static_path = ["_static"]
 html_theme = "sphinx_rtd_theme"
 html_title = "FEMIC GNN Instance"
 html_extra_path = ["llms.txt"]
