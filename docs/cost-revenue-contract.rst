@@ -7,8 +7,9 @@ Purpose
 -------
 
 This contract makes every block and treatment traceable from volume to net
-revenue. It is the interface between the ws4 schedule, FHOPS harvest costs, a
-haul/barge layer, and a grade/sort price deck.
+revenue. It is the interface between the WS4 schedule, Forest Harvesting
+Operations Planning System (FHOPS) harvest costs, a haul/barge layer, and a
+grade/sort price deck.
 
 No row may carry a price, cost, or recovery value without provenance. A
 scenario cannot be labelled "sustainable" from this contract alone; it must also
@@ -17,7 +18,8 @@ pass the operability and financial gates.
 Tables
 ------
 
-### 1. `block_treatment_cost.csv`
+1. ``block_treatment_cost.csv``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 One row per block x treatment x year.
 
@@ -89,7 +91,8 @@ One row per block x treatment x year.
      - text
      - `synthetic`, `prototype`, `upstream_fhops_fixture_api_test`, or `reviewed`.
 
-### 2. `block_treatment_assortment.csv`
+2. ``block_treatment_assortment.csv``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 One row per block x treatment x year x species/grade/sort.
 
@@ -169,24 +172,80 @@ Validation rules
 - Provenance fields must be non-empty.
 - A `sustainable` scenario may not contain `operability_class=unknown`,
   `data_status=synthetic`, or missing prices/costs.
+- Every scheduled block must have ``direct_net_revenue_cad`` and
+  ``net_revenue_cad``. A negative block must be excluded or marked
+  ``forced_access=true`` with a stated reason.
+- The sum of shared-pool allocations must equal the pool total within the
+  documented tolerance.
 - Cable and helicopter blocks must be reported separately; they may not be
   folded into a ground-based average.
 
-Net revenue
------------
+Net revenue and shared costs
+----------------------------
 
 For each block x treatment x year:
 
-``net_revenue_cad = sum(revenue_cad) - total_cost_cad``
+``direct_net_revenue_cad = sum(revenue_cad) - direct_cost_cad``
 
-The scenario report must show:
+``net_revenue_cad = direct_net_revenue_cad - allocated_shared_cost_cad``
 
-- gross revenue,
-- harvest, move-in, road, haul, barge, and overhead cost,
-- net revenue by year and decade,
-- NPV at a documented discount rate,
-- the share of volume with complete cost/revenue coverage,
-- loss-making blocks and unsupported systems.
+Direct costs stay with the block: harvest, move-in, block-specific haul,
+block-specific barge/terminal charges, and directly attributable overhead.
+
+Costs that serve multiple blocks are placed in a **shared-cost pool** and
+allocated with a documented driver. Examples:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 25 45
+
+   * - Shared cost
+     - Preferred driver
+     - Rule
+   * - Road construction, decommissioning, landings, culverts, bridges
+     - volume served, area served, or scheduled access-years
+     - Pool by road segment/landing. Amortise over the scheduled blocks and
+       years that use it; true up any residual at the end of the scenario.
+   * - Terminal fixed cost, boom tending, storage
+     - volume or trips
+     - Allocate to the blocks using that terminal. Do not also charge the same
+       terminal cost directly to a block.
+   * - Shared truck or barge fixed cost
+     - volume, tonne-km, or trips
+     - Use one documented driver consistently within a scenario.
+   * - General overhead
+     - volume or area
+     - If a defensible driver is unavailable, report it as unallocated and
+       flag the block result as incomplete.
+
+Required fields:
+
+- ``direct_cost_cad``
+- ``allocated_shared_cost_cad``
+- ``net_revenue_cad``
+- ``shared_cost_pool_id``
+- ``allocation_method``
+- ``allocation_basis``
+- ``allocation_year``
+- ``forced_access``
+
+Rules:
+
+- A cost belongs to either a block or a shared pool, never both.
+- The sum of allocations from a pool must equal the pool total within a stated
+  tolerance.
+- If a cost cannot be allocated defensibly, report the block's direct result
+  and the unallocated balance separately. Do not invent an allocation.
+- A block may be negative on direct cost but positive after shared allocation,
+  or the reverse. Show both numbers.
+- A negative block may be scheduled only if it is explicitly marked
+  ``forced_access=true`` and the scenario report states the reason, the shared
+  cost it enables, and the scenario-level effect. It is not hidden by a
+  positive decade.
+- The scenario report must show gross revenue; direct, shared, and total cost;
+  direct and allocated net revenue by block; net revenue by year and decade;
+  NPV at a documented discount rate; cost/revenue coverage; loss-making blocks;
+  and forced-access exceptions.
 
 Sustainable gate
 ----------------
@@ -196,9 +255,13 @@ A scenario cannot be labelled "sustainable" unless:
 1. Every scheduled block has a feasible operability class and harvest system.
 2. Haul and barge assumptions are explicit and sourced.
 3. Every volume has a grade/sort and a dated price, or a documented residual.
-4. Net revenue is non-negative by decade under the base deck.
-5. NPV is non-negative under the base deck.
-6. A documented price/cost sensitivity does not reverse a positive conclusion.
+4. Every scheduled block has non-negative ``net_revenue_cad`` under the base
+   deck after documented shared-cost allocation. A negative block must be
+   excluded, or marked ``forced_access=true`` with a stated reason and a
+   scenario-level reconciliation.
+5. Net revenue is also non-negative by decade under the base deck.
+6. NPV is non-negative under the base deck.
+7. A documented price/cost sensitivity does not reverse a positive conclusion.
 
 Failure of any item leaves the scenario at "volume-only" or "costed prototype",
 not "sustainable".

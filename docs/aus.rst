@@ -54,6 +54,19 @@ Merging would require choosing one curve and hiding the other provenance.
 Instead, the model keeps TSA-specific AUs and uses a **reporting-only crosswalk**
 (``CWH_FDC`` -> ``CWH_FD``, ``MH_H`` -> ``MH_HM``).
 
+.. figure:: _static/figures/si_stratum_violin.png
+   :width: 100%
+   :alt: Violin plots of checkpoint site index distributions for same-named strata in TSA 46 and TSA 47
+   :align: center
+
+   Checkpoint site index distributions for same-named strata, by TSA and SI
+   level. Violin width shows the distribution; the black line is the median.
+   Source: GNN checkpoint. The distributions are not pooled in the model.
+
+The figure shows the SI evidence behind the same-named cells. It does not make
+the curves interchangeable: TSA 46 and TSA 47 retain separate AUs. See
+:doc:`au-curves` for all 39 AU curve plots and the untreated/treated comparison.
+
 Concentration
 -------------
 

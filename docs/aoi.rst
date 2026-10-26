@@ -15,9 +15,11 @@ Boundary source
    :align: center
 
    The GNN AOI is the proposed SOI polygon clipped to the TSA 46/47 union
-   (682,155 ha). The dashed outline is the full proposed SOI (703,418 ha).
-   Source: BCGW First Nation Statement of Intent Boundaries BC; EPSG:3005.
-   This is a proposed boundary, not a legal title determination.
+   (682.2 thousand ha). The dashed outline is the full proposed SOI
+   (703.4 thousand ha). Boundary source: BCGW First Nation Statement of Intent
+   Boundaries BC; EPSG:3005. Pale basemap: `OpenStreetMap contributors
+   <https://www.openstreetmap.org/copyright>`_. This is a proposed boundary, not
+   a legal title determination.
 
 This is the proposed Statement of Intent boundary. It is not a final treaty
 boundary or a legal title determination. The BC Treaty Commission states that

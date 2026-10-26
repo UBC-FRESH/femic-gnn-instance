@@ -4,16 +4,32 @@ Economic screening
 Status: **diagnostic screening**, not a sustainable or financially calibrated
 result. The model release remains volume-only.
 
+What This Page Shows
+--------------------
+
+This page asks a limited question:
+
+> If the current class-average harvest and transport assumptions are applied,
+> which part of the assumed timber harvesting land base has positive net
+> revenue?
+
+The answer is an area share under those assumptions. It is not a financial
+forecast, a current quote, or a sustainable harvest level.
+
+The screen is at the polygon level of the **Vegetation Resources Inventory
+(VRI)**. The **timber harvesting land base (THLB)** is the area assumed
+available for timber harvest in this prototype. It is derived, not a legal
+land-base determination. See :doc:`glossary` for terms.
+
 Coverage
 --------
 
-The screen covers **53.0 thousand ha of derived THLB** at the VRI
-checkpoint-polygon level.
+The screen covers **53.0 thousand ha of derived THLB**.
 
-Result
-------
+Results
+-------
 
-Positive net unit revenue:
+Positive net revenue by case:
 
 .. list-table::
    :header-rows: 1
@@ -32,13 +48,23 @@ Positive net unit revenue:
      - 51.3
      - **96.8%**
 
-By operability (base):
+"Positive THLB" means area where modeled log value exceeds modeled harvest and
+transport cost. It does not include road/landing construction, overhead,
+profit, or silviculture cost.
+
+This page is an area screen, not a schedule. A block-level gate is defined in
+:doc:`cost-revenue-contract`: do not schedule a block with negative net revenue
+under the base deck unless it is explicitly marked as a forced access or
+infrastructure block with a stated reason. The 4.5% of THLB that is non-positive
+in the base case is the area that gate would exclude.
+
+By harvest system in the base case:
 
 .. list-table::
    :header-rows: 1
    :widths: 24 20 18 22
 
-   * - Class
+   * - Harvest system
      - THLB (thousand ha)
      - Share
      - Positive share
@@ -50,62 +76,68 @@ By operability (base):
      - 12.3
      - 23.3%
      - 97.4%
-   * - Heli candidate
+   * - Helicopter candidate
      - 11.6
      - 21.9%
      - 90.8%
 
-Sensitivity: 87.8% positive at 2x harvest cost; 92.3% at 30 CAD/m3 transport.
+Sensitivity: **87.8%** of the THLB is positive at twice the modeled harvest
+cost; **92.3%** is positive at a transport cost of **$30/m³**.
 
-Method and limits
------------------
+Assumptions and Limits
+----------------------
 
-- This screen uses coarse DEM (zoom 11), centroid slope. It is not LiDAR and
-  not a block zonal mean.
-- The 30 m Terrarium/VRI fields are **not used** in this screen. They are
-  descriptive proxies; see :doc:`indicators`. The 10 m LiDAR pilot is not
-  model-wide.
-- Class-average full-system costs from the FHOPS registry:
-  ground 15.37, cable 17.77, helicopter 78.13 CAD/m3.
-- Legacy CLEWs/FFCM transport: 10.961 CAD/m3 at 100 km truck + 100 km barge +
-  transload; not a current quote.
-- Local reviewed BC log price deck for 2026-01-31; raw prices are not
-  redistributed.
-- Provisional recovery matrix; reject/waste 2/5/10%.
-- No road/landing construction, overhead, profit, or silviculture cost.
+- **Terrain.** The screen uses a coarse digital elevation model (DEM) sampled
+  at one point per polygon. It is not LiDAR and not a block-level slope mean.
+- **Newer terrain fields.** The 30 m public terrain and VRI fields are
+  descriptive and are **not used** here. The 10 m LiDAR pilot is not
+  model-wide. See :doc:`indicators`.
+- **Harvest cost.** Class-average whole-system costs from the Forest Harvesting
+  Operations Planning System (FHOPS): ground **$15.37/m³**, cable
+  **$17.77/m³**, helicopter **$78.13/m³**. These are registry averages, not
+  current contractor rates.
+- **Transport cost.** The legacy assumption is 100 km truck + 100 km barge +
+  transload at **$10.96/m³**. A transload is a transfer between truck and
+  barge. This is an assumption, not a current carrier quote.
+- **Prices.** BC Coast Log Market Reports for the three months ending
+  2026-01-31. The public source reports are the
+  `second-growth report <https://www2.gov.bc.ca/assets/gov/farming-natural-resources-and-industry/forestry/timber-pricing/coast-timber-pricing/coast-log-reports/3m2gc_jan_26.pdf>`_
+  and the
+  `old-growth report <https://www2.gov.bc.ca/assets/gov/farming-natural-resources-and-industry/forestry/timber-pricing/coast-timber-pricing/coast-log-reports/3mc_jan_26.pdf>`_.
+  The local extracted deck and its manual check are recorded in the
+  `price-source note <https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reference/log-price-sources.md>`_
+  and the `price-deck validation note <https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reference/price-deck-validation.md>`_.
+  The extracted table is retained locally for reproducibility and is not
+  redistributed; use the linked public reports to review or challenge the
+  prices.
+- **Recovery.** A provisional log grade and product recovery matrix, with
+  reject/waste cases of 2%, 5%, and 10%.
+- **Missing costs.** Road and landing construction, overhead, profit, and
+  silviculture are excluded.
 
-FHOPS marine API test (not GNN geography)
------------------------------------------
+Marine Transport Test
+---------------------
 
-FHOPS marine/barge hauling is available from upstream issue `#187` (merged as
-`f788d7a6`), and the instance has an opt-in adapter:
+FHOPS includes a marine/barge transport test. The test route is a synthetic
+**Sunshine Coast to Howe Sound** case. It is not a GNN route or a current quote,
+and it is not used in this screen. A separate internal route test uses
+**Quatsino Sound to Ladysmith Harbour**; it is diagnostic only and is not used
+here.
 
-```bash
-python pipeline/fhops_marine_transport.py --out runtime/p4/fhops_marine_cost.csv
-python pipeline/full_thlb_screening.py ... --transport fhops-marine
-```
+The GNN area of interest is northern Vancouver Island. There is no confirmed
+GNN terminal, current carrier rate, or observed route distance in this
+prototype.
 
-The only marine fixture is a synthetic **Sunshine Coast -> Howe Sound** case.
-The GNN AOI is **northern Vancouver Island**. The fixture is an API/cost-path
-test, not a GNN transport estimate, terminal inventory, or current quote. There
-is no GNN-specific terminal, route, distance, or carrier-rate dataset yet. The
-published screen remains the legacy CLEWs/FFCM result above.
+What This Does Not Mean
+-----------------------
 
-See `notes/reference/gnn-marine-geography.md
-<https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reference/gnn-marine-geography.md>`_.
+This is a screening estimate. It does not establish that a block is profitable,
+operable, or sustainable. It does not replace:
 
-A separate internal proxy uses the public Quatsino Sound -> Ladysmith Harbour
-route and runs as a solved FHOPS Phase I case. It is diagnostic only, not used in
-this screen, and documented in
-`notes/reference/gnn-marine-proxy.md
-<https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reference/gnn-marine-proxy.md>`_.
+- a reviewed land-base determination,
+- current contractor and carrier quotes,
+- observed log grade and product recovery, or
+- field validation of terrain and stand data.
 
-This is a screening estimate. It does not justify a sustainable or profitable
-label, and it does not replace a reviewed GNN netdown, current carrier quotes,
-or observed grade/sort recovery.
-
-See `notes/reference/fhops-marine-transport.md
-<https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reference/fhops-marine-transport.md>`_.
-
-Notes: `notes/reference/full-thlb-screening.md` and
-`notes/reference/net-revenue-screening.md`.
+Terms are defined in :doc:`glossary`. Inputs and limits are also recorded in
+the internal reference notes.

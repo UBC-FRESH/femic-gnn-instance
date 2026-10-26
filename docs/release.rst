@@ -62,7 +62,7 @@ case, 88.0-96.8% across the price/recovery range. It uses class-average system
 costs, coarse DEM centroid terrain, provisional recovery, and legacy barge/truck
 rates. The descriptive terrain/VRI fields are not used in this screen. It is
 **not** a financial assessment, not a current quote, and not a sustainable
-label. See :doc:`economic-screening`.
+label. See :doc:`economic-screening` and :doc:`glossary`.
 
 Links
 -----

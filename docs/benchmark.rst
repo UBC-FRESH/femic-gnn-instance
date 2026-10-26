@@ -4,8 +4,7 @@ Prototype benchmark
 This is a **volume-only prototype benchmark**, not a legal AAC and not a
 "sustainable harvest level". It has no validated operability, cost, or net
 revenue model. A diagnostic economic screen and descriptive terrain/VRI
-indicators exist, but they are not part of this volume benchmark. See :doc:`release` and
-:doc:`indicators`.
+indicators exist, but they are not part of this volume benchmark. See :doc:`release`, :doc:`indicators`, and :doc:`glossary`.
 
 This is a **derived prototype benchmark**, not a legal AAC.
 

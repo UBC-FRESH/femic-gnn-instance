@@ -66,7 +66,9 @@ See :doc:`model-build`, :doc:`benchmark`, and :doc:`aoi`.
    benchmark
    model-build
    indicators
+   glossary
    aus
+   au-curves
    aoi
    review
    release
