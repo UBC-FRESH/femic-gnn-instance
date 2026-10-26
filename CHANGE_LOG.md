@@ -447,3 +447,12 @@ followed the workflow at the time.
 - P10.1 merged as `d1509ea` (PR #51); task #50 closed.
 - Public docs refreshed; optional P9 path documented; partner note tracked.
 - P10 closed with no model, data, curve, THLB, AAC, or release-label change.
+
+### Block-level diagnostic revenue screen
+
+- Mapped the existing 7,848-polygon revenue screen to **7,848 GNN blocks**.
+- Found **478 negative direct-revenue blocks**, covering **2.4 thousand ha** of THLB (**4.5%**).
+- Negative share is **9.3%** for helicopter candidates, **3.4%** for ground, and **2.6%** for cable.
+- Left shared road/landing/terminal/overhead costs unallocated; this is a partial direct-cost gate, not a sustainable result.
+- Added the block list generator, report, and a link from the public economic screening page.
+- No model, curve, THLB, AAC, target, or benchmark change.
