@@ -10,9 +10,9 @@ proposed GNN Statement of Intent boundary.
 
 ## Status
 
-Prototype release `v0.1.0-prototype` is available. P0-P9 are complete; P9 added bounded LiDAR and public terrain/VRI **descriptive** indicators only. `ROADMAP.md` is the plan of record, and the GitHub issues carry the live status. The model is a **prototype**, not a legal or operational release.
+Prototype release `v0.1.0-prototype` is available. The prototype and its diagnostic/descriptive data layers are in place. Bounded LiDAR and public terrain/VRI indicators are **descriptive only**. `ROADMAP.md` records the project status, and the model remains a **prototype**, not a legal or operational release.
 
-> **Volume-only caveat:** This release does not contain a validated operability, cost, or net revenue model. A P3 diagnostic screen and P9 descriptive indicators exist, but the release label remains volume-only. It is not a "sustainable harvest level" and it is not financially assessed.
+> **Volume-only caveat:** This release does not contain a validated operability, cost, or net revenue model. A diagnostic economic screen and descriptive terrain/VRI indicators exist, but the release label remains volume-only. It is not a "sustainable harvest level" and it is not financially assessed.
 
 > **Warning:** The boundary is the **proposed GNN Statement of Intent** polygon,
 > not a final treaty boundary or a legal title determination. Confirm the
@@ -21,36 +21,35 @@ Prototype release `v0.1.0-prototype` is available. P0-P9 are complete; P9 added 
 
 ## Economic screening (diagnostic)
 
-Full derived THLB: **95.5% positive** in the base screening case (88.0-96.8% across price/recovery). It uses class-average full-system costs, coarse DEM centroid terrain, provisional recovery, and legacy transport. The P9 30 m Terrarium/VRI fields are not used in this screen, and the 10 m LiDAR pilot is not model-wide. A separate FHOPS marine API test is available with `--transport fhops-marine`; its fixture is Sunshine Coast -> Howe Sound, not the northern Vancouver Island GNN geography, so it is not a GNN transport estimate. An internal public-route proxy uses Quatsino Sound -> Ladysmith Harbour; it now runs as a solved FHOPS Phase I case, is diagnostic only, and is not the published base. Neither result is sustainable or financially calibrated.
+Full derived THLB: **95.5% positive** in the base screening case (88.0-96.8% across price/recovery). It uses class-average full-system costs, coarse DEM centroid terrain, provisional recovery, and legacy transport. The 30 m Terrarium/VRI fields are not used in this screen, and the 10 m LiDAR pilot is not model-wide. A separate FHOPS marine API test is available with `--transport fhops-marine`; its fixture is Sunshine Coast -> Howe Sound, not the northern Vancouver Island GNN geography, so it is not a GNN transport estimate. An internal public-route proxy uses Quatsino Sound -> Ladysmith Harbour; it now runs as a solved FHOPS Phase I case, is diagnostic only, and is not the published base. Neither result is sustainable or financially calibrated.
 
-## Terrain and indicator evidence (P9)
+## Terrain and indicator evidence
 
-P9 added two distinct things:
+The indicator work added two distinct things:
 
 - **Model-wide descriptive proxies:** AWS Terrarium zoom 12 terrain at 30 m and VRI stand fields, with source and coverage flags.
-- **A bounded LiDAR pilot:** 181 direct fragments / 184 blocks / 978.63 ha, 10 m LidarBC products. It is not a GNN-wide layer.
+- **A bounded LiDAR pilot:** 181 direct fragments / 184 blocks / 979 ha, 10 m LidarBC products. It is not a GNN-wide layer.
 
 The public proxies failed validation for absolute operability use: Terrarium mean slope is biased **-13.66 points** against the LiDAR pilot, and VRI height has low spatial correlation with CHM. Do not use these fields for ground/cable/heli thresholds or CHM claims. See the [indicator documentation](https://ubc-fresh.github.io/femic-gnn-instance/indicators.html).
 
 ## Prototype result
 
-- Combined calibrated THLB: **52,984.42 ha**
-- Derived annual AAC: **252,636.75 m3/yr** (not legal)
-- Opening-first: 3,158 openings, 5,618 blocks, 39,558.5 ha
+- Combined calibrated THLB: **53.0 thousand ha**
+- Derived annual AAC: **252,637 m3/yr** (not legal)
+- Opening-first: 3,158 openings, 5,618 blocks, 39.6 thousand ha
 - 100% 5-40 ha patches
-- 9/10 decades met; decade 10 is 781.4 m3 below the derived band
+- All 10 decades within 0.04% of the derived target band
 - GNN-area ground-plot sample: 34 rows / 10 sites, too sparse for an accuracy conclusion
 - AUs: 39 TSA-prefixed; TSA 46/47 curves are not interchangeable
 
 See `notes/reference/model-build.md`, `notes/reference/validation.md`, and
 `notes/reference/au-harmonization.md`.
 
-## How this project works
+## Project record
 
-This project follows the UBC-FRESH dev workflow. Work is planned as phases,
-tasks, and subtasks in `ROADMAP.md`, mirrored in GitHub issues, and recorded in
-`CHANGE_LOG.md`. The agent operating contract is in `AGENTS.md`. Read `AGENTS.md`
-and `ROADMAP.md` before changing anything.
+`ROADMAP.md`, `CHANGE_LOG.md`, and the notes record status and decisions. The
+agent operating contract is in `AGENTS.md`. Read `AGENTS.md` and `ROADMAP.md`
+before changing anything.
 
 ```bash
 python -m venv .venv
@@ -86,7 +85,7 @@ pipeline/build_gnn_model.sh
 The build script expects the base instances at `../femic-tsa46-instance` and
 `../femic-tsa47-instance`. Runtime outputs are gitignored.
 
-P9 indicators are **not** run by `build_gnn_model.sh`. See the [indicator documentation](https://ubc-fresh.github.io/femic-gnn-instance/indicators.html) and
+Indicator fields are **not** run by `build_gnn_model.sh`. See the [indicator documentation](https://ubc-fresh.github.io/femic-gnn-instance/indicators.html) and
 `pipeline/README.md` for the optional FEMIC/WS4 build path and the 5.5 GiB
 LidarBC materialization boundary.
 
@@ -96,25 +95,25 @@ LidarBC materialization boundary.
 - `data/source/aoi/gnn_full.gpkg` — SOI clipped to the TSA 46/47 union.
 - `data/source/aoi/gnn_aoi.json` — area and provenance summary.
 
-| Item | Area |
+| Item | Area (thousand ha) |
 | --- | ---: |
-| GNN SOI total | 703,417.95 ha |
-| GNN AOI inside TSA 46/47 | 682,155.05 ha |
-| TSA 46 overlap | 292,930.08 ha |
-| TSA 47 overlap | 389,226.32 ha |
-| Outside both TSAs | 21,262.91 ha |
+| GNN SOI total | 703.4 |
+| GNN AOI inside TSA 46/47 | 682.2 |
+| TSA 46 overlap | 292.9 |
+| TSA 47 overlap | 389.2 |
+| Outside both TSAs | 21.3 |
 
 Source: BCGW `WHSE_LEGAL_AND_ADMIN_BOUNDARIES.QSOI_BC_REGIONS`,
 feature `Gwa'Sala-'Nakwaxda'xw Nation (proposed)`.
 
 ## Dependencies
 
-- TSA 46 and TSA 47 base models (P1.7) are merged and stable.
+- TSA 46 and TSA 47 base models are merged and stable.
 - A TSA-prefixed AU decision and a reporting-only crosswalk.
 - A derived THLB/AAC benchmark, clearly labelled non-legal.
 - GNN review of the proposed boundary and any public output.
-- Optional P9 indicators: FEMIC P79 LiDAR producer and WS4 P52 consumer,
-  including the multi-track block fix. The indicator fields are descriptive,
-  not a release gate.
+- Optional terrain/canopy indicators: the FEMIC LiDAR producer and WS4
+  consumer, including the multi-track block fix. The indicator fields are
+  descriptive, not a release gate.
 
 Tracking issue: `UBC-FRESH/femic#341`.

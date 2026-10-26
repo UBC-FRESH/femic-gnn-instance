@@ -1,7 +1,7 @@
 Cost and revenue contract
 =========================
 
-Status: P3.2 contract design. Synthetic fixture only; not a GNN result.
+Status: contract design. Synthetic fixture only; not a GNN result.
 
 Purpose
 -------
@@ -12,7 +12,7 @@ haul/barge layer, and a grade/sort price deck.
 
 No row may carry a price, cost, or recovery value without provenance. A
 scenario cannot be labelled "sustainable" from this contract alone; it must also
-pass the operability and financial gates in P3.5.
+pass the operability and financial gates.
 
 Tables
 ------

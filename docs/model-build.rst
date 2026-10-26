@@ -33,10 +33,10 @@ Command
 The base instances are expected at ``../femic-tsa46-instance`` and
 ``../femic-tsa47-instance``. Runtime outputs are gitignored.
 
-Optional P9 indicators
-----------------------
+Optional terrain and canopy indicators
+---------------------------------------
 
-``build_gnn_model.sh`` builds the growth/scheduling model only. The P9
+``build_gnn_model.sh`` builds the growth/scheduling model only. The terrain and canopy
 indicator fields are a separate, optional integration and are not model
 semantics:
 
@@ -63,18 +63,18 @@ semantics:
      --cache-dir runtime/gnn/public_terrain/terrarium_z12 \
      --output-dir runtime/gnn/public_terrain
 
-Requirements: the merged FEMIC LiDAR producer (P79) and the merged WS4 LiDAR
-consumer (P52 plus the multi-track block fix). The LiDAR result is a bounded
+Requirements: the FEMIC LiDAR producer and the WS4 LiDAR consumer
+(including the multi-track block fix). The LiDAR result is a bounded
 181-fragment / 184-block pilot; the 30 m Terrarium/VRI fields are descriptive
 only. Do not use them for operability thresholds or CHM claims. See
-:doc:`indicators` and the P9 reports.
+:doc:`indicators` and the indicator reports.
 
 Model
 -----
 
 - Combined checkpoint rows: 19,467
-- Clipped stand area: 250,461.39 ha
-- Derived calibrated THLB: 52,984.42 ha
+- Clipped stand area: 250.5 thousand ha
+- Derived calibrated THLB: 53.0 thousand ha
 - AUs: 39, TSA-prefixed
 - Fragments after export: 19,466
 - ``ws4 validate``: pass

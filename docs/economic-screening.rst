@@ -7,8 +7,8 @@ result. The model release remains volume-only.
 Coverage
 --------
 
-The screen covers **52,984.43 ha of derived THLB** at the VRI checkpoint-polygon
-level.
+The screen covers **53.0 thousand ha of derived THLB** at the VRI
+checkpoint-polygon level.
 
 Result
 ------
@@ -20,16 +20,16 @@ Positive net unit revenue:
    :widths: 38 30 20
 
    * - Case
-     - Positive THLB
+     - Positive THLB (thousand ha)
      - Share
    * - Low price/recovery, high transport
-     - 46,612.65 ha
+     - 46.6
      - **88.0%**
    * - Base
-     - 50,602.51 ha
+     - 50.6
      - **95.5%**
    * - High price/recovery, low transport
-     - 51,285.26 ha
+     - 51.3
      - **96.8%**
 
 By operability (base):
@@ -39,19 +39,19 @@ By operability (base):
    :widths: 24 20 18 22
 
    * - Class
-     - THLB
+     - THLB (thousand ha)
      - Share
      - Positive share
    * - Ground
-     - 29,051.3 ha
+     - 29.1
      - 54.8%
      - 96.6%
    * - Cable
-     - 12,334.6 ha
+     - 12.3
      - 23.3%
      - 97.4%
    * - Heli candidate
-     - 11,598.5 ha
+     - 11.6
      - 21.9%
      - 90.8%
 
@@ -62,7 +62,7 @@ Method and limits
 
 - This screen uses coarse DEM (zoom 11), centroid slope. It is not LiDAR and
   not a block zonal mean.
-- The P9 30 m Terrarium/VRI fields are **not used** in this screen. They are
+- The 30 m Terrarium/VRI fields are **not used** in this screen. They are
   descriptive proxies; see :doc:`indicators`. The 10 m LiDAR pilot is not
   model-wide.
 - Class-average full-system costs from the FHOPS registry:
