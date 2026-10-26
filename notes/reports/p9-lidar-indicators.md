@@ -3,7 +3,7 @@
 Phase: P9 / `UBC-FRESH/femic-gnn-instance#45`
 Task: P9.1 / `UBC-FRESH/femic-gnn-instance#46`
 Branch: `feature/p9-lidar-indicators`
-Status: pr-open
+Status: complete
 
 ## Outcome
 

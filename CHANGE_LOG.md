@@ -425,3 +425,9 @@ followed the workflow at the time.
 - Decision: keep the public fields **descriptive only**; do not promote them into ground/cable/heli thresholds or CHM claims.
 - `ws4 validate` passes; the simulator loads the fields. Only fragments, blocks, and manifest changed versus `runtime/gnn/matrix_pre_public`.
 - No curve, THLB, AAC, price, recovery, benchmark, or release label changed. The GNN release remains volume-only.
+
+### P9 closeout
+
+- WS4 multi-track LiDAR block fix merged as `38c7f41` (PR #439); issue #438 closed.
+- GNN P9.1/P9.2 merged as `612a9c5` (PR #47); tasks #46 and #48 closed.
+- P9 is complete as a **bounded, descriptive** indicator phase. The GNN release remains volume-only.
