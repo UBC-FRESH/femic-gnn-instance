@@ -415,3 +415,13 @@ followed the workflow at the time.
 - Coverage is a **bounded southern pilot**, not GNN-wide: only **17,360 ha (2.5%)** of the AOI intersects the selected tiles, and only **4,660 ha** is valid 10 m land.
 - Fixed WS4 multi-track block integration in `UBC-FRESH/ws4#438` / PR #439.
 - No curve, THLB, AAC, price, recovery, benchmark, or release label changed. The GNN release remains volume-only.
+
+### P9.2 Public-data terrain and canopy indicators
+
+- Added a model-wide public terrain proxy from **AWS Open Data Terrarium zoom 12**, reprojected to EPSG:3005 at 30 m and summarized over block support.
+- Added VRI proxies from the existing checkpoint: label height, crown closure, live volume, and whole-stem biomass.
+- Integrated `terrain_*` and `vri_*` into `runtime/gnn/matrix`; 26,762 / 26,801 fragments have terrain, 26,801 have VRI, and 39 terrain gaps remain explicit.
+- Validation against the 181-direct-fragment / 184-block LiDAR pilot is weak: Terrarium mean slope bias **-13.66 points** (MAE 13.97, r=0.63); VRI height vs CHM mean MAE **4.09 m** (r=-0.38).
+- Decision: keep the public fields **descriptive only**; do not promote them into ground/cable/heli thresholds or CHM claims.
+- `ws4 validate` passes; the simulator loads the fields. Only fragments, blocks, and manifest changed versus `runtime/gnn/matrix_pre_public`.
+- No curve, THLB, AAC, price, recovery, benchmark, or release label changed. The GNN release remains volume-only.
