@@ -7,10 +7,10 @@ models.
 
 .. warning::
 
-   **Volume-only caveat:** this release has no operability classification,
-   harvest cost, haul/barge cost, grade/sort decomposition, log prices, or net
-   revenue. It is not a "sustainable harvest level" and it is not financially
-   assessed.
+   **Volume-only caveat:** this release does not contain a validated
+   operability, cost, or net revenue model. A P3 diagnostic screen and P9
+   descriptive indicators exist, but they do not change the release label. It is
+   not a "sustainable harvest level" and it is not financially assessed.
 
    The boundary is the **proposed GNN Statement of Intent** polygon, not a
    final treaty boundary or a legal title determination. Confirm it with GNN
@@ -40,6 +40,10 @@ Model at a glance
      - 252,636.75 m3/yr
    * - Benchmark
      - 9/10 decades met
+   * - P9 LiDAR pilot
+     - 181 fragments / 184 blocks / 978.63 ha (not model-wide)
+   * - Public terrain/VRI
+     - Descriptive proxies only; not used for operability
    * - Web UI
      - loopback port 8019
 
@@ -61,6 +65,7 @@ See :doc:`model-build`, :doc:`benchmark`, and :doc:`aoi`.
 
    benchmark
    model-build
+   indicators
    aus
    aoi
    review

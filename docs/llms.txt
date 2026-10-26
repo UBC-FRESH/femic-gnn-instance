@@ -6,7 +6,8 @@
 
 - [Home](index.html): model status, caveats, and the derived benchmark at a glance.
 - [Benchmark](benchmark.html): opening-first result and ground-plot validation limits.
-- [Model build](model-build.html): the combined TSA 46/47 build method and commands.
+- [Model build](model-build.html): the combined TSA 46/47 build method and commands, plus the optional P9 indicator path.
+- [Terrain/VRI/LiDAR indicators](indicators.html): what is model-wide, what is a bounded pilot, validation results, and the no-model-semantics rule.
 - [AU structure](aus.html): why TSA-prefixed AUs are kept and why a reporting crosswalk is used.
 - [AOI](aoi.html): proposed GNN Statement of Intent boundary provenance and areas.
 - [Boundary review](review.html): review status, questions, and the no-confirmation rule.
@@ -18,6 +19,11 @@
 ## Status
 
 The model is a volume-only prototype. The boundary is proposed; the THLB and AAC
-are derived and non-legal. There is no operability, harvest cost, haul/barge,
-grade/sort revenue, or net revenue model yet. It is not a sustainable harvest
-level. GNN review is required before public or operational use.
+are derived and non-legal. A P3 diagnostic screen and P9 descriptive indicators
+exist, but there is no validated operability, cost, or net revenue model in the
+release. It is not a sustainable harvest level. GNN review is required before
+public or operational use.
+
+P9 fields are not model-wide LiDAR: the LiDAR pilot covers 181 direct fragments /
+184 blocks / 978.63 ha, and the 30 m Terrarium/VRI proxies are descriptive only.
+Do not use them for operability thresholds or CHM claims.

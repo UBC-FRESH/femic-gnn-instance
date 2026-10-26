@@ -34,6 +34,43 @@ The script expects the base instances at `../femic-tsa46-instance` and
 | `inventory_gnn_plots.py` | Count public ground-plot sites inside the AOI |
 | `extract_coast_log_prices.py` | Draft local extraction of BC coast species/grade prices |
 | `analyze_gnn_aus.py` | AU area/THLB and curve comparison |
+| `build_gnn_lidar_products.py` | Optional P9: 10 m GNN strategic LiDAR bundle from LidarBC DEM/DSM |
+| `integrate_gnn_lidar.py` | Optional P9: register/map/integrate LiDAR fields into the GNN dataset |
+| `build_gnn_public_indicators.py` | Optional P9: model-wide Terrarium/VRI descriptive fields and LiDAR validation |
+
+## Optional P9 indicators
+
+These are not part of `build_gnn_model.sh` and do not change model semantics.
+They require the merged FEMIC P79 LiDAR producer and the merged WS4 P52 consumer
+plus the multi-track block fix.
+
+```bash
+python -m femic lidar materialize \
+  --selection-manifest metadata/lidar/lidarbc_selection_dem_dsm.json \
+  --output-root data/lidar
+
+python pipeline/build_gnn_lidar_products.py \
+  --aoi data/source/aoi/gnn_full.gpkg \
+  --materialization data/lidar/materialization.json \
+  --output-dir data/lidar/gnn_10m \
+  --bundle-dir data/lidar/products/lidarbc-gnn-10m
+
+python pipeline/integrate_gnn_lidar.py \
+  --dataset runtime/gnn/matrix \
+  --bundle data/lidar/products/lidarbc-gnn-10m \
+  --fragments output/patchworks_gnn/fragments_merged/fragments.shp
+
+python pipeline/build_gnn_public_indicators.py \
+  --dataset runtime/gnn/matrix \
+  --cache-dir runtime/gnn/public_terrain/terrarium_z12 \
+  --output-dir runtime/gnn/public_terrain
+```
+
+The 549-tile LidarBC materialization is about **5.5 GiB**. `data/lidar/` and
+`runtime/` are gitignored; the selection manifests under `metadata/lidar/` are
+tracked. The LiDAR fields cover **181 direct fragments / 184 blocks** only. The
+Terrarium/VRI fields are **descriptive proxies**; they are not operability
+thresholds, CHM, or a model-wide LiDAR layer. See `docs/indicators.rst`.
 
 ## Guardrails
 
@@ -41,3 +78,6 @@ The script expects the base instances at `../femic-tsa46-instance` and
 - Keep TSA-prefixed AUs; do not merge model AUs by nominal stratum.
 - Label the boundary, THLB, and AAC as proposed and derived.
 - Do not commit large artifacts or raw data.
+- Do not treat the P9 public terrain/VRI fields as operability thresholds or
+  CHM; they are descriptive only.
+- Do not present the 181-fragment / 184-block LiDAR pilot as GNN-wide.

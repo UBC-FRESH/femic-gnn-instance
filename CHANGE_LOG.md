@@ -431,3 +431,13 @@ followed the workflow at the time.
 - WS4 multi-track LiDAR block fix merged as `38c7f41` (PR #439); issue #438 closed.
 - GNN P9.1/P9.2 merged as `612a9c5` (PR #47); tasks #46 and #48 closed.
 - P9 is complete as a **bounded, descriptive** indicator phase. The GNN release remains volume-only.
+
+### P10.1 documentation and provenance refresh
+
+- Added `docs/indicators.rst` covering `terrain_*`, `vri_*`, `lidar_*`, coverage, validation, provenance, and the descriptive-only decision.
+- Corrected the README, docs index, release notes, benchmark, and economic screen so the volume-only release, P3 diagnostic screen, and P9 descriptive/pilot indicators are distinct.
+- Documented the optional P9 rebuild path and prerequisites in `docs/model-build.rst` and `pipeline/README.md`.
+- Updated `docs/llms.txt` and the docs toctree.
+- Tracked `notes/gnn-partner-data-request.md`.
+- No model, curve, THLB, AAC, data, or release label changed.
+- Verification: dashboard GREEN; workflow 0 errors/0 warnings; Sphinx `-W` clean.

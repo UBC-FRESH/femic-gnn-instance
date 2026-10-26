@@ -22,6 +22,7 @@ after its parent issue exists and the maintainer approves it.
 | P7 Solved multi-day marine transport | #39 | `feature/p7-solved-marine` | complete |
 | P8 Solved-proxy full-THLB sensitivity | #42 | `feature/p8-proxy-sensitivity` | complete |
 | P9 LiDAR-derived indicators | #45 | `feature/p9-lidar-indicators` | complete |
+| P10 Documentation and provenance refresh | #49 | `feature/p10-docs-refresh` | pr-open |
 
 ## Lifecycle Map
 
@@ -390,6 +391,30 @@ Acceptance criteria:
 Closeout requirement: a P9 report with tile counts, payload size, CRS and
 resolution choices, field list, coverage gaps, validation output, and the next
 decision. The maintainer approves before merge.
+
+## Phase 10: Documentation and provenance refresh
+
+Parent issue: #49
+Branch: `feature/p10-docs-refresh`
+Status: pr-open
+
+Goal: make the public documentation and repository record match P9 without
+changing the model, curves, THLB, AAC, scenarios, data, or release label.
+
+- [x] P10.1 Refresh public docs and P9 provenance (#50)
+  - [x] Add the indicators/provenance page.
+  - [x] Correct stale status, terrain, and release claims.
+  - [x] Document the optional P9 rebuild path and limits.
+  - [x] Update the docs index and agent index.
+  - [x] Track the partner data request note.
+  - [x] Run the dashboard and docs build.
+
+Acceptance criteria:
+
+- A reader can tell what is model-wide, pilot-only, validated, and unused.
+- The P9 scripts and prerequisites are documented.
+- The release remains volume-only and the P9 fields remain descriptive.
+- The dashboard and docs gates pass.
 
 ## Detailed Next Steps Notes
 

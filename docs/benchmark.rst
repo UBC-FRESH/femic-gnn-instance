@@ -2,8 +2,10 @@ Prototype benchmark
 ===================
 
 This is a **volume-only prototype benchmark**, not a legal AAC and not a
-"sustainable harvest level". It has no operability, harvest cost, haul/barge
-cost, grade/sort revenue, or net revenue. See :doc:`release`.
+"sustainable harvest level". It has no validated operability, cost, or net
+revenue model. A P3 diagnostic screen and P9 descriptive indicators exist, but
+they are not part of this volume benchmark. See :doc:`release` and
+:doc:`indicators`.
 
 This is a **derived prototype benchmark**, not a legal AAC.
 

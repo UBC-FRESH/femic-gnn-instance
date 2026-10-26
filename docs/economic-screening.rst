@@ -60,7 +60,11 @@ Sensitivity: 87.8% positive at 2x harvest cost; 92.3% at 30 CAD/m3 transport.
 Method and limits
 -----------------
 
-- Coarse DEM (zoom 11), centroid slope; not LiDAR or a block zonal mean.
+- This screen uses coarse DEM (zoom 11), centroid slope. It is not LiDAR and
+  not a block zonal mean.
+- The P9 30 m Terrarium/VRI fields are **not used** in this screen. They are
+  descriptive proxies; see :doc:`indicators`. The 10 m LiDAR pilot is not
+  model-wide.
 - Class-average full-system costs from the FHOPS registry:
   ground 15.37, cable 17.77, helicopter 78.13 CAD/m3.
 - Legacy CLEWs/FFCM transport: 10.961 CAD/m3 at 100 km truck + 100 km barge +
