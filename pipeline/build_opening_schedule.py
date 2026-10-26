@@ -346,11 +346,25 @@ def main() -> None:
     parser.add_argument("--max-area", type=float, default=50.0)
     parser.add_argument("--target-per-decade", type=float, default=12_480_000.0)
     parser.add_argument("--intermediate-share", type=float, default=0.05)
+    parser.add_argument(
+        "--allowed-blocks",
+        type=Path,
+        default=None,
+        help="Optional CSV with a block_id column; restrict the eligible candidate pool.",
+    )
     args = parser.parse_args()
 
     from ws4.sim.engine import Simulator
 
     blocks, curves = _load_blocks(args.dataset)
+    if args.allowed_blocks is not None:
+        allowed = pd.read_csv(args.allowed_blocks)
+        if "block_id" not in allowed.columns:
+            raise ValueError("allowed-blocks CSV must have a block_id column")
+        allowed_ids = set(allowed["block_id"].astype(int))
+        before = len(blocks)
+        blocks = {block_id: block for block_id, block in blocks.items() if block_id in allowed_ids}
+        print(f"candidate filter: {len(blocks)} of {before} managed blocks")
     simulator = Simulator.from_dataset(args.dataset)
     adjacency = _read_adjacency(args.topology, blocks)
     openings = _build_openings(

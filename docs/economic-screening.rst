@@ -80,6 +80,14 @@ current schedule, not a reason to tune the AAC or curves. The detailed result
 is in `notes/reports/block-exclusion-scenario.md
 <https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reports/block-exclusion-scenario.md>`_.
 
+A replacement test used only the **7,370 direct-positive blocks** as
+candidates and rebuilt the opening-first schedule. It met all ten decades with
+**5,581 blocks** and **39.4 thousand ha**, scheduling **no negative blocks**.
+The base schedule and benchmark were unchanged. This is a positive-block
+direct-cost candidate, not a sustainable result; shared costs remain
+unallocated. See `notes/reports/positive-block-schedule.md
+<https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reports/positive-block-schedule.md>`_.
+
 By harvest system in the base case:
 
 .. list-table::
