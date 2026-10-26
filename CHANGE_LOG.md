@@ -480,3 +480,12 @@ followed the workflow at the time.
 - Added a two-panel map of direct-positive/direct-negative blocks and the removed-negative versus positive-replacement schedule.
 - Corrected the first render, which had incorrectly colored unscreened blocks as negative.
 - Map is linked from the economic screening page; no model or benchmark change.
+
+
+### Shared-cost headroom for the positive-block candidate
+
+- Positive-block candidate: 5,581 blocks, 39.1 thousand ha, 18.146 million m3 screen volume, 2.81 billion CAD direct net.
+- Break-even shared cost: 154.92 CAD/m3.
+- Sensitivity: at 50 CAD/m3, 5,047 blocks and 35.3 thousand ha remain positive; at 100 CAD/m3, 4,339 blocks and 30.6 thousand ha.
+- Some blocks have under 0.1 CAD/m3 headroom; aggregate headroom does not protect individual blocks.
+- Shared-cost levels are scenarios, not actual rates. No model, curve, THLB, AAC, target, or benchmark change.
