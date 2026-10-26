@@ -8,8 +8,8 @@ models.
 .. warning::
 
    **Volume-only caveat:** this release does not contain a validated
-   operability, cost, or net revenue model. A P3 diagnostic screen and P9
-   descriptive indicators exist, but they do not change the release label. It is
+   operability, cost, or net revenue model. A diagnostic economic screen and descriptive terrain/VRI
+   indicators exist, but they do not change the release label. It is
    not a "sustainable harvest level" and it is not financially assessed.
 
    The boundary is the **proposed GNN Statement of Intent** polygon, not a
@@ -26,22 +26,22 @@ Model at a glance
 
    * - Quantity
      - Value
-   * - GNN AOI inside TSA 46/47
-     - 682,155.05 ha
-   * - Clipped stand area
-     - 250,461.39 ha
-   * - Derived calibrated THLB
-     - 52,984.42 ha
+   * - GNN AOI inside TSA 46/47 (thousand ha)
+     - 682.2
+   * - Clipped stand area (thousand ha)
+     - 250.5
+   * - Derived calibrated THLB (thousand ha)
+     - 53.0
    * - AUs
      - 39 TSA-prefixed
    * - Blocks
      - 26,801
    * - Derived annual AAC
-     - 252,636.75 m3/yr
+     - 252,637 m3/yr
    * - Benchmark
      - All 10 decades within 0.04% of target
-   * - P9 LiDAR pilot
-     - 181 fragments / 184 blocks / 978.63 ha (not model-wide)
+   * - LiDAR pilot
+     - 181 fragments / 184 blocks / 979 ha (not model-wide)
    * - Public terrain/VRI
      - Descriptive proxies only; not used for operability
    * - Web UI

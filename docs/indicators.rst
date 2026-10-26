@@ -1,7 +1,7 @@
 Terrain, VRI, and LiDAR Indicators
 ==================================
 
-Status: **P9 complete; descriptive and pilot-only. No model semantics.**
+Status: **current; descriptive and pilot-only. No model semantics.**
 
 The GNN instance carries three indicator families. They are not interchangeable:
 
@@ -35,7 +35,7 @@ At a Glance
      - Stand-inventory proxy
    * - `lidar_*`
      - LidarBC 10 m DEM/DSM
-     - 181 direct fragments; 184 blocks; 978.63 ha
+     - 181 direct fragments; 184 blocks; 979 ha
      - Bounded validation pilot
 
 The 10 m LiDAR tile union intersects only **2.5%** of the GNN AOI. The valid
@@ -179,9 +179,9 @@ products, accounts, protoaccounts, groups, and messages are unchanged.
 Rebuild
 -------
 
-The main model build (``pipeline/build_gnn_model.sh``) does **not** run P9.
-Install or expose the merged FEMIC LiDAR producer (P79) and the merged WS4
-LiDAR consumer (P52 plus the multi-track block fix), then run:
+The main model build (``pipeline/build_gnn_model.sh``) does **not** run the optional indicator build.
+Install or expose the FEMIC LiDAR producer and the WS4 LiDAR consumer
+(including the multi-track block fix), then run:
 
 .. code-block:: bash
 
