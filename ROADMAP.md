@@ -416,6 +416,28 @@ Acceptance criteria:
 - The release remains volume-only and the P9 fields remain descriptive.
 - The dashboard and docs gates pass.
 
+## Post-P10 economics and access evidence
+
+Status: complete
+
+The published base remains the volume-only prototype. The following work created
+candidate and diagnostic evidence only:
+
+- [x] Block-level direct-revenue screen (#58, merged #59)
+- [x] Negative-block removal diagnostic (#60, merged #61)
+- [x] Positive-block candidate schedule (#62, merged #63)
+- [x] Block revenue review map (#64, merged #63)
+- [x] Candidate shared-cost headroom (#65, merged #66)
+- [x] Public access exposure (#67, merged #68)
+- [x] Candidate risk register (#70, merged #71)
+
+Reports: `notes/reports/block-level-revenue-screen.md`,
+`block-exclusion-scenario.md`, `positive-block-schedule.md`,
+`shared-cost-headroom.md`, `access-exposure.md`, and
+`candidate-risk-register.md`.
+
+No model, curve, THLB, AAC, target, or benchmark change was made.
+
 ## Detailed Next Steps Notes
 
 1. P0-P2 are complete; `v0.1.0-prototype` is a volume-only pre-release.
@@ -428,4 +450,5 @@ Acceptance criteria:
 8. P7 is complete: the proxy now runs as a solved FHOPS Phase I case after FHOPS P13; solved and analytical results match. The published screen remains legacy; current terminal/rate data is still required.
 9. P8 is complete: the solved proxy full-THLB sensitivity is 89.1% low / 95.7% base / 96.8% high, versus legacy 88.0/95.5/96.8 and the P4 API 90.2/95.8/97.0. It is diagnostic only.
 10. P9 is **complete** (merged as `612a9c5`): the reviewed `lidar_*` fields are integrated as a **bounded southern pilot** (181 direct fragments, 184 blocks, 978.63 ha), not a GNN-wide layer. See `notes/reports/p9-lidar-indicators.md`. P9.2 (#48) is the public-data fallback: Terrarium zoom 12 and VRI are integrated as **descriptive proxies**; validation against the LiDAR pilot is weak (Terrarium slope bias -13.66 points, MAE 13.97; VRI height MAE 4.09 m), so they are not promoted into operability thresholds. See `notes/reports/p9.2-public-data-indicators.md`. This is a data/feature integration, not a model-improvement claim.
-11. No release change or sustainable label is authorized by P4-P9.
+11. No release change or sustainable label is authorized by P4-P10.
+12. Post-P10 diagnostics are complete: block screen, removal test, positive candidate schedule, headroom, access exposure, and risk register. The base schedule and benchmark remain unchanged. Shared-cost, carrier, recovery, price, and field data are still required.
