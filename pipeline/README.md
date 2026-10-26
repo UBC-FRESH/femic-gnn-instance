@@ -37,6 +37,7 @@ The script expects the base instances at `../femic-tsa46-instance` and
 | `plot_gnn_aoi_map.py` | Render the AOI map with a pale OpenStreetMap basemap |
 | `plot_gnn_au_figures.py` | Generate SI violin panels and AU curve plots |
 | `screen_block_revenue.py` | Map the checkpoint revenue screen to blocks; direct-cost partial gate |
+| `screen_block_exclusion.py` | Filter negative-revenue blocks out of a candidate schedule for a diagnostic sensitivity |
 | `build_gnn_lidar_products.py` | Optional: 10 m GNN strategic LiDAR bundle from LidarBC DEM/DSM |
 | `integrate_gnn_lidar.py` | Optional: register/map/integrate LiDAR fields into the GNN dataset |
 | `build_gnn_public_indicators.py` | Optional: model-wide Terrarium/VRI descriptive fields and LiDAR validation |

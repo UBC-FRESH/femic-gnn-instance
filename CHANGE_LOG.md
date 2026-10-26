@@ -456,3 +456,12 @@ followed the workflow at the time.
 - Left shared road/landing/terminal/overhead costs unallocated; this is a partial direct-cost gate, not a sustainable result.
 - Added the block list generator, report, and a link from the public economic screening page.
 - No model, curve, THLB, AAC, target, or benchmark change.
+
+
+### Diagnostic block-exclusion scenario
+
+- Removed 265 negative-revenue blocks from the opening-first schedule as a separate diagnostic.
+- Removed 1.39 thousand ha of THLB and 0.801 million m3 of volume.
+- All ten decades fell below the volume band, by 0.9% to 7.5%; total ten-decade shortfall 1.125 million m3.
+- Shared road/landing/terminal/overhead costs remain unallocated; this is not a sustainable result.
+- Base schedule, curves, THLB, AAC, targets, and benchmark unchanged.
