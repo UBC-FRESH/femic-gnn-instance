@@ -72,6 +72,14 @@ costs are unallocated. The block list is available in
 `notes/reports/block-level-revenue-screen.md
 <https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reports/block-level-revenue-screen.md>`_.
 
+Removing the 265 scheduled negative blocks from the opening-first schedule
+removes **1.39 thousand ha** of THLB and **0.801 million m3** of volume. Every
+decade then falls below the volume band, by **0.9% to 7.5%**; the ten-decade
+shortfall is **1.125 million m3**. This is a diagnostic conflict with the
+current schedule, not a reason to tune the AAC or curves. The detailed result
+is in `notes/reports/block-exclusion-scenario.md
+<https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reports/block-exclusion-scenario.md>`_.
+
 By harvest system in the base case:
 
 .. list-table::
