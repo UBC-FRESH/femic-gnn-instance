@@ -27,6 +27,9 @@ data/downloads/
 data/bc/
 data/private/
 
+# LiDAR materialization and derived products
+data/lidar/
+
 # Generated model outputs
 output/
 /releases/
