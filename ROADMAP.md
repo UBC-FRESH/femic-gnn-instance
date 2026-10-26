@@ -21,6 +21,7 @@ after its parent issue exists and the maintainer approves it.
 | P6 Quatsino Sound to Ladysmith public-route proxy | #36 | `feature/p6-marine-proxy` | complete |
 | P7 Solved multi-day marine transport | #39 | `feature/p7-solved-marine` | complete |
 | P8 Solved-proxy full-THLB sensitivity | #42 | `feature/p8-proxy-sensitivity` | complete |
+| P9 LiDAR-derived indicators | #45 | `feature/p9-lidar-indicators` | pr-open |
 
 ## Lifecycle Map
 
@@ -350,6 +351,38 @@ Acceptance criteria:
 Closeout requirement: a P8 report with the comparison, provenance, limits, and
 next decision. The maintainer approves before merge.
 
+## Phase 9: LiDAR-derived indicators
+
+Parent issue: #45
+Branch: `feature/p9-lidar-indicators`
+Status: pr-open
+
+Goal: consume the merged FEMIC LiDAR producer and WS4 LiDAR consumer to add
+reviewed `lidar_*` indicators to the GNN compiled dataset, without changing
+curves, THLB, AAC, or making a model-improvement claim.
+
+- [x] P9.1 Audit and integrate GNN AOI LiDAR indicators (#46)
+  - [x] Count LidarBC coverage and payload size for the GNN AOI.
+  - [x] Build the explicit GNN strategic-grid terrain/canopy products.
+  - [x] Package and pin the FEMIC bundle; register it in the GNN dataset.
+  - [x] Map and integrate the fields into the GNN fragments/blocks.
+  - [x] Document the fields, coverage gaps, and reprojection/resampling.
+  - [x] Run the GNN workflow, WS4 validation, and close-out checks.
+
+Acceptance criteria:
+
+- The GNN AOI LiDAR coverage audit is recorded.
+- The FEMIC bundle validates and the WS4 registration/validation passes.
+- The `lidar_*` fields are present in the GNN compiled dataset and documented.
+- Coverage gaps are explicit; no field, biomass, or biodiversity accuracy claim
+  is added.
+- Curves, THLB, AAC, and the existing benchmark are unchanged.
+- The release remains volume-only.
+
+Closeout requirement: a P9 report with tile counts, payload size, CRS and
+resolution choices, field list, coverage gaps, validation output, and the next
+decision. The maintainer approves before merge.
+
 ## Detailed Next Steps Notes
 
 1. P0-P2 are complete; `v0.1.0-prototype` is a volume-only pre-release.
@@ -360,5 +393,6 @@ next decision. The maintainer approves before merge.
 6. P5 is complete: the GNN AOI is northern Vancouver Island, while the FHOPS fixture is Sunshine Coast -> Howe Sound. The fixture is an API test, not a GNN route. Candidate terminals and missing quote data are recorded without inventing data.
 7. P6 is complete: the public Quatsino Sound -> Ladysmith route proxy is diagnostic only. Cases are 8.125/9.203/11.360 CAD/m3 at 100/75/50% utilisation, with assumed capacity and rates.
 8. P7 is complete: the proxy now runs as a solved FHOPS Phase I case after FHOPS P13; solved and analytical results match. The published screen remains legacy; current terminal/rate data is still required.
-9. P8 is active: the solved proxy full-THLB sensitivity is 89.1% low / 95.7% base / 96.8% high, versus legacy 88.0/95.5/96.8 and the P4 API 90.2/95.8/97.0. It is diagnostic only.
-10. No release change or sustainable label is authorized by P4-P8.
+9. P8 is complete: the solved proxy full-THLB sensitivity is 89.1% low / 95.7% base / 96.8% high, versus legacy 88.0/95.5/96.8 and the P4 API 90.2/95.8/97.0. It is diagnostic only.
+10. P9 is `pr-open`: the reviewed `lidar_*` fields are integrated as a **bounded southern pilot** (181 direct fragments, 184 blocks, 978.63 ha), not a GNN-wide layer. See `notes/reports/p9-lidar-indicators.md`. This is a data/feature integration, not a model-improvement claim.
+11. No release change or sustainable label is authorized by P4-P9.

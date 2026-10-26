@@ -405,3 +405,13 @@ followed the workflow at the time.
 - P8.1 is `pr-open` in PR #44. The P8 close-out report is queued at
   `notes/reports/p8-closeout.md`; no release, tag, or published transport switch is authorized.
 - P8 merged as `38eee50` (PR #44); task #43 and parent #42 are closed. The solved-proxy full-THLB sensitivity is complete; the published screen remains legacy.
+
+### P9.1 GNN LiDAR-derived indicators (bounded pilot)
+
+- Materialized **549** LidarBC DEM/DSM tiles (**5.5 GiB**) for the GNN AOI; no point-cloud payload.
+- Built a **10 m** GNN strategic grid (13,438 x 9,009) with explicit reprojection from EPSG:6652/EPSG:3157 to EPSG:3005.
+- Packaged and validated bundle `lidarbc-1b7b79757e98cfe5` / `2026.10.0-gnn-10m` with `slope`, `chm`, and `canopy`.
+- Integrated `lidar_*` fields into `runtime/gnn/matrix`; direct support is **181 fragments / 930.62 ha**, block support is **184 blocks / 978.63 ha**, and **365** fragments have block-level coverage after propagation.
+- Coverage is a **bounded southern pilot**, not GNN-wide: only **17,360 ha (2.5%)** of the AOI intersects the selected tiles, and only **4,660 ha** is valid 10 m land.
+- Fixed WS4 multi-track block integration in `UBC-FRESH/ws4#438` / PR #439.
+- No curve, THLB, AAC, price, recovery, benchmark, or release label changed. The GNN release remains volume-only.
