@@ -368,6 +368,12 @@ curves, THLB, AAC, or making a model-improvement claim.
   - [x] Map and integrate the fields into the GNN fragments/blocks.
   - [x] Document the fields, coverage gaps, and reprojection/resampling.
   - [x] Run the GNN workflow, WS4 validation, and close-out checks.
+- [ ] P9.2 Public-data terrain and canopy indicators (#48)
+  - [ ] Add a batch Terrarium zoom 12 block/fragment sampler.
+  - [ ] Aggregate and join the existing VRI checkpoint fields.
+  - [ ] Validate the public proxies against the 181-fragment LiDAR pilot.
+  - [ ] Integrate `terrain_*` and `vri_*`; keep `lidar_*` pilot-only.
+  - [ ] Document source, resolution, gaps, and no-imputation rules.
 
 Acceptance criteria:
 
@@ -376,6 +382,8 @@ Acceptance criteria:
 - The `lidar_*` fields are present in the GNN compiled dataset and documented.
 - Coverage gaps are explicit; no field, biomass, or biodiversity accuracy claim
   is added.
+- Public-data proxy fields are present or gaps are explicit; LiDAR remains
+  pilot-only.
 - Curves, THLB, AAC, and the existing benchmark are unchanged.
 - The release remains volume-only.
 
@@ -394,5 +402,5 @@ decision. The maintainer approves before merge.
 7. P6 is complete: the public Quatsino Sound -> Ladysmith route proxy is diagnostic only. Cases are 8.125/9.203/11.360 CAD/m3 at 100/75/50% utilisation, with assumed capacity and rates.
 8. P7 is complete: the proxy now runs as a solved FHOPS Phase I case after FHOPS P13; solved and analytical results match. The published screen remains legacy; current terminal/rate data is still required.
 9. P8 is complete: the solved proxy full-THLB sensitivity is 89.1% low / 95.7% base / 96.8% high, versus legacy 88.0/95.5/96.8 and the P4 API 90.2/95.8/97.0. It is diagnostic only.
-10. P9 is `pr-open`: the reviewed `lidar_*` fields are integrated as a **bounded southern pilot** (181 direct fragments, 184 blocks, 978.63 ha), not a GNN-wide layer. See `notes/reports/p9-lidar-indicators.md`. This is a data/feature integration, not a model-improvement claim.
+10. P9 is `pr-open`: the reviewed `lidar_*` fields are integrated as a **bounded southern pilot** (181 direct fragments, 184 blocks, 978.63 ha), not a GNN-wide layer. See `notes/reports/p9-lidar-indicators.md`. P9.2 (#48) is the public-data fallback: Terrarium zoom 12 and VRI for model-wide proxies, LiDAR for validation only. This is a data/feature integration, not a model-improvement claim.
 11. No release change or sustainable label is authorized by P4-P9.
