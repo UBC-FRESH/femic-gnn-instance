@@ -465,3 +465,18 @@ followed the workflow at the time.
 - All ten decades fell below the volume band, by 0.9% to 7.5%; total ten-decade shortfall 1.125 million m3.
 - Shared road/landing/terminal/overhead costs remain unallocated; this is not a sustainable result.
 - Base schedule, curves, THLB, AAC, targets, and benchmark unchanged.
+
+
+### Positive-block candidate schedule
+
+- Built a 7,370-block direct-positive candidate pool; 478 negative blocks excluded.
+- Rebuilt the opening-first schedule against the same targets; 5,581 blocks, 39.4 thousand ha, no negative blocks.
+- All ten decades met; patch constraints met.
+- Base schedule and benchmark unchanged; shared costs remain unallocated.
+
+
+### Block revenue review map
+
+- Added a two-panel map of direct-positive/direct-negative blocks and the removed-negative versus positive-replacement schedule.
+- Corrected the first render, which had incorrectly colored unscreened blocks as negative.
+- Map is linked from the economic screening page; no model or benchmark change.
