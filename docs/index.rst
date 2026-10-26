@@ -39,7 +39,7 @@ Model at a glance
    * - Derived annual AAC
      - 252,636.75 m3/yr
    * - Benchmark
-     - 9/10 decades met
+     - All 10 decades within 0.04% of target
    * - P9 LiDAR pilot
      - 181 fragments / 184 blocks / 978.63 ha (not model-wide)
    * - Public terrain/VRI

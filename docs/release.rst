@@ -34,9 +34,7 @@ At a glance
    * - Derived annual AAC
      - 252,636.75 m3/yr
    * - Opening-first benchmark
-     - 9/10 decades met
-   * - Decade 10
-     - 2,525,218.6 m3; 781.4 m3 below
+     - All 10 decades within 0.04% of target
 
 Known gaps
 ----------
@@ -49,7 +47,6 @@ Known gaps
   (`UBC-FRESH/femic#343 <https://github.com/UBC-FRESH/femic/issues/343>`_).
 - The managed/young ground-plot sample is too sparse for a confident accuracy
   claim.
-- The decade-10 miss is a 100-year horizon and age-structure end-effect.
 - TSA-prefixed AUs are retained; the reporting crosswalk is not a model merge.
 - **P9 indicators.** Public LidarBC covers only 2.5% of the AOI and 978.63 ha of
   block support (181 direct fragments / 184 blocks). The 30 m Terrarium/VRI

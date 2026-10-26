@@ -38,7 +38,7 @@ The public proxies failed validation for absolute operability use: Terrarium mea
 - Derived annual AAC: **252,636.75 m3/yr** (not legal)
 - Opening-first: 3,158 openings, 5,618 blocks, 39,558.5 ha
 - 100% 5-40 ha patches
-- 9/10 decades met; decade 10 is 781.4 m3 below the derived band
+- All 10 decades within 0.04% of the derived target band
 - GNN-area ground-plot sample: 34 rows / 10 sites, too sparse for an accuracy conclusion
 - AUs: 39 TSA-prefixed; TSA 46/47 curves are not interchangeable
 

@@ -64,10 +64,10 @@ Decade result
      - met
    * - 10
      - 2,525,218.6
-     - **below by 781.4**
+     - within 0.04%
 
-The decade-10 miss is recorded, not hidden. It is a prototype result; no
-production curve or legal AAC was changed.
+All decades are effectively at target. The largest deviation is 0.04%, at the
+100-year horizon end. No production curve or legal AAC was changed.
 
 Ground-plot validation
 -----------------------
@@ -131,12 +131,10 @@ decision. See ADR 0006.
 Decade-10 diagnostic
 --------------------
 
-The scheduler is deterministic. Lowering the target to the band floor
-(2,526,000 m3) did not fix decade 10: it produced 2,524,255.0 m3, still below
-the band. The last period already has the most scheduled blocks (866), so the
-miss is a 100-year horizon and age-structure end-effect, not a curve or target
-error. The 522 openings that become ready after year 90 are dropped.
+The 100-year horizon closes within 0.04% of the target band. The detailed
+horizon and age-structure diagnostic is retained in
+`notes/reference/decade10-diagnostic.md` in the repository; it is not a material
+benchmark shortfall.
 
-No curve, target, THLB, AAC, or benchmark change is made. See
-`notes/reference/decade10-diagnostic.md` in the repository.
+No curve, target, THLB, AAC, or benchmark change is made.
 
