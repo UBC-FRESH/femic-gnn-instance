@@ -77,11 +77,34 @@ The available non-PSP ground plots were filtered to the GNN AOI:
 - 34 matched rows, 10 sites, TSA 47 only
 - VRI 31, CMI 1, NFI 2
 
-| Sample | n | Volume bias | DBH bias | Height bias | Stems bias |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| VRI | 31 | -118.1 m3/ha | -5.1 cm | +0.1 m | -341.9 sph |
-| NFI | 2 | -104.4 m3/ha | +1.2 cm | -2.3 m | -434.1 sph |
-| CMI | 1 | -149.4 m3/ha | -7.5 cm | -6.0 m | +160.8 sph |
+.. list-table::
+   :header-rows: 1
+   :widths: 18 8 24 18 20 20
+
+   * - Sample
+     - n
+     - Volume bias
+     - DBH bias
+     - Height bias
+     - Stems bias
+   * - VRI
+     - 31
+     - -118.1 m3/ha
+     - -5.1 cm
+     - +0.1 m
+     - -341.9 sph
+   * - NFI
+     - 2
+     - -104.4 m3/ha
+     - +1.2 cm
+     - -2.3 m
+     - -434.1 sph
+   * - CMI
+     - 1
+     - -149.4 m3/ha
+     - -7.5 cm
+     - -6.0 m
+     - +160.8 sph
 
 This is too sparse for a GNN-specific accuracy conclusion. The direction is
 consistent with the larger TSA 47 validation, but no TSA 46 managed plots fall
