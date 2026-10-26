@@ -489,3 +489,11 @@ followed the workflow at the time.
 - Sensitivity: at 50 CAD/m3, 5,047 blocks and 35.3 thousand ha remain positive; at 100 CAD/m3, 4,339 blocks and 30.6 thousand ha.
 - Some blocks have under 0.1 CAD/m3 headroom; aggregate headroom does not protect individual blocks.
 - Shared-cost levels are scenarios, not actual rates. No model, curve, THLB, AAC, target, or benchmark change.
+
+
+### Candidate access exposure
+
+- Mapped 5,581 candidate blocks against public DRA roads, FWA streams, and Natural Earth coastline.
+- 11.9% touch a road, 26.3% are within 100 m, 45.8% within 500 m; 247 blocks have mapped stream intersections.
+- Median straight-line road distance 631 m; median coast distance 9.4 km.
+- Exposure only; no road/crossing/terminal/haul/barge rate assigned. No model or benchmark change.
