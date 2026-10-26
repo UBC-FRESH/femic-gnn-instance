@@ -22,7 +22,7 @@ after its parent issue exists and the maintainer approves it.
 | P7 Solved multi-day marine transport | #39 | `feature/p7-solved-marine` | complete |
 | P8 Solved-proxy full-THLB sensitivity | #42 | `feature/p8-proxy-sensitivity` | complete |
 | P9 LiDAR-derived indicators | #45 | `feature/p9-lidar-indicators` | complete |
-| P10 Documentation and provenance refresh | #49 | `feature/p10-docs-refresh` | pr-open |
+| P10 Documentation and provenance refresh | #49 | `feature/p10-docs-refresh` | complete |
 
 ## Lifecycle Map
 
@@ -396,7 +396,7 @@ decision. The maintainer approves before merge.
 
 Parent issue: #49
 Branch: `feature/p10-docs-refresh`
-Status: pr-open
+Status: complete
 
 Goal: make the public documentation and repository record match P9 without
 changing the model, curves, THLB, AAC, scenarios, data, or release label.

@@ -441,3 +441,9 @@ followed the workflow at the time.
 - Tracked `notes/gnn-partner-data-request.md`.
 - No model, curve, THLB, AAC, data, or release label changed.
 - Verification: dashboard GREEN; workflow 0 errors/0 warnings; Sphinx `-W` clean.
+
+### P10 closeout
+
+- P10.1 merged as `d1509ea` (PR #51); task #50 closed.
+- Public docs refreshed; optional P9 path documented; partner note tracked.
+- P10 closed with no model, data, curve, THLB, AAC, or release-label change.
