@@ -497,3 +497,11 @@ followed the workflow at the time.
 - 11.9% touch a road, 26.3% are within 100 m, 45.8% within 500 m; 247 blocks have mapped stream intersections.
 - Median straight-line road distance 631 m; median coast distance 9.4 km.
 - Exposure only; no road/crossing/terminal/haul/barge rate assigned. No model or benchmark change.
+
+
+### Candidate risk register
+
+- Combined block headroom and public access exposure using explicit screening flags.
+- Priority A: 8 blocks; priority B: 39 blocks; low-headroom-only: 62 blocks.
+- About 0.3 thousand ha is in priority A/B; 3,075 blocks are access-exposed but above the headroom flag.
+- Flags are screening choices, not actual costs. No model or benchmark change.

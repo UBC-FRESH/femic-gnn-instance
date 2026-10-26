@@ -112,6 +112,21 @@ These are exposure measures, not road, crossing, terminal, haul, or barge
 costs. See `notes/reports/access-exposure.md
 <https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reports/access-exposure.md>`_.
 
+
+The candidate risk register combines that exposure with revenue headroom.
+Using screening flags of **under 10 CAD/m3 headroom**, **over 500 m from a
+DRA road**, and **at least one mapped stream intersection**:
+
+- **8 blocks** are priority A: all three flags;
+- **39 blocks** are priority B: low headroom plus road or stream exposure;
+- **62 blocks** are low-headroom only;
+- **3,075 blocks** are access-exposed but have headroom above the flag.
+
+Only about **0.3 thousand ha** is in priority A/B, so the data request can focus
+on a small set rather than the whole candidate. These are screening flags, not
+actual costs. See `notes/reports/candidate-risk-register.md
+<https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reports/candidate-risk-register.md>`_.
+
 .. figure:: _static/access_exposure_map.png
    :width: 100%
    :alt: Candidate blocks colored by distance to existing DRA roads over a pale basemap
