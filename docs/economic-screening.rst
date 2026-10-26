@@ -58,6 +58,20 @@ under the base deck unless it is explicitly marked as a forced access or
 infrastructure block with a stated reason. The 4.5% of THLB that is non-positive
 in the base case is the area that gate would exclude.
 
+Block-level diagnostic
+~~~~~~~~~~~~~~~~~~~~~~
+
+A direct-cost pass mapped the screen to **7,848 screened blocks** (of 19,366
+block supports). It found **478 negative blocks**, covering **2.4 thousand ha**
+of THLB (**4.5%**). The negative share is highest for helicopter candidates
+(**9.3%**), then ground (**3.4%**) and cable (**2.6%**). About **0.3 thousand ha**
+of the screened THLB did not map to block support.
+
+This is still a partial gate: shared road, landing, terminal, and overhead
+costs are unallocated. The block list is available in
+`notes/reports/block-level-revenue-screen.md
+<https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reports/block-level-revenue-screen.md>`_.
+
 By harvest system in the base case:
 
 .. list-table::
