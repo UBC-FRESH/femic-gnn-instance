@@ -10,11 +10,9 @@ proposed GNN Statement of Intent boundary.
 
 ## Status
 
-Prototype release `v0.1.0-prototype` is available. Phase 2 (release and hand-off) is complete. `ROADMAP.md` is the plan of
-record, and the GitHub issues carry the live status. The model is a **prototype**, not a legal or
-operational release.
+Prototype release `v0.1.0-prototype` is available. P0-P9 are complete; P9 added bounded LiDAR and public terrain/VRI **descriptive** indicators only. `ROADMAP.md` is the plan of record, and the GitHub issues carry the live status. The model is a **prototype**, not a legal or operational release.
 
-> **Volume-only caveat:** This release has no operability classification, harvest cost, haul/barge cost, grade/sort decomposition, log prices, or net revenue. It is not a "sustainable harvest level" and it is not financially assessed.
+> **Volume-only caveat:** This release does not contain a validated operability, cost, or net revenue model. A P3 diagnostic screen and P9 descriptive indicators exist, but the release label remains volume-only. It is not a "sustainable harvest level" and it is not financially assessed.
 
 > **Warning:** The boundary is the **proposed GNN Statement of Intent** polygon,
 > not a final treaty boundary or a legal title determination. Confirm the
@@ -23,7 +21,16 @@ operational release.
 
 ## Economic screening (diagnostic)
 
-Full derived THLB: **95.5% positive** in the base screening case (88.0-96.8% across price/recovery). It uses class-average full-system costs, coarse terrain, provisional recovery, and legacy transport. A separate FHOPS marine API test is available with `--transport fhops-marine`; its fixture is Sunshine Coast -> Howe Sound, not the northern Vancouver Island GNN geography, so it is not a GNN transport estimate. An internal public-route proxy uses Quatsino Sound -> Ladysmith Harbour; it now runs as a solved FHOPS Phase I case, is diagnostic only, and is not the published base. Neither result is sustainable or financially calibrated.
+Full derived THLB: **95.5% positive** in the base screening case (88.0-96.8% across price/recovery). It uses class-average full-system costs, coarse DEM centroid terrain, provisional recovery, and legacy transport. The P9 30 m Terrarium/VRI fields are not used in this screen, and the 10 m LiDAR pilot is not model-wide. A separate FHOPS marine API test is available with `--transport fhops-marine`; its fixture is Sunshine Coast -> Howe Sound, not the northern Vancouver Island GNN geography, so it is not a GNN transport estimate. An internal public-route proxy uses Quatsino Sound -> Ladysmith Harbour; it now runs as a solved FHOPS Phase I case, is diagnostic only, and is not the published base. Neither result is sustainable or financially calibrated.
+
+## Terrain and indicator evidence (P9)
+
+P9 added two distinct things:
+
+- **Model-wide descriptive proxies:** AWS Terrarium zoom 12 terrain at 30 m and VRI stand fields, with source and coverage flags.
+- **A bounded LiDAR pilot:** 181 direct fragments / 184 blocks / 978.63 ha, 10 m LidarBC products. It is not a GNN-wide layer.
+
+The public proxies failed validation for absolute operability use: Terrarium mean slope is biased **-13.66 points** against the LiDAR pilot, and VRI height has low spatial correlation with CHM. Do not use these fields for ground/cable/heli thresholds or CHM claims. See the [indicator documentation](https://ubc-fresh.github.io/femic-gnn-instance/indicators.html).
 
 ## Prototype result
 
@@ -79,6 +86,10 @@ pipeline/build_gnn_model.sh
 The build script expects the base instances at `../femic-tsa46-instance` and
 `../femic-tsa47-instance`. Runtime outputs are gitignored.
 
+P9 indicators are **not** run by `build_gnn_model.sh`. See the [indicator documentation](https://ubc-fresh.github.io/femic-gnn-instance/indicators.html) and
+`pipeline/README.md` for the optional FEMIC/WS4 build path and the 5.5 GiB
+LidarBC materialization boundary.
+
 ## AOI
 
 - `data/source/aoi/gnn_soi.gpkg` — proposed GNN SOI polygon, EPSG:3005.
@@ -102,5 +113,8 @@ feature `Gwa'Sala-'Nakwaxda'xw Nation (proposed)`.
 - A TSA-prefixed AU decision and a reporting-only crosswalk.
 - A derived THLB/AAC benchmark, clearly labelled non-legal.
 - GNN review of the proposed boundary and any public output.
+- Optional P9 indicators: FEMIC P79 LiDAR producer and WS4 P52 consumer,
+  including the multi-track block fix. The indicator fields are descriptive,
+  not a release gate.
 
 Tracking issue: `UBC-FRESH/femic#341`.

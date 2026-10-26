@@ -33,6 +33,42 @@ Command
 The base instances are expected at ``../femic-tsa46-instance`` and
 ``../femic-tsa47-instance``. Runtime outputs are gitignored.
 
+Optional P9 indicators
+----------------------
+
+``build_gnn_model.sh`` builds the growth/scheduling model only. The P9
+indicator fields are a separate, optional integration and are not model
+semantics:
+
+.. code-block:: bash
+
+   # LidarBC materialization is about 5.5 GiB and data/lidar/ is gitignored.
+   python -m femic lidar materialize \
+     --selection-manifest metadata/lidar/lidarbc_selection_dem_dsm.json \
+     --output-root data/lidar
+
+   python pipeline/build_gnn_lidar_products.py \
+     --aoi data/source/aoi/gnn_full.gpkg \
+     --materialization data/lidar/materialization.json \
+     --output-dir data/lidar/gnn_10m \
+     --bundle-dir data/lidar/products/lidarbc-gnn-10m
+
+   python pipeline/integrate_gnn_lidar.py \
+     --dataset runtime/gnn/matrix \
+     --bundle data/lidar/products/lidarbc-gnn-10m \
+     --fragments output/patchworks_gnn/fragments_merged/fragments.shp
+
+   python pipeline/build_gnn_public_indicators.py \
+     --dataset runtime/gnn/matrix \
+     --cache-dir runtime/gnn/public_terrain/terrarium_z12 \
+     --output-dir runtime/gnn/public_terrain
+
+Requirements: the merged FEMIC LiDAR producer (P79) and the merged WS4 LiDAR
+consumer (P52 plus the multi-track block fix). The LiDAR result is a bounded
+181-fragment / 184-block pilot; the 30 m Terrarium/VRI fields are descriptive
+only. Do not use them for operability thresholds or CHM claims. See
+:doc:`indicators` and the P9 reports.
+
 Model
 -----
 
