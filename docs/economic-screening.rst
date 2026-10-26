@@ -88,6 +88,16 @@ direct-cost candidate, not a sustainable result; shared costs remain
 unallocated. See `notes/reports/positive-block-schedule.md
 <https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reports/positive-block-schedule.md>`_.
 
+Shared-cost headroom for this candidate is **154.92 CAD/m3** on the selected
+block screen, with **2.81 billion CAD** of direct net revenue over **18.146
+million m3**. At a hypothetical shared cost of 50 CAD/m3, **5,047 blocks**
+(35.3 thousand ha) remain positive; at 100 CAD/m3, **4,339 blocks**
+(30.6 thousand ha) remain positive. These cost levels are sensitivity axes,
+not actual rates. Some selected blocks have less than 0.1 CAD/m3 of headroom,
+so individual block results will flip before the aggregate does. See
+`notes/reports/shared-cost-headroom.md
+<https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reports/shared-cost-headroom.md>`_.
+
 
 .. figure:: _static/block_revenue_map.png
    :width: 100%
