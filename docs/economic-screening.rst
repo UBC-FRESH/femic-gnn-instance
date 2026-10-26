@@ -88,6 +88,17 @@ direct-cost candidate, not a sustainable result; shared costs remain
 unallocated. See `notes/reports/positive-block-schedule.md
 <https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reports/positive-block-schedule.md>`_.
 
+
+.. figure:: _static/block_revenue_map.png
+   :width: 100%
+   :alt: Map of direct-positive and direct-negative blocks, removed negative blocks, and the positive replacement schedule
+   :align: center
+
+   Left: the direct-cost block screen. Right: the 265 negative blocks removed
+   from the base schedule and the 5,581-block positive replacement schedule.
+   Direct costs only; shared road/landing/terminal/overhead costs are not
+   allocated.
+
 By harvest system in the base case:
 
 .. list-table::

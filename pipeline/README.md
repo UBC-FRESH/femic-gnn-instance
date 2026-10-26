@@ -38,6 +38,7 @@ The script expects the base instances at `../femic-tsa46-instance` and
 | `plot_gnn_au_figures.py` | Generate SI violin panels and AU curve plots |
 | `screen_block_revenue.py` | Map the checkpoint revenue screen to blocks; direct-cost partial gate |
 | `select_positive_blocks.py` | Write the direct-positive block candidate list from the block screen |
+| `plot_block_revenue_map.py` | Map positive/negative blocks, removed blocks, and the replacement schedule |
 | `screen_block_exclusion.py` | Filter negative-revenue blocks out of a candidate schedule for a diagnostic sensitivity |
 | `build_gnn_lidar_products.py` | Optional: 10 m GNN strategic LiDAR bundle from LidarBC DEM/DSM |
 | `integrate_gnn_lidar.py` | Optional: register/map/integrate LiDAR fields into the GNN dataset |
