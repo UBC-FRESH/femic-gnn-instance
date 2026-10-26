@@ -34,7 +34,7 @@ The base instances are expected at ``../femic-tsa46-instance`` and
 ``../femic-tsa47-instance``. Runtime outputs are gitignored.
 
 Optional terrain and canopy indicators
-----------------------
+---------------------------------------
 
 ``build_gnn_model.sh`` builds the growth/scheduling model only. The terrain and canopy
 indicator fields are a separate, optional integration and are not model
