@@ -1,6 +1,7 @@
 # GNN project partner data request
 
-Status: posted to project Basecamp on 2026-10-25; awaiting partner responses.
+Status: posted to project Basecamp on 2026-10-25; follow-up addendum posted
+2026-10-27; awaiting partner responses.
 Prepared: 2026-10-25
 Owner: UBC-FRESH
 Project: FEMIC/ws4 prototype for the TSA 46/47 portions of the proposed GNN Statement of Intent area
@@ -15,6 +16,8 @@ Project: FEMIC/ws4 prototype for the TSA 46/47 portions of the proposed GNN Stat
 | Basecamp recording ID | `10440457065` |
 | Recipients | GNN project partners |
 | Status | Awaiting responses |
+| Follow-up addendum posted | 2026-10-27 |
+| Addendum URL | https://app.basecamp.com/3683983/buckets/49363375/messages/10440457065#__recording_10445678164 |
 | Follow-up | [add follow-up date] |
 
 Do not treat silence or informal feedback as confirmation. Log every response
@@ -202,8 +205,8 @@ Sincerely,
 
 ## Candidate-evidence addendum
 
-Status: **prepared for review; not yet posted.**  
-Prepared: 2026-10-27
+Status: **posted as a comment on 2026-10-27.**  
+Comment: https://app.basecamp.com/3683983/buckets/49363375/messages/10440457065#__recording_10445678164
 
 Use this as a short follow-up to the 2026-10-25 request. It narrows the ask to
 the candidate schedule and the blocks where missing data can change the answer.
