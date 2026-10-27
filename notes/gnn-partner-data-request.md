@@ -197,3 +197,69 @@ Sincerely,
 - [ ] Send one short follow-up if there is no response by the follow-up date.
 - [x] Do not attach restricted price tables or private data.
 - [ ] Move any received files to the appropriate controlled workspace and record provenance.
+
+---
+
+## Candidate-evidence addendum
+
+Status: **prepared for review; not yet posted.**  
+Prepared: 2026-10-27
+
+Use this as a short follow-up to the 2026-10-25 request. It narrows the ask to
+the candidate schedule and the blocks where missing data can change the answer.
+
+### What changed since the original request
+
+A positive-block candidate schedule now exists:
+
+- 5,581 blocks, 39.1 thousand ha;
+- no direct-negative blocks scheduled;
+- all ten decades inside the 2.526–2.527 million m3 band;
+- base schedule, curves, THLB, AAC, targets, and benchmark unchanged.
+
+The candidate has high aggregate headroom, but individual blocks do not:
+
+- 8 priority-A blocks: low headroom, far from a mapped road, and intersecting a
+  mapped stream;
+- 39 priority-B blocks: low headroom plus road or stream exposure;
+- 62 additional low-headroom-only blocks;
+- 3,075 blocks are access-exposed but above the headroom flag;
+- 247 candidate blocks have mapped stream intersections, 527 crossings total.
+
+See:
+
+- `notes/reports/positive-block-schedule.md`
+- `notes/reports/shared-cost-headroom.md`
+- `notes/reports/access-exposure.md`
+- `notes/reports/candidate-risk-register.md`
+
+### Narrower request
+
+We are now most interested in data for the priority A/B blocks and the access
+exposure around them. Please provide, where available:
+
+1. Current road, landing, culvert, and bridge construction/deactivation costs.
+2. One confirmed origin terminal and one destination, with operator contacts.
+3. Current barge/vessel capacity, cycle time, and rates for that route.
+4. Current ground/cable/helicopter contractor rates or recent examples.
+5. Observed grade/sort recovery and a dated price or netback example.
+6. Managed/young ground plots inside the GNN AOI.
+7. Any partner-held LiDAR or terrain data for the northern GNN AOI.
+
+Even one confirmed route/terminal pair, one recent rate sheet, or one recovery
+table would materially improve the candidate. Redacted, aggregated, or
+single-example responses are acceptable.
+
+### What we will do with it
+
+- Replace the relevant class-average or legacy assumptions.
+- Re-run the candidate schedule and headroom test.
+- Report what changes and what does not.
+- Keep the published base volume-only and avoid a sustainable or profitable
+  claim until the full operability, cost, recovery, price, and review gates pass.
+
+### Follow-up details
+
+- Follow-up date: **[add date]**
+- Technical contact: **[name, role, email]**
+- Data governance/confidentiality: **[name, role, email]**
