@@ -520,6 +520,9 @@ followed the workflow at the time.
   Joined footprint: 181 fragments / 181 blocks / 1,317.8 ha by cell area.
 - Fragment-level VRI comparison is weak: height bias +3.56 m, RMSE 5.90 m,
   correlation -0.027; volume bias +57.82 m3/ha, RMSE 284.99, correlation -0.062.
+- Published `notes/reports/gnn-forest-condition-2026.json` and `.md` as a
+  `ws4.forest_condition.report.v1` card, with the BA diagnostic mean, card LOOCV
+  RMSE, pilot coverage, and advisory alerts. The card is `draft` and report-only.
 - The result is report-only. It is not a GNN calibration, not an operational
   inventory, and does not enter the matrix, curves, THLB, AAC, targets, schedule,
   or release label. Report: `notes/reports/p11-cwh-inventory-diagnostic.md`.

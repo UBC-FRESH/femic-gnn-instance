@@ -1,0 +1,59 @@
+{
+  "schema_version": "ws4.forest_condition.report.v1",
+  "report_id": "gnn-cwh-inventory-pilot-2026",
+  "scenario_id": "p11-cwh-inventory-diagnostic",
+  "generated_utc": "2026-11-02T00:00:00Z",
+  "period": "2026",
+  "review_status": "draft",
+  "indicators": [
+    {
+      "name": "cwh_basal_area_diagnostic",
+      "value": 42.29,
+      "unit": "m2/ha",
+      "source": "femic.inventory.als",
+      "source_version": "cwh-basal-area-psp-lidarbc-2026",
+      "uncertainty": 9.27,
+      "uncertainty_kind": "RMSE",
+      "applicability": "CWH northern Vancouver Island; 14-plot pilot; GNN diagnostic only",
+      "status": "review_required",
+      "trend": "not_available",
+      "note": "Mean of 21,995 in-range 25 m cells; VRI correlation -0.062; not a GNN calibration."
+    },
+    {
+      "name": "lidar_pilot_fragments",
+      "value": 181,
+      "unit": "fragments",
+      "source": "femic.lidar",
+      "source_version": "2026.10.0-gnn-10m",
+      "uncertainty": null,
+      "uncertainty_kind": null,
+      "applicability": "bounded southern GNN LiDAR pilot",
+      "status": "ok",
+      "trend": "not_available",
+      "note": "184 blocks / 979 ha; not model-wide."
+    }
+  ],
+  "alerts": [
+    {
+      "code": "inventory-not-operational",
+      "severity": "watch",
+      "message": "CWH cards are a 14-plot regional pilot; the VRI comparison is weak; do not use for operability or AAC.",
+      "indicator": "cwh_basal_area_diagnostic",
+      "advisory": true
+    },
+    {
+      "code": "lidar-coverage",
+      "severity": "watch",
+      "message": "LiDAR pilot covers 181 fragments / 184 blocks / 979 ha; not a GNN-wide layer.",
+      "indicator": "lidar_pilot_fragments",
+      "advisory": true
+    }
+  ],
+  "provenance": {
+    "instance": "femic-gnn-instance@ee0e7a3",
+    "report": "notes/reports/p11-cwh-inventory-diagnostic.md",
+    "bundle": "lidarbc-1b7b79757e98cfe5",
+    "bundle_version": "2026.10.0-gnn-10m",
+    "model_card": "config/inventory/models/als_cwh_basal_area_2026.json"
+  }
+}

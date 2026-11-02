@@ -433,6 +433,7 @@ schedule, targets, or release label.
   - [x] Add the reproducible pipeline entry point.
   - [x] Derive the 25 m features and apply the three cards with explicit range filtering.
   - [x] Record the fragment join, VRI comparison, and limits.
+  - [x] Publish the report-only forest-condition card.
   - [x] Add the report and docs page.
   - [x] Update the roadmap and changelog.
   - [x] Run the dashboard and queue the phase pull request.

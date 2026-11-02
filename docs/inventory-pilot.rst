@@ -47,6 +47,14 @@ At fragment level the VRI comparison is weak: height bias +3.56 m with RMSE
 and correlation -0.062. The VRI is a conventional inventory, not independent
 field validation.
 
+Forest-condition card
+---------------------
+
+``notes/reports/gnn-forest-condition-2026.json`` and ``.md`` publish the diagnostic
+as a ``ws4.forest_condition.report.v1`` card. It carries the CWH BA diagnostic mean,
+the card LOOCV RMSE, the 181-fragment pilot coverage, and advisory coverage and
+applicability alerts. The card is ``draft`` and report-only.
+
 Limits
 ------
 

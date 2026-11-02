@@ -31,7 +31,8 @@ Settings changes, each with its exact command. Each one runs only after its own 
 | Reproducible feature extraction and card application | `pipeline/cwh_inventory_diagnostic.py`; run output in `notes/reports/p11-cwh-inventory-diagnostic.summary.json` | met |
 | Explicit range filtering with retained and dropped counts | height 21,666 retained / 473 dropped; BA and volume 21,995 retained / 144 dropped | met |
 | Record prediction summaries, fragment/block/area coverage, VRI comparison, and limits | `notes/reports/p11-cwh-inventory-diagnostic.md`; summary JSON | met |
-| No curve, THLB, AAC, target, schedule, matrix, or release change | The change set adds config, a pipeline entry point, a report, and docs only; no runtime/model artifact is tracked | met |
+| No curve, THLB, AAC, target, schedule, matrix, or release change | The change set adds config, a pipeline entry point, reports, and docs only; no runtime/model artifact is tracked | met |
+| Publish the report-only forest-condition handoff | `notes/reports/gnn-forest-condition-2026.json` / `.md`; loads through the WS4 P90 contract and is `draft` | met |
 | Dashboard green on the phase head | `python scripts/dashboard.py` -> OVERALL: GREEN at `c5d6061`; rerun after the report commit | met with the stated limit that the report commit's run is the CI run below |
 
 ## 2. Workflow compliance

@@ -93,6 +93,15 @@ The VRI is a conventional interpreted inventory, not independent field truth.
 The weak correlation and positive bias are the same pattern the GNN P9 work
 recorded for VRI height: the comparison is a screening check, not validation.
 
+## Forest-condition card
+
+`notes/reports/gnn-forest-condition-2026.json` and `.md` publish the diagnostic as a
+`ws4.forest_condition.report.v1` card. It carries the CWH BA diagnostic mean
+(42.29 m2/ha), the card's 9.27 m2/ha LOOCV RMSE, the 21,995 in-range cells, the
+181-fragment / 184-block / 979 ha LiDAR pilot coverage, and two advisory alerts.
+The card is `draft` and report-only; it does not change the model or become an
+operational early-warning product.
+
 ## Limits
 
 - The CWH cards use 14 training plots and CHM proxies. They are regional pilots,
