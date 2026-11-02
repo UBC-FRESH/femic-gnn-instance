@@ -23,7 +23,8 @@ after its parent issue exists and the maintainer approves it.
 | P8 Solved-proxy full-THLB sensitivity | #42 | `feature/p8-proxy-sensitivity` | complete |
 | P9 LiDAR-derived indicators | #45 | `feature/p9-lidar-indicators` | complete |
 | P10 Documentation and provenance refresh | #49 | `feature/p10-docs-refresh` | complete |
-| P11 CWH inventory diagnostic and forest-condition handoff | #74 | `feature/p11-cwh-inventory-diagnostic` | active |
+| P11 CWH inventory diagnostic and forest-condition handoff | #74 | `feature/p11-cwh-inventory-diagnostic` | complete |
+| P12 GNN point-cloud inventory feasibility | #77 | `feature/p12-pointcloud-feasibility` | active |
 
 ## Lifecycle Map
 
@@ -421,7 +422,7 @@ Acceptance criteria:
 
 Parent issue: #74
 Branch: `feature/p11-cwh-inventory-diagnostic`
-Status: active
+Status: complete
 
 Goal: apply the published FEMIC CWH INV-01 cards to the existing bounded GNN
 LiDAR pilot as a report-only diagnostic, and publish the coverage, predictions,
@@ -444,6 +445,33 @@ Acceptance criteria:
 - Retained and dropped cells are recorded for every card.
 - The report labels the VRI comparison descriptive and states the 14-plot CWH limits.
 - No curve, THLB, AAC, target, schedule, matrix, or release value changes.
+- The dashboard is green.
+
+## Phase 12: GNN point-cloud inventory feasibility
+
+Parent issue: #77
+Branch: `feature/p12-pointcloud-feasibility`
+Status: active
+
+Goal: decide whether the GNN AOI has enough public FAIB plots and LidarBC
+point-cloud coverage to justify a GNN-specific first-return inventory pilot, and
+publish a go/no-go audit without acquiring data or changing the model.
+
+- [x] P12.1 Audit GNN-area FAIB plots and LidarBC point-cloud coverage (#78)
+  - [x] Summarize the FAIB plots in the GNN AOI.
+  - [x] Summarize the point-cloud tiles and footprint.
+  - [x] Measure plot-to-point-cloud overlap and nearest distances.
+  - [x] Publish the go/no-go report and machine-readable summary.
+  - [x] Update the inventory-pilot page, roadmap, and changelog.
+  - [x] Run the dashboard and queue the phase pull request.
+
+Acceptance criteria:
+
+- The report records plot counts, BEC composition, recent plots, tile years,
+  footprint, and AOI share.
+- The report records the overlap count and nearest-plot distances.
+- The decision is explicit and names the missing acquisition or plot evidence.
+- No point cloud is downloaded, no card is fit, and no model value changes.
 - The dashboard is green.
 
 ## Post-P10 economics and access evidence
@@ -482,4 +510,5 @@ No model, curve, THLB, AAC, target, or benchmark change was made.
 10. P9 is **complete** (merged as `612a9c5`): the reviewed `lidar_*` fields are integrated as a **bounded southern pilot** (181 direct fragments, 184 blocks, 978.63 ha), not a GNN-wide layer. See `notes/reports/p9-lidar-indicators.md`. P9.2 (#48) is the public-data fallback: Terrarium zoom 12 and VRI are integrated as **descriptive proxies**; validation against the LiDAR pilot is weak (Terrarium slope bias -13.66 points, MAE 13.97; VRI height MAE 4.09 m), so they are not promoted into operability thresholds. See `notes/reports/p9.2-public-data-indicators.md`. This is a data/feature integration, not a model-improvement claim.
 11. No release change or sustainable label is authorized by P4-P10.
 12. Post-P10 diagnostics are complete: block screen, removal test, positive candidate schedule, headroom, access exposure, and risk register. The base schedule and benchmark remain unchanged. Shared-cost, carrier, recovery, price, and field data are still required.
-13. P11 is active: the published CWH INV-01 cards were applied to the bounded GNN LiDAR pilot as a report-only diagnostic. The 25 m feature table has 22,139 cells; after range filtering, height retains 21,666 cells and BA/volume retain 21,995 cells. The joined footprint is 181 fragments / 181 blocks / 1,317.8 ha by cell area. Fragment-level VRI comparison is weak (height bias +3.56 m, RMSE 5.90 m, correlation -0.027; volume bias +57.82 m3/ha, RMSE 284.99, correlation -0.062), so the cards are not a GNN calibration and do not enter the model. See `notes/reports/p11-cwh-inventory-diagnostic.md`.
+13. P11 is complete: the published CWH INV-01 cards were applied to the bounded GNN LiDAR pilot as a report-only diagnostic. The 25 m feature table has 22,139 cells; after range filtering, height retains 21,666 cells and BA/volume retain 21,995 cells. The joined footprint is 181 fragments / 181 blocks / 1,317.8 ha by cell area. Fragment-level VRI comparison is weak (height bias +3.56 m, RMSE 5.90 m, correlation -0.027; volume bias +57.82 m3/ha, RMSE 284.99, correlation -0.062), so the cards are not a GNN calibration and do not enter the model. See `notes/reports/p11-cwh-inventory-diagnostic.md`.
+14. P12 is active: the GNN point-cloud feasibility audit is a **no-go** for a local first-return pilot from current public data. The AOI has 24 FAIB plots (22 CWH, 2 MH) and 8 since 2018, but 755 point-cloud tiles cover only 1.10% of the AOI and no plot falls inside a tile; the nearest recent plot is 32.7 km away. See `notes/reports/p12-pointcloud-inventory-feasibility.md`. A local fit needs point clouds over the recent plots, or recent plots inside the existing footprint.
