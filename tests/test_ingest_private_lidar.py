@@ -11,6 +11,7 @@ from pathlib import Path
 import pytest
 
 pytest.importorskip("laspy")
+pytest.importorskip("pyproj")
 
 import laspy
 import numpy as np
