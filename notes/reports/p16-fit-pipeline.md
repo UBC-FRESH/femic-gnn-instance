@@ -56,6 +56,11 @@ Run:
 python -m pytest tests/test_fit_inventory_cards.py -q --no-cov
 ```
 
+## Validation
+
+The pipeline reproduces the published TSA 23 IDF cards from the public 14-plot
+training table; see `notes/reports/p17-fit-validation-tsa23.md`.
+
 ## Limits
 
 - The nearest-cell match is not a plot-support extraction. For the real run, prefer a
