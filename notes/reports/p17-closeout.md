@@ -73,7 +73,7 @@ LOOCV RMSE.
 
 | Run ID | Head commit | Conclusion | Notes |
 | --- | --- | --- | --- |
-| pending | report commit | pending | The report commit's CI run is posted on pull request #96 before approval. |
+| 41424386729 | `2b4abfe` | success | Quality gates, Green dashboard summary, and Pre-commit parity passed. The only later change is this CI-table refresh. |
 
 ## 5. Deviations
 
