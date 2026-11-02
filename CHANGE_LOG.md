@@ -611,3 +611,14 @@ followed the workflow at the time.
   synthetic 12-plot/four-cluster test.
 - No real private data was read and no card was published.
 - Dashboard: GREEN (lint, format, types, tests, validator, docs).
+
+### P17.1 Fit pipeline validation against the TSA 23 card
+
+- Added the public 14-plot TSA 23 INV-01 training fixture and provenance note.
+- Added `tests/test_fit_inventory_cards_tsa23.py`, which runs the fit pipeline and
+  asserts the three published card coefficients, Duan smearing scales, and LOOCV
+  RMSE.
+- Result: coefficients and scales match to machine precision; the only difference is
+  the published cards' three-decimal RMSE rounding.
+- This is a TSA 23 IDF validation, not a GNN calibration.
+- Dashboard: GREEN (lint, format, types, tests, validator, docs).

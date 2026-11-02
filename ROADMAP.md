@@ -28,7 +28,8 @@ after its parent issue exists and the maintainer approves it.
 | P13 GNN point-cloud acquisition request | #80 | `feature/p13-pointcloud-acquisition-request` | complete |
 | P14 Private LiDAR ingest readiness | #83 | `feature/p14-private-lidar-ingest` | complete |
 | P15 Private LiDAR dry run and fit pre-registration | #87 | `feature/p15-private-lidar-dry-run` | complete |
-| P16 Private LiDAR fit pipeline | #91 | `feature/p16-private-lidar-fit` | active |
+| P16 Private LiDAR fit pipeline | #91 | `feature/p16-private-lidar-fit` | complete |
+| P17 Fit pipeline validation against the published TSA 23 card | #94 | `feature/p17-fit-validation-tsa23` | active |
 
 ## Lifecycle Map
 
@@ -570,7 +571,7 @@ Acceptance criteria:
 
 Parent issue: #91
 Branch: `feature/p16-private-lidar-fit`
-Status: active
+Status: complete
 
 Goal: implement the pre-registered fit and holdout pipeline with a synthetic
 end-to-end test before the private upload arrives.
@@ -591,6 +592,30 @@ Acceptance criteria:
 - It refuses cards on coefficient sign changes unless forced.
 - Cards use `femic.inventory.als.model.v1` and research-only caveats.
 - The synthetic test passes without private data.
+- The dashboard is green.
+
+## Phase 17: Fit pipeline validation against the published TSA 23 card
+
+Parent issue: #94
+Branch: `feature/p17-fit-validation-tsa23`
+Status: active
+
+Goal: validate the fit pipeline against the published TSA 23 INV-01 cards using the
+public 14-plot training table as a regression oracle.
+
+- [x] P17.1 Validate the fit pipeline against the published TSA 23 card (#95)
+  - [x] Add the public fixture and provenance.
+  - [x] Add the regression test.
+  - [x] Write the validation report.
+  - [x] Run the test and dashboard.
+  - [x] Queue the phase pull request.
+
+Acceptance criteria:
+
+- The fixture is public and carries its source path.
+- The pipeline reproduces the published coefficients, output scale, and LOOCV RMSE.
+- The regression test passes locally and skips cleanly without numpy/pandas.
+- The report states the TSA 23 / GNN boundary.
 - The dashboard is green.
 
 ## Post-P10 economics and access evidence
@@ -634,4 +659,5 @@ No model, curve, THLB, AAC, target, or benchmark change was made.
 15. P13 is complete: the GNN point-cloud acquisition request covers the 24 FAIB plots in the AOI (8 recent, 16 secondary), with 2 km EPSG:3005 request bboxes. The recent-plot union is 8,661.3 ha; all plots union 17,613.9 ha. Nearest recent tile gap: 32.7 km. See `notes/reports/p13-pointcloud-acquisition-request.md`.
 16. P14 is complete: the private LiDAR ingest kit is ready in `pipeline/ingest_private_lidar.py`, with a private/public output split under ADR 0007. The P13 request is a fallback for plots the pending private upload does not cover. The Globus `/incoming/` and `/manifests/` directories were empty on 2026-11-02.
 17. P15 is complete: the synthetic point-cloud dry run produces 7 first-return cells with `Lhmean`, `Lhcv`, `Lhp95`, and `CC2m`; the fit plan pre-registers LOOCV, four spatial clusters, and a 2022/2023 temporal check. The installed local FEMIC lacks `inventory-pointcloud-features`; use `origin/main` or newer. See `notes/reports/p15-private-lidar-dry-run.md` and `notes/reports/p15-fit-preregistration.md`.
-18. P16 is active: `pipeline/fit_inventory_cards.py` implements the P15 fit forms, LOOCV, spatial clusters, temporal transfer, coefficient-stability checks, and optional FEMIC cards. The synthetic test covers 12 plots in four clusters. See `notes/reports/p16-fit-pipeline.md`.
+18. P16 is complete: `pipeline/fit_inventory_cards.py` implements the P15 fit forms, LOOCV, spatial clusters, temporal transfer, coefficient-stability checks, and optional FEMIC cards. The synthetic test covers 12 plots in four clusters. See `notes/reports/p16-fit-pipeline.md`.
+19. P17 is active: the fit pipeline reproduces the published TSA 23 IDF cards to machine precision (coefficients and smearing scale); only the cards' three-decimal RMSE rounding differs. See `notes/reports/p17-fit-validation-tsa23.md`.
