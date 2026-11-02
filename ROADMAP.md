@@ -24,7 +24,8 @@ after its parent issue exists and the maintainer approves it.
 | P9 LiDAR-derived indicators | #45 | `feature/p9-lidar-indicators` | complete |
 | P10 Documentation and provenance refresh | #49 | `feature/p10-docs-refresh` | complete |
 | P11 CWH inventory diagnostic and forest-condition handoff | #74 | `feature/p11-cwh-inventory-diagnostic` | complete |
-| P12 GNN point-cloud inventory feasibility | #77 | `feature/p12-pointcloud-feasibility` | active |
+| P12 GNN point-cloud inventory feasibility | #77 | `feature/p12-pointcloud-feasibility` | complete |
+| P13 GNN point-cloud acquisition request | #80 | `feature/p13-pointcloud-acquisition-request` | active |
 
 ## Lifecycle Map
 
@@ -451,7 +452,7 @@ Acceptance criteria:
 
 Parent issue: #77
 Branch: `feature/p12-pointcloud-feasibility`
-Status: active
+Status: complete
 
 Goal: decide whether the GNN AOI has enough public FAIB plots and LidarBC
 point-cloud coverage to justify a GNN-specific first-return inventory pilot, and
@@ -471,6 +472,31 @@ Acceptance criteria:
   footprint, and AOI share.
 - The report records the overlap count and nearest-plot distances.
 - The decision is explicit and names the missing acquisition or plot evidence.
+- No point cloud is downloaded, no card is fit, and no model value changes.
+- The dashboard is green.
+
+## Phase 13: GNN point-cloud acquisition request
+
+Parent issue: #80
+Branch: `feature/p13-pointcloud-acquisition-request`
+Status: active
+
+Goal: turn the P12 no-go result into a concrete acquisition request for GNN-area
+point clouds over the recent FAIB plots, without downloading data or changing the
+model.
+
+- [x] P13.1 Publish the GNN point-cloud acquisition request (#81)
+  - [x] Extend the feasibility script with the request table.
+  - [x] Generate the 24-plot request table and 8 recent flags.
+  - [x] Write the partner-facing memo.
+  - [x] Link the request from the docs and partner note.
+  - [x] Update the roadmap/changelog and queue the PR.
+
+Acceptance criteria:
+
+- The request table covers 24 plots, flags 8 recent, and records nearest-tile distance.
+- Each row has a 2 km EPSG:3005 bbox and area.
+- The memo states the current gap and what acquisition would unblock.
 - No point cloud is downloaded, no card is fit, and no model value changes.
 - The dashboard is green.
 
@@ -511,4 +537,5 @@ No model, curve, THLB, AAC, target, or benchmark change was made.
 11. No release change or sustainable label is authorized by P4-P10.
 12. Post-P10 diagnostics are complete: block screen, removal test, positive candidate schedule, headroom, access exposure, and risk register. The base schedule and benchmark remain unchanged. Shared-cost, carrier, recovery, price, and field data are still required.
 13. P11 is complete: the published CWH INV-01 cards were applied to the bounded GNN LiDAR pilot as a report-only diagnostic. The 25 m feature table has 22,139 cells; after range filtering, height retains 21,666 cells and BA/volume retain 21,995 cells. The joined footprint is 181 fragments / 181 blocks / 1,317.8 ha by cell area. Fragment-level VRI comparison is weak (height bias +3.56 m, RMSE 5.90 m, correlation -0.027; volume bias +57.82 m3/ha, RMSE 284.99, correlation -0.062), so the cards are not a GNN calibration and do not enter the model. See `notes/reports/p11-cwh-inventory-diagnostic.md`.
-14. P12 is active: the GNN point-cloud feasibility audit is a **no-go** for a local first-return pilot from current public data. The AOI has 24 FAIB plots (22 CWH, 2 MH) and 8 since 2018, but 755 point-cloud tiles cover only 1.10% of the AOI and no plot falls inside a tile; the nearest recent plot is 32.7 km away. See `notes/reports/p12-pointcloud-inventory-feasibility.md`. A local fit needs point clouds over the recent plots, or recent plots inside the existing footprint.
+14. P12 is complete: the GNN point-cloud feasibility audit is a **no-go** for a local first-return pilot from current public data. The AOI has 24 FAIB plots (22 CWH, 2 MH) and 8 since 2018, but 755 point-cloud tiles cover only 1.10% of the AOI and no plot falls inside a tile; the nearest recent plot is 32.7 km away. See `notes/reports/p12-pointcloud-inventory-feasibility.md`. A local fit needs point clouds over the recent plots, or recent plots inside the existing footprint.
+15. P13 is active: the GNN point-cloud acquisition request covers the 24 FAIB plots in the AOI (8 recent, 16 secondary), with 2 km EPSG:3005 request bboxes. The recent-plot union is 8,661.3 ha; all plots union 17,613.9 ha. Nearest recent tile gap: 32.7 km. See `notes/reports/p13-pointcloud-acquisition-request.md`.

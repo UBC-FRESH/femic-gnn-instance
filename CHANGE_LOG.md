@@ -543,3 +543,17 @@ followed the workflow at the time.
 - No point cloud was downloaded, no card was fit, and no model value changed.
 - Report: `notes/reports/p12-pointcloud-inventory-feasibility.md`.
 - Dashboard: GREEN (lint, format, types, tests, validator, docs).
+
+### P13.1 GNN point-cloud acquisition request
+
+- Extended `pipeline/pointcloud_inventory_feasibility.py` with an optional per-plot
+  acquisition table (`--request-csv`, `--request-buffer-m`).
+- Published `notes/reports/p13-gnn-pointcloud-acquisition-request.csv` with 24 plots:
+  8 recent high-priority plots and 16 older secondary plots. Each row carries BEC,
+  last visit, EPSG:3005 coordinates, nearest existing tile distance, and a 2 km bbox.
+- Added the partner-facing memo `notes/reports/p13-pointcloud-acquisition-request.md`
+  and linked it from the inventory-pilot page and the GNN partner data request.
+- Request footprints: 8,661.3 ha union for the 8 recent plots; 17,613.9 ha union for all
+  24. Nearest recent existing tile gap: 32.7 km.
+- No point cloud was downloaded, no card was fit, and no model value changed.
+- Dashboard: GREEN (lint, format, types, tests, validator, docs).

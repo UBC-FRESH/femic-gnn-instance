@@ -30,5 +30,6 @@
   },
   "recent_plot_count": 8,
   "recent_since": 2018,
-  "recent_with_pointcloud": 0
+  "recent_with_pointcloud": 0,
+  "request_buffer_m": 2000.0
 }
