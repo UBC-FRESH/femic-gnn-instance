@@ -79,7 +79,7 @@ nearest recent existing tile: 32.7 km
 
 | Run ID | Head commit | Conclusion | Notes |
 | --- | --- | --- | --- |
-| pending | report commit | pending | The report commit's CI run is posted on pull request #82 before approval. |
+| 41408555610 | `4166195` | success | Quality gates, Green dashboard summary, and Pre-commit parity passed. The only later change is this CI-table refresh. |
 
 ## 5. Deviations
 
