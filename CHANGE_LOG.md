@@ -505,3 +505,22 @@ followed the workflow at the time.
 - Priority A: 8 blocks; priority B: 39 blocks; low-headroom-only: 62 blocks.
 - About 0.3 thousand ha is in priority A/B; 3,075 blocks are access-exposed but above the headroom flag.
 - Flags are screening choices, not actual costs. No model or benchmark change.
+
+### P11.1 CWH inventory diagnostic
+
+- Added `config/inventory/cwh_pilot.yaml` and local copies of the three published
+  CWH INV-01 cards, pinned to the `lidarbc-1b7b79757e98cfe5` / `2026.10.0-gnn-10m`
+  bundle.
+- Added `pipeline/cwh_inventory_diagnostic.py`, which derives 25 m CHM features,
+  filters each card to its declared predictor ranges, applies the cards, and
+  writes a JSON summary; when fragment geometry is available it also writes a
+  descriptive VRI comparison.
+- Ran the diagnostic on the bounded GNN LiDAR pilot: 22,139 feature cells; height
+  retained 21,666 cells and BA/volume retained 21,995 cells after range filtering.
+  Joined footprint: 181 fragments / 181 blocks / 1,317.8 ha by cell area.
+- Fragment-level VRI comparison is weak: height bias +3.56 m, RMSE 5.90 m,
+  correlation -0.027; volume bias +57.82 m3/ha, RMSE 284.99, correlation -0.062.
+- The result is report-only. It is not a GNN calibration, not an operational
+  inventory, and does not enter the matrix, curves, THLB, AAC, targets, schedule,
+  or release label. Report: `notes/reports/p11-cwh-inventory-diagnostic.md`.
+- Dashboard: GREEN (lint, format, types, tests, validator, docs).

@@ -1,0 +1,93 @@
+{
+  "bundle": "data/lidar/products/lidarbc-gnn-10m",
+  "bundle_id": "lidarbc-1b7b79757e98cfe5",
+  "bundle_version": "2026.10.0-gnn-10m",
+  "grid_size_m": 25.0,
+  "min_cover_pct": 34.5,
+  "feature_rows": 22139,
+  "cards": {
+    "cwh_lorey_height": {
+      "model_id": "cwh-lorey-height-psp-lidarbc-2026",
+      "model_version": "2026.1",
+      "predictor_ranges": {
+        "Lhp95": [
+          4.6541,
+          56.0259
+        ]
+      },
+      "retained_cells": 21666,
+      "dropped_cells": 473,
+      "rows": 21666,
+      "mean": 16.24480314980495,
+      "median": 15.383143812346564,
+      "min": 6.315341443374737,
+      "max": 43.79566892111787
+    },
+    "cwh_basal_area": {
+      "model_id": "cwh-basal-area-psp-lidarbc-2026",
+      "model_version": "2026.1",
+      "predictor_ranges": {
+        "Lhmean": [
+          2.941,
+          42.0214
+        ],
+        "CC2m": [
+          34.4388,
+          100.0
+        ]
+      },
+      "retained_cells": 21995,
+      "dropped_cells": 144,
+      "rows": 21995,
+      "mean": 42.28826325022402,
+      "median": 41.30368002960563,
+      "min": 12.736129923944995,
+      "max": 95.77603427330232
+    },
+    "cwh_gross_volume": {
+      "model_id": "cwh-gross-volume-psp-lidarbc-2026",
+      "model_version": "2026.1",
+      "predictor_ranges": {
+        "Lhmean": [
+          2.941,
+          42.0214
+        ],
+        "CC2m": [
+          34.4388,
+          100.0
+        ]
+      },
+      "retained_cells": 21995,
+      "dropped_cells": 144,
+      "rows": 21995,
+      "mean": 361.6448506156818,
+      "median": 310.6554416259098,
+      "min": 41.44651575789163,
+      "max": 1683.8090819380566
+    }
+  },
+  "fragments": {
+    "joined_cells": 21085,
+    "joined_fragments": 181,
+    "joined_blocks": 181,
+    "joined_area_ha": 1317.8125,
+    "vri_comparison": {
+      "lorey_height_m": {
+        "fragments": 181,
+        "predicted_mean": 16.14463141049853,
+        "vri_mean": 12.58011049723757,
+        "bias": 3.5645209132609623,
+        "rmse": 5.903537445721401,
+        "correlation": -0.02668285817716856
+      },
+      "gross_volume_m3_ha": {
+        "fragments": 181,
+        "predicted_mean": 355.9702037941267,
+        "vri_mean": 298.1542651933702,
+        "bias": 57.81593860075646,
+        "rmse": 284.99206926688487,
+        "correlation": -0.06173977024005177
+      }
+    }
+  }
+}

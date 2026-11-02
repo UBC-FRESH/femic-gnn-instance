@@ -29,8 +29,9 @@ The indicator work added two distinct things:
 
 - **Model-wide descriptive proxies:** AWS Terrarium zoom 12 terrain at 30 m and VRI stand fields, with source and coverage flags.
 - **A bounded LiDAR pilot:** 181 direct fragments / 184 blocks / 979 ha, 10 m LidarBC products. It is not a GNN-wide layer.
+- **A report-only CWH inventory diagnostic:** the published 14-plot CWH INV-01 cards applied to the same pilot, with explicit predictor-range filtering and a weak descriptive VRI comparison. It is not a GNN calibration and does not enter the model.
 
-The public proxies failed validation for absolute operability use: Terrarium mean slope is biased **-13.66 points** against the LiDAR pilot, and VRI height has low spatial correlation with CHM. Do not use these fields for ground/cable/heli thresholds or CHM claims. See the [indicator documentation](https://ubc-fresh.github.io/femic-gnn-instance/indicators.html).
+The public proxies failed validation for absolute operability use: Terrarium mean slope is biased **-13.66 points** against the LiDAR pilot, and VRI height has low spatial correlation with CHM. Do not use these fields for ground/cable/heli thresholds or CHM claims. See the [indicator documentation](https://ubc-fresh.github.io/femic-gnn-instance/indicators.html) and the [inventory pilot](https://ubc-fresh.github.io/femic-gnn-instance/inventory-pilot.html).
 
 ## Prototype result
 

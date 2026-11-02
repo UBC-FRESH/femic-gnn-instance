@@ -23,6 +23,7 @@ after its parent issue exists and the maintainer approves it.
 | P8 Solved-proxy full-THLB sensitivity | #42 | `feature/p8-proxy-sensitivity` | complete |
 | P9 LiDAR-derived indicators | #45 | `feature/p9-lidar-indicators` | complete |
 | P10 Documentation and provenance refresh | #49 | `feature/p10-docs-refresh` | complete |
+| P11 CWH inventory diagnostic and forest-condition handoff | #74 | `feature/p11-cwh-inventory-diagnostic` | active |
 
 ## Lifecycle Map
 
@@ -416,6 +417,34 @@ Acceptance criteria:
 - The release remains volume-only and the P9 fields remain descriptive.
 - The dashboard and docs gates pass.
 
+## Phase 11: CWH inventory diagnostic and forest-condition handoff
+
+Parent issue: #74
+Branch: `feature/p11-cwh-inventory-diagnostic`
+Status: active
+
+Goal: apply the published FEMIC CWH INV-01 cards to the existing bounded GNN
+LiDAR pilot as a report-only diagnostic, and publish the coverage, predictions,
+VRI comparison, and limits without changing the model, curves, THLB, AAC,
+schedule, targets, or release label.
+
+- [x] P11.1 Run and publish the GNN CWH inventory diagnostic (#75)
+  - [x] Pin the three CWH cards and bundle in `config/inventory/cwh_pilot.yaml`.
+  - [x] Add the reproducible pipeline entry point.
+  - [x] Derive the 25 m features and apply the three cards with explicit range filtering.
+  - [x] Record the fragment join, VRI comparison, and limits.
+  - [x] Add the report and docs page.
+  - [x] Update the roadmap and changelog.
+  - [x] Run the dashboard and queue the phase pull request.
+
+Acceptance criteria:
+
+- The validated bundle is used unchanged.
+- Retained and dropped cells are recorded for every card.
+- The report labels the VRI comparison descriptive and states the 14-plot CWH limits.
+- No curve, THLB, AAC, target, schedule, matrix, or release value changes.
+- The dashboard is green.
+
 ## Post-P10 economics and access evidence
 
 Status: complete
@@ -452,3 +481,4 @@ No model, curve, THLB, AAC, target, or benchmark change was made.
 10. P9 is **complete** (merged as `612a9c5`): the reviewed `lidar_*` fields are integrated as a **bounded southern pilot** (181 direct fragments, 184 blocks, 978.63 ha), not a GNN-wide layer. See `notes/reports/p9-lidar-indicators.md`. P9.2 (#48) is the public-data fallback: Terrarium zoom 12 and VRI are integrated as **descriptive proxies**; validation against the LiDAR pilot is weak (Terrarium slope bias -13.66 points, MAE 13.97; VRI height MAE 4.09 m), so they are not promoted into operability thresholds. See `notes/reports/p9.2-public-data-indicators.md`. This is a data/feature integration, not a model-improvement claim.
 11. No release change or sustainable label is authorized by P4-P10.
 12. Post-P10 diagnostics are complete: block screen, removal test, positive candidate schedule, headroom, access exposure, and risk register. The base schedule and benchmark remain unchanged. Shared-cost, carrier, recovery, price, and field data are still required.
+13. P11 is active: the published CWH INV-01 cards were applied to the bounded GNN LiDAR pilot as a report-only diagnostic. The 25 m feature table has 22,139 cells; after range filtering, height retains 21,666 cells and BA/volume retain 21,995 cells. The joined footprint is 181 fragments / 181 blocks / 1,317.8 ha by cell area. Fragment-level VRI comparison is weak (height bias +3.56 m, RMSE 5.90 m, correlation -0.027; volume bias +57.82 m3/ha, RMSE 284.99, correlation -0.062), so the cards are not a GNN calibration and do not enter the model. See `notes/reports/p11-cwh-inventory-diagnostic.md`.
