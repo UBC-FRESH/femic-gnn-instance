@@ -76,7 +76,7 @@ The dashboard is rerun after the report commit and before the approval request.
 
 | Run ID | Head commit | Conclusion | Notes |
 | --- | --- | --- | --- |
-| pending | report commit | pending | The report commit's CI run is posted on pull request #76 before approval. |
+| 41398407449 | `1edb3a9` | success | Quality gates, Green dashboard summary, and Pre-commit parity all passed. The only later change is the CI-table refresh in this report. |
 
 ## 5. Deviations
 
