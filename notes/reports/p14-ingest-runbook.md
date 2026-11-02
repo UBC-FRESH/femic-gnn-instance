@@ -70,6 +70,19 @@ level. The public tile index uses `tile_id` values, not filenames.
 If the private dataset covers a P13 high-priority plot, mark that plot as satisfied
 in the acquisition memo and do not request a duplicate public acquisition for it.
 
+## FEMIC version requirement
+
+The point-cloud feature command is `femic lidar inventory-pointcloud-features`.
+The installed checkout on this workstation predates it. Use a FEMIC checkout at
+`origin/main` or newer (`03ca3a2` includes it) and run:
+
+```bash
+cd /path/to/femic
+PYTHONPATH="$PWD/src" python -m femic lidar inventory-pointcloud-features ...
+```
+
+The synthetic dry run is `notes/reports/p15-private-lidar-dry-run.md`.
+
 ## Next processing step
 
 Only after the coverage review:
