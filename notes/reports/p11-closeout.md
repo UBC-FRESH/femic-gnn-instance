@@ -3,8 +3,8 @@
 Phase: P11 CWH inventory diagnostic and forest-condition handoff
 Parent issue: #74
 Pull request: #76, `feature/p11-cwh-inventory-diagnostic` into `main`
-Evidence head: `c5d6061`, the commit that adds the diagnostic, report, docs, and roadmap entry
-Report commit: the commit that adds this report. Its CI run is posted on the pull request.
+Evidence head: `a4bb041`, the commit that adds the diagnostic, report, docs, roadmap entry, and forest-condition card
+Report commit: the commit that refreshes this report. Its CI run is posted on the pull request.
 Date: 2026-11-02
 Status: queued for approval. Not merged.
 
@@ -41,7 +41,7 @@ Settings changes, each with its exact command. Each one runs only after its own 
   #75 was created immediately after and linked as a sub-issue.
 - Branch from `main`: `feature/p11-cwh-inventory-diagnostic` was created from
   `origin/main` at `ee0e7a3`.
-- Commit messages that start with task IDs: one implementation commit, `c5d6061`
+- Commit messages that start with task IDs: `c5d6061` (`P11.1 ...`), `a4bb041`
   (`P11.1 ...`), and the report commit.
 - Gates for each commit: section 3.
 - Roadmap and changelog in step: both were changed in `c5d6061`; the report commit
@@ -77,7 +77,7 @@ The dashboard is rerun after the report commit and before the approval request.
 
 | Run ID | Head commit | Conclusion | Notes |
 | --- | --- | --- | --- |
-| 41398407449 | `1edb3a9` | success | Quality gates, Green dashboard summary, and Pre-commit parity all passed. The only later change is the CI-table refresh in this report. |
+| 41399845385 | `a4bb041` | success | Quality gates, Green dashboard summary, and Pre-commit parity all passed. The only later change is this report refresh. |
 
 ## 5. Deviations
 
