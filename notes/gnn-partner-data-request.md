@@ -120,6 +120,21 @@ The current recovery matrix is an assumption set. The price deck is local and ca
 | Boundary/public output | Confirmation of the proposed SOI boundary and which outputs may be public | The boundary review is deferred; no GNN confirmation is claimed |
 | Preferred data | Any GNN-preferred boundary, tenure, or inventory dataset | We will use the authoritative source if one exists |
 
+### Specific point-cloud request (P13)
+
+The P12 audit found no FAIB plot inside the existing LidarBC point-cloud footprint.
+The nearest recent plot is 32.7 km from the nearest tile. We have prepared a
+plot-level acquisition request for the 8 recent FAIB plots (2022-2023), with the 16
+older plots as secondary:
+
+- Request table: `notes/reports/p13-gnn-pointcloud-acquisition-request.csv`
+- Memo: `notes/reports/p13-pointcloud-acquisition-request.md`
+
+The request asks for classified LAS/LAZ point clouds and co-registered 1 m DEM/DSM
+over 2 km buffers around the plots, with acquisition dates, density, CRS, vertical
+datum, and a SHA-256 manifest. A time-matched acquisition is required; the existing
+2019 footprint does not cover these plots.
+
 ## 3. Minimum viable response
 
 If a full package is not possible, the following would materially improve the model:
@@ -132,6 +147,7 @@ If a full package is not possible, the following would materially improve the mo
 6. One dated price or netback example, including cypress if available.
 7. Any managed/young plot data inside the AOI.
 8. A statement of which boundary/public outputs are acceptable.
+9. Point clouds and 1 m DEM/DSM over the 8 recent FAIB plots in `notes/reports/p13-gnn-pointcloud-acquisition-request.csv`.
 
 ## 4. Data handling and confidentiality
 
