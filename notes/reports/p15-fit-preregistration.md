@@ -80,6 +80,11 @@ a review that no raw payload or personal path is included.
 - If the coefficients are unstable or a holdout fails: evaluation only.
 - If the partner does not approve derived-public release: internal research only.
 
+## Implementation
+
+The pre-registered fit is implemented by `pipeline/fit_inventory_cards.py`; see
+`notes/reports/p16-fit-pipeline.md` and `notes/reports/p16-fit-runbook.md`.
+
 ## References
 
 - `notes/adr/0007-private-lidar-derived-public.md`

@@ -27,7 +27,8 @@ after its parent issue exists and the maintainer approves it.
 | P12 GNN point-cloud inventory feasibility | #77 | `feature/p12-pointcloud-feasibility` | complete |
 | P13 GNN point-cloud acquisition request | #80 | `feature/p13-pointcloud-acquisition-request` | complete |
 | P14 Private LiDAR ingest readiness | #83 | `feature/p14-private-lidar-ingest` | complete |
-| P15 Private LiDAR dry run and fit pre-registration | #87 | `feature/p15-private-lidar-dry-run` | active |
+| P15 Private LiDAR dry run and fit pre-registration | #87 | `feature/p15-private-lidar-dry-run` | complete |
+| P16 Private LiDAR fit pipeline | #91 | `feature/p16-private-lidar-fit` | active |
 
 ## Lifecycle Map
 
@@ -539,7 +540,7 @@ Acceptance criteria:
 
 Parent issue: #87
 Branch: `feature/p15-private-lidar-dry-run`
-Status: active
+Status: complete
 
 Goal: prove the first-return feature step on a synthetic LAS/DEM and pre-register the
 fit, holdout, and derived-public product plan before the private upload arrives.
@@ -563,6 +564,33 @@ Acceptance criteria:
 - The fit plan names LOOCV, spatial-cluster, and temporal checks.
 - The derived-public product list is explicit and consistent with ADR 0007.
 - No real private LAZ is read and no model is fit.
+- The dashboard is green.
+
+## Phase 16: Private LiDAR fit pipeline
+
+Parent issue: #91
+Branch: `feature/p16-private-lidar-fit`
+Status: active
+
+Goal: implement the pre-registered fit and holdout pipeline with a synthetic
+end-to-end test before the private upload arrives.
+
+- [x] P16.1 Add the private LiDAR fit pipeline and synthetic test (#92)
+  - [x] Add the fit pipeline.
+  - [x] Add the synthetic end-to-end test.
+  - [x] Add the runbook and report.
+  - [x] Update the pipeline index and docs.
+  - [x] Run the test and dashboard.
+  - [x] Queue the phase pull request.
+
+Acceptance criteria:
+
+- The pipeline matches plots to features or accepts a plot-feature table.
+- It fits the three pre-registered forms and reports LOOCV, spatial-cluster, and
+  optional temporal metrics.
+- It refuses cards on coefficient sign changes unless forced.
+- Cards use `femic.inventory.als.model.v1` and research-only caveats.
+- The synthetic test passes without private data.
 - The dashboard is green.
 
 ## Post-P10 economics and access evidence
@@ -605,4 +633,5 @@ No model, curve, THLB, AAC, target, or benchmark change was made.
 14. P12 is complete: the GNN point-cloud feasibility audit is a **no-go** for a local first-return pilot from current public data. The AOI has 24 FAIB plots (22 CWH, 2 MH) and 8 since 2018, but 755 point-cloud tiles cover only 1.10% of the AOI and no plot falls inside a tile; the nearest recent plot is 32.7 km away. See `notes/reports/p12-pointcloud-inventory-feasibility.md`. A local fit needs point clouds over the recent plots, or recent plots inside the existing footprint.
 15. P13 is complete: the GNN point-cloud acquisition request covers the 24 FAIB plots in the AOI (8 recent, 16 secondary), with 2 km EPSG:3005 request bboxes. The recent-plot union is 8,661.3 ha; all plots union 17,613.9 ha. Nearest recent tile gap: 32.7 km. See `notes/reports/p13-pointcloud-acquisition-request.md`.
 16. P14 is complete: the private LiDAR ingest kit is ready in `pipeline/ingest_private_lidar.py`, with a private/public output split under ADR 0007. The P13 request is a fallback for plots the pending private upload does not cover. The Globus `/incoming/` and `/manifests/` directories were empty on 2026-11-02.
-17. P15 is active: the synthetic point-cloud dry run produces 7 first-return cells with `Lhmean`, `Lhcv`, `Lhp95`, and `CC2m`; the fit plan pre-registers LOOCV, four spatial clusters, and a 2022/2023 temporal check. The installed local FEMIC lacks `inventory-pointcloud-features`; use `origin/main` or newer. See `notes/reports/p15-private-lidar-dry-run.md` and `notes/reports/p15-fit-preregistration.md`.
+17. P15 is complete: the synthetic point-cloud dry run produces 7 first-return cells with `Lhmean`, `Lhcv`, `Lhp95`, and `CC2m`; the fit plan pre-registers LOOCV, four spatial clusters, and a 2022/2023 temporal check. The installed local FEMIC lacks `inventory-pointcloud-features`; use `origin/main` or newer. See `notes/reports/p15-private-lidar-dry-run.md` and `notes/reports/p15-fit-preregistration.md`.
+18. P16 is active: `pipeline/fit_inventory_cards.py` implements the P15 fit forms, LOOCV, spatial clusters, temporal transfer, coefficient-stability checks, and optional FEMIC cards. The synthetic test covers 12 plots in four clusters. See `notes/reports/p16-fit-pipeline.md`.
