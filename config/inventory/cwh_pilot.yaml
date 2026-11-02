@@ -1,0 +1,16 @@
+schema_version: femic.inventory.models.v1
+bundle_id: lidarbc-1b7b79757e98cfe5
+bundle_version: 2026.10.0-gnn-10m
+status: diagnostic-pilot
+grid_size_m: 25.0
+min_cover_pct: 34.5
+cards:
+  lorey_height: config/inventory/models/als_cwh_lorey_height_2026.json
+  basal_area: config/inventory/models/als_cwh_basal_area_2026.json
+  gross_volume: config/inventory/models/als_cwh_gross_volume_2026.json
+caveats:
+  - Published CWH pilot cards only; the fit uses 14 FAIB PSP plots and CHM proxies.
+  - The cards are regional pilots, not a GNN-specific calibration and not an operational inventory.
+  - The GNN LiDAR pilot is a bounded southern subset, not a model-wide layer.
+  - Predictions are report-only; they do not enter the GNN matrix, curves, THLB, AAC, targets, or schedule.
+  - The VRI comparison is descriptive, not independent field validation.

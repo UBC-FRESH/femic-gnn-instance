@@ -66,6 +66,7 @@ See :doc:`model-build`, :doc:`benchmark`, and :doc:`aoi`.
    benchmark
    model-build
    indicators
+   inventory-pilot
    glossary
    aus
    au-curves
