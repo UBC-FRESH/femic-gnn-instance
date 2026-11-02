@@ -3,7 +3,7 @@
 Phase: P14 Private LiDAR ingest readiness
 Parent issue: #83
 Pull request: #86, `feature/p14-private-lidar-ingest` into `main`
-Evidence head: `45ef56a`, the commit that adds the ingest kit, governance decision, runbook, and request clarification
+Evidence head: `9edee68`, the commit that adds the ingest kit, governance decision, runbook, request clarification, and CI optional-dependency handling
 Report commit: the commit that refreshes this report. Its CI run is posted on the pull request.
 Date: 2026-11-02
 Status: queued for approval. Not merged.
@@ -74,7 +74,7 @@ coverage, public redaction, and a hash mismatch.
 
 | Run ID | Head commit | Conclusion | Notes |
 | --- | --- | --- | --- |
-| pending | report commit | pending | The report commit's CI run is posted on pull request #86 before approval. |
+| 41414106995 | `9edee68` | success | Quality gates, Green dashboard summary, and Pre-commit parity passed. The only later change is this CI-table refresh. |
 
 ## 5. Deviations
 
@@ -83,6 +83,7 @@ coverage, public redaction, and a hash mismatch.
 | The ingest kit has not run on the real private data | The Globus `/incoming/` and `/manifests/` directories were empty | The synthetic test proves the path; the runbook is ready for the first real drop |
 | Full SHA-256 verification is opt-in | Hashing 2 TB is expensive | The runbook uses a structural check first and the full hash check after transfer completion |
 | Unknown CRS skips coverage | A file without a parsable CRS cannot be transformed to EPSG:3005 | The summary flags untransformed tiles and reports zero footprint for them |
+| CI skips the synthetic test when laspy/pyproj are absent | They are optional pipeline dependencies, not dev dependencies | The test uses `importorskip`; the local run has 2 passed; mypy ignores the optional stubs |
 
 ## 6. Next phase
 
