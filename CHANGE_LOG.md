@@ -599,3 +599,15 @@ followed the workflow at the time.
 - Listed the derived-public products allowed under ADR 0007 and the partner-review
   gate.
 - Dashboard: GREEN (lint, format, types, tests, validator, docs).
+
+### P16.1 Private LiDAR fit pipeline
+
+- Added `pipeline/fit_inventory_cards.py`: plot/feature matching, height identity,
+  BA/volume log forms, Duan smearing, LOOCV, spatial-cluster CV, temporal transfer,
+  coefficient stability, and optional `femic.inventory.als.model.v1` cards.
+- Cards are refused when a coefficient changes sign across LOOCV folds unless
+  `--force-cards` is explicit. Cards remain research-only and private until review.
+- Added `notes/reports/p16-fit-pipeline.md`, `notes/reports/p16-fit-runbook.md`, and a
+  synthetic 12-plot/four-cluster test.
+- No real private data was read and no card was published.
+- Dashboard: GREEN (lint, format, types, tests, validator, docs).
