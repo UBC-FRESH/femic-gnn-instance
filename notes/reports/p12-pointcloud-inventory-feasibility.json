@@ -1,0 +1,34 @@
+{
+  "aoi_ha": 682155.0463268032,
+  "nearest_distance_m": {
+    "max": 56233.126289986736,
+    "median": 37334.82264757896,
+    "min": 28321.464090812515
+  },
+  "plot_count": 24,
+  "plots_by_bec": {
+    "CWH": 22,
+    "MH": 2
+  },
+  "plots_by_establishment": {
+    "PSP_G": 7,
+    "PSP_R": 17
+  },
+  "plots_with_pointcloud": 0,
+  "pointcloud_footprint_ha": 7486.757073182461,
+  "pointcloud_footprint_pct": 1.0975154568593115,
+  "pointcloud_tile_count": 755,
+  "pointcloud_years": {
+    "2019": 319,
+    "2023": 382,
+    "2024": 54
+  },
+  "recent_nearest_distance_m": {
+    "max": 56233.126289986736,
+    "median": 38125.66883635869,
+    "min": 32744.38792636846
+  },
+  "recent_plot_count": 8,
+  "recent_since": 2018,
+  "recent_with_pointcloud": 0
+}

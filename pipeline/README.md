@@ -32,6 +32,7 @@ The script expects the base instances at `../femic-tsa46-instance` and
 | `build_opening_schedule.py` | Build the opening-first schedule; optional `--allowed-blocks` candidate pool |
 | `filter_gnn_validation.py` | Filter ground plots to the GNN AOI |
 | `inventory_gnn_plots.py` | Count public ground-plot sites inside the AOI |
+| `pointcloud_inventory_feasibility.py` | Audit FAIB plots and LidarBC point-cloud coverage |
 | `extract_coast_log_prices.py` | Draft local extraction of BC coast species/grade prices |
 | `analyze_gnn_aus.py` | AU area/THLB and curve comparison |
 | `plot_gnn_aoi_map.py` | Render the AOI map with a pale OpenStreetMap basemap |

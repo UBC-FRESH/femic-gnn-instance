@@ -55,6 +55,16 @@ as a ``ws4.forest_condition.report.v1`` card. It carries the CWH BA diagnostic m
 the card LOOCV RMSE, the 181-fragment pilot coverage, and advisory coverage and
 applicability alerts. The card is ``draft`` and report-only.
 
+Feasibility decision
+--------------------
+
+The P12 audit found 24 FAIB plots in the GNN AOI (22 CWH, 2 MH), 8 measured since
+2018, and 755 LidarBC point-cloud tiles covering 1.10% of the AOI. No plot falls
+inside a point-cloud tile; the nearest recent plot is 32.7 km away. The decision is
+**no-go** for a GNN-specific first-return pilot from current public data. A local fit
+needs point clouds over the recent plots, or recent plots inside the existing
+point-cloud footprint. See ``notes/reports/p12-pointcloud-inventory-feasibility.md``.
+
 Limits
 ------
 

@@ -527,3 +527,19 @@ followed the workflow at the time.
   inventory, and does not enter the matrix, curves, THLB, AAC, targets, schedule,
   or release label. Report: `notes/reports/p11-cwh-inventory-diagnostic.md`.
 - Dashboard: GREEN (lint, format, types, tests, validator, docs).
+
+### P12.1 GNN point-cloud inventory feasibility
+
+- Added `pipeline/pointcloud_inventory_feasibility.py`, which audits FAIB plots and
+  LidarBC point-cloud coverage without downloading tiles or fitting a model.
+- The GNN AOI has 24 FAIB plots (22 CWH, 2 MH), 8 measured since 2018. The existing
+  selection has 755 point-cloud tiles (2019/2023/2024) covering 7,486.8 ha, or 1.10%
+  of the AOI, by tile bounding box.
+- No plot falls inside a point-cloud tile. The nearest recent plot is 32.7 km away;
+  median 38.1 km and maximum 56.2 km.
+- Decision: **no-go** for a GNN-specific first-return pilot from current public data.
+  A local fit needs point clouds over the recent plots, or recent plots inside the
+  existing footprint. The CWH transfer remains report-only.
+- No point cloud was downloaded, no card was fit, and no model value changed.
+- Report: `notes/reports/p12-pointcloud-inventory-feasibility.md`.
+- Dashboard: GREEN (lint, format, types, tests, validator, docs).
