@@ -557,3 +557,26 @@ followed the workflow at the time.
   24. Nearest recent existing tile gap: 32.7 km.
 - No point cloud was downloaded, no card was fit, and no model value changed.
 - Dashboard: GREEN (lint, format, types, tests, validator, docs).
+
+### P14.1 Private LiDAR ingest kit
+
+- Added `pipeline/ingest_private_lidar.py`, a read-only verifier for a private
+  LAS/LAZ drop. It checks an optional SHA-256 manifest, reads file headers, records
+  CRS/bounds/points/density, and reports GNN AOI and P13 plot coverage.
+- Added ADR 0007: raw LAS/LAZ and private manifests stay private; derived datasets
+  may be public after review. Public outputs use `tile_id` values, not filenames.
+- Added `notes/reports/p14-ingest-runbook.md` and a synthetic integration test using
+  a tiny LAS, GeoJSON AOI, request CSV, and SHA-256 manifest.
+- The ingest kit writes private outputs under `--output-dir` and optional redacted
+  public outputs under `--public-dir`. It never copies, moves, deletes, or publishes
+  a raw file.
+
+### P14.2 P13 request clarification
+
+- Recorded that the partner's private LAZ upload to the UBC ARC Chinook account is
+  pending; the Globus collection `/incoming/` and `/manifests/` were empty on
+  2026-11-02.
+- The P13 public/partner request is a fallback: if the private upload covers a plot,
+  that plot is withdrawn from the public acquisition ask.
+- Updated the P13 memo and the GNN partner data request note.
+- Dashboard: GREEN (lint, format, types, tests, validator, docs).

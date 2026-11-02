@@ -16,6 +16,20 @@ public data:
 The CWH cards remain a report-only transfer. A local fit needs point clouds over
 the recent plots, or recent plots inside the existing footprint.
 
+## Private upload status
+
+A private LAZ upload for the GNN area is pending from the partner to the UBC ARC
+Chinook account. The destination collection is `GNN TSR LiDAR Upload`
+(`40487994-e1d0-4b74-bbf5-56a6b4947c80`); `/incoming/` and `/manifests/` were both
+empty on 2026-11-02.
+
+The raw point files are private. Derived datasets may be public after review; see
+`notes/adr/0007-private-lidar-derived-public.md` and
+`notes/reports/p14-ingest-runbook.md`.
+
+This P13 request is a fallback. If the private upload covers a plot, mark that plot
+as satisfied and do not request a duplicate public acquisition for it.
+
 ## Request
 
 Acquire LidarBC-compatible point clouds over the 8 recent FAIB plots as the high
