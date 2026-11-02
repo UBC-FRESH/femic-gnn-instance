@@ -26,7 +26,8 @@ after its parent issue exists and the maintainer approves it.
 | P11 CWH inventory diagnostic and forest-condition handoff | #74 | `feature/p11-cwh-inventory-diagnostic` | complete |
 | P12 GNN point-cloud inventory feasibility | #77 | `feature/p12-pointcloud-feasibility` | complete |
 | P13 GNN point-cloud acquisition request | #80 | `feature/p13-pointcloud-acquisition-request` | complete |
-| P14 Private LiDAR ingest readiness | #83 | `feature/p14-private-lidar-ingest` | active |
+| P14 Private LiDAR ingest readiness | #83 | `feature/p14-private-lidar-ingest` | complete |
+| P15 Private LiDAR dry run and fit pre-registration | #87 | `feature/p15-private-lidar-dry-run` | active |
 
 ## Lifecycle Map
 
@@ -505,7 +506,7 @@ Acceptance criteria:
 
 Parent issue: #83
 Branch: `feature/p14-private-lidar-ingest`
-Status: active
+Status: complete
 
 Goal: make the pending private GNN LiDAR upload turnkey and auditable, and clarify
 that the P13 public/partner request is a fallback for plots the private upload does
@@ -532,6 +533,36 @@ Acceptance criteria:
 - The synthetic test passes without private data.
 - The P13 memo and partner note state the private upload is pending and the public
   request is a fallback.
+- The dashboard is green.
+
+## Phase 15: Private LiDAR dry run and fit pre-registration
+
+Parent issue: #87
+Branch: `feature/p15-private-lidar-dry-run`
+Status: active
+
+Goal: prove the first-return feature step on a synthetic LAS/DEM and pre-register the
+fit, holdout, and derived-public product plan before the private upload arrives.
+
+- [x] P15.1 Run the synthetic private LiDAR dry run (#88)
+  - [x] Build the synthetic LAS/DEM fixture.
+  - [x] Run the first-return feature extraction.
+  - [x] Record the output and FEMIC version requirement.
+  - [x] Update the ingest runbook.
+  - [x] Queue the phase pull request.
+- [x] P15.2 Pre-register the fit, holdout, and derived-public products (#89)
+  - [x] Write the fit and holdout plan.
+  - [x] Write the derived-public product manifest.
+  - [x] Link the plan from the inventory-pilot page.
+  - [x] Queue the phase pull request.
+
+Acceptance criteria:
+
+- The dry run produces a non-empty feature table with the INV-01 predictors.
+- The report records the command and the FEMIC version requirement.
+- The fit plan names LOOCV, spatial-cluster, and temporal checks.
+- The derived-public product list is explicit and consistent with ADR 0007.
+- No real private LAZ is read and no model is fit.
 - The dashboard is green.
 
 ## Post-P10 economics and access evidence
@@ -573,4 +604,5 @@ No model, curve, THLB, AAC, target, or benchmark change was made.
 13. P11 is complete: the published CWH INV-01 cards were applied to the bounded GNN LiDAR pilot as a report-only diagnostic. The 25 m feature table has 22,139 cells; after range filtering, height retains 21,666 cells and BA/volume retain 21,995 cells. The joined footprint is 181 fragments / 181 blocks / 1,317.8 ha by cell area. Fragment-level VRI comparison is weak (height bias +3.56 m, RMSE 5.90 m, correlation -0.027; volume bias +57.82 m3/ha, RMSE 284.99, correlation -0.062), so the cards are not a GNN calibration and do not enter the model. See `notes/reports/p11-cwh-inventory-diagnostic.md`.
 14. P12 is complete: the GNN point-cloud feasibility audit is a **no-go** for a local first-return pilot from current public data. The AOI has 24 FAIB plots (22 CWH, 2 MH) and 8 since 2018, but 755 point-cloud tiles cover only 1.10% of the AOI and no plot falls inside a tile; the nearest recent plot is 32.7 km away. See `notes/reports/p12-pointcloud-inventory-feasibility.md`. A local fit needs point clouds over the recent plots, or recent plots inside the existing footprint.
 15. P13 is complete: the GNN point-cloud acquisition request covers the 24 FAIB plots in the AOI (8 recent, 16 secondary), with 2 km EPSG:3005 request bboxes. The recent-plot union is 8,661.3 ha; all plots union 17,613.9 ha. Nearest recent tile gap: 32.7 km. See `notes/reports/p13-pointcloud-acquisition-request.md`.
-16. P14 is active: the private LiDAR ingest kit is ready in `pipeline/ingest_private_lidar.py`, with a private/public output split under ADR 0007. The P13 request is a fallback for plots the pending private upload does not cover. The Globus `/incoming/` and `/manifests/` directories were empty on 2026-11-02.
+16. P14 is complete: the private LiDAR ingest kit is ready in `pipeline/ingest_private_lidar.py`, with a private/public output split under ADR 0007. The P13 request is a fallback for plots the pending private upload does not cover. The Globus `/incoming/` and `/manifests/` directories were empty on 2026-11-02.
+17. P15 is active: the synthetic point-cloud dry run produces 7 first-return cells with `Lhmean`, `Lhcv`, `Lhp95`, and `CC2m`; the fit plan pre-registers LOOCV, four spatial clusters, and a 2022/2023 temporal check. The installed local FEMIC lacks `inventory-pointcloud-features`; use `origin/main` or newer. See `notes/reports/p15-private-lidar-dry-run.md` and `notes/reports/p15-fit-preregistration.md`.

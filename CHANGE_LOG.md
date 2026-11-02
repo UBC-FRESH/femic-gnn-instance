@@ -580,3 +580,22 @@ followed the workflow at the time.
   that plot is withdrawn from the public acquisition ask.
 - Updated the P13 memo and the GNN partner data request note.
 - Dashboard: GREEN (lint, format, types, tests, validator, docs).
+
+### P15.1 Private LiDAR dry run
+
+- Ran `femic lidar inventory-pointcloud-features` on a synthetic 12-point LAS and a
+  flat 1 m DEM. The run produced 7 first-return cells with `Lhmean`, `Lhcv`, `Lhp95`,
+  and `CC2m`.
+- Recorded that the installed local FEMIC checkout lacks the command; `origin/main`
+  at `03ca3a2` includes it. The ingest runbook now names the version requirement.
+- No private LAZ was read and no model was fit.
+
+### P15.2 Fit and publication pre-registration
+
+- Pre-registered the 8-plot primary set, the 16 older secondary plots, the INV-01
+  model forms, leave-one-plot-out, four spatial clusters, and a 2022/2023 temporal
+  check.
+- Defined the research-only boundary: 8 plots cannot support an operational card.
+- Listed the derived-public products allowed under ADR 0007 and the partner-review
+  gate.
+- Dashboard: GREEN (lint, format, types, tests, validator, docs).
