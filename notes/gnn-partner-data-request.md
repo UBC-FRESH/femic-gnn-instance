@@ -138,6 +138,11 @@ over 2 km buffers around the plots, with acquisition dates, density, CRS, vertic
 datum, and a SHA-256 manifest. A time-matched acquisition is required; the existing
 2019 footprint does not cover these plots.
 
+A private LAZ upload for the GNN area is also pending from the partner to the UBC ARC
+Chinook account. The raw files stay private; derived datasets may be public after
+review. This request is a fallback: if the private upload covers a plot, that plot is
+withdrawn from the public acquisition ask.
+
 ## 3. Minimum viable response
 
 If a full package is not possible, the following would materially improve the model:
