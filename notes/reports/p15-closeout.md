@@ -79,7 +79,7 @@ Lhmean 10.0, Lhcv 0.0, Lhp95 10.05, CC2m 100 in populated cells
 
 | Run ID | Head commit | Conclusion | Notes |
 | --- | --- | --- | --- |
-| pending | report commit | pending | The report commit's CI run is posted on pull request #90 before approval. |
+| 41416494142 | `9f3d49f` | success | Quality gates, Green dashboard summary, and Pre-commit parity passed. The only later change is this CI-table refresh. |
 
 ## 5. Deviations
 
