@@ -57,8 +57,8 @@ Known gaps
 Economic screening (diagnostic)
 --------------------------------
 
-A diagnostic screening covers the full derived THLB: **95.5% positive** in the base
-case, 88.0-96.8% across the price/recovery range. It uses class-average system
+A diagnostic screening covers the full derived THLB: **95.4% positive** in the base
+case, 88.0-96.6% across the price/recovery range. It uses class-average system
 costs, coarse DEM centroid terrain, provisional recovery, and legacy barge/truck
 rates. The descriptive terrain/VRI fields are not used in this screen. It is
 **not** a financial assessment, not a current quote, and not a sustainable

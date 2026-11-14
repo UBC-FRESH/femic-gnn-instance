@@ -5,31 +5,31 @@ barge cost estimate.
 
 ## Summary
 
-- Candidate blocks: **5,581**
+- Candidate blocks: **5,582**
 - Candidate THLB: **39.1 thousand ha**
-- Blocks touching a DRA road: **665** (11.9%)
-- Blocks within 100 m of a road: **1,468** (26.3%)
-- Blocks within 500 m of a road: **2,555** (45.8%)
-- Blocks with mapped stream crossings: **247**
-- Total mapped stream crossings: **527**
-- Median distance to DRA road: **631 m**
-- Median distance to Natural Earth coastline: **9384 m**
-- Median descriptive slope: **47.6%**
+- Blocks touching a DRA road: **662** (11.9%)
+- Blocks within 100 m of a road: **1,466** (26.3%)
+- Blocks within 500 m of a road: **2,550** (45.7%)
+- Blocks with mapped stream crossings: **244**
+- Total mapped stream crossings: **519**
+- Median distance to DRA road: **633 m**
+- Median distance to Natural Earth coastline: **9361 m**
+- Median descriptive slope: **47.7%**
 
 ## By TSA
 
 | TSA | Blocks | THLB (kha) | Road-touching | Stream-crossing blocks | Median road distance (m) |
 | ---: | ---: | ---: | ---: | ---: | ---: |
-| 46 | 1,628 | 12.8 | 147 | 96 | 1146 |
-| 47 | 3,953 | 26.3 | 518 | 151 | 521 |
+| 46 | 1,631 | 12.8 | 146 | 93 | 1160 |
+| 47 | 3,951 | 26.3 | 516 | 151 | 521 |
 
 ## By dominant operability
 
 | System | Blocks | THLB (kha) | Road-touching | Stream-crossing blocks | Median road distance (m) |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| cable | 1,284 | 9.9 | 86 | 72 | 823 |
-| ground | 2,918 | 20.2 | 524 | 75 | 317 |
-| heli_candidate | 1,379 | 9.0 | 55 | 100 | 1111 |
+| cable | 1,290 | 9.9 | 85 | 71 | 832 |
+| ground | 2,917 | 20.2 | 524 | 73 | 318 |
+| heli_candidate | 1,375 | 9.0 | 53 | 100 | 1120 |
 
 ## Definitions and limits
 

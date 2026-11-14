@@ -8,11 +8,11 @@ plan, or a financial result.
 The opening-first schedule was filtered to remove every block with negative
 direct net revenue in the block-level screen.
 
-- Blocks removed: **265**
-- Scheduled rows removed: **265**
-- THLB removed: **1.39 thousand ha**
-- Volume removed: **0.801 million m3**
-- Direct net revenue removed: **-17.8 million CAD**
+- Blocks removed: **276**
+- Scheduled rows removed: **276**
+- THLB removed: **1.44 thousand ha**
+- Volume removed: **0.838 million m3**
+- Direct net revenue removed: **-18.4 million CAD**
 - `forced_access` exceptions: none
 
 Shared road, landing, terminal, and overhead costs remain **unallocated**.
@@ -23,18 +23,18 @@ All ten decades fall below the derived target band:
 
 | Decade | Base volume (m3) | Block-gate volume (m3) | Shortfall (m3) | Shortfall |
 | ---: | ---: | ---: | ---: | ---: |
-| 1 | 2,526,514 | 2,503,783 | 22,217 | 0.9% |
-| 2 | 2,526,661 | 2,475,503 | 50,497 | 2.0% |
-| 3 | 2,526,840 | 2,398,322 | 127,678 | 5.1% |
-| 4 | 2,526,854 | 2,425,676 | 100,324 | 4.0% |
-| 5 | 2,526,957 | 2,403,539 | 122,461 | 4.8% |
-| 6 | 2,526,893 | 2,469,761 | 56,239 | 2.2% |
-| 7 | 2,526,314 | 2,355,107 | 170,893 | 6.8% |
-| 8 | 2,526,476 | 2,399,074 | 126,926 | 5.0% |
-| 9 | 2,526,927 | 2,366,929 | 159,071 | 6.3% |
-| 10 | 2,525,219 | 2,337,333 | 188,667 | 7.5% |
+| 1 | 2,526,514 | 2,503,783 | 22,731 | 0.9% |
+| 2 | 2,526,661 | 2,474,836 | 51,825 | 2.1% |
+| 3 | 2,526,840 | 2,385,618 | 141,221 | 5.6% |
+| 4 | 2,526,854 | 2,425,676 | 101,178 | 4.0% |
+| 5 | 2,526,957 | 2,403,539 | 123,419 | 4.9% |
+| 6 | 2,526,893 | 2,469,761 | 57,132 | 2.3% |
+| 7 | 2,526,314 | 2,346,196 | 180,118 | 7.1% |
+| 8 | 2,526,476 | 2,387,869 | 138,608 | 5.5% |
+| 9 | 2,526,927 | 2,366,929 | 159,998 | 6.3% |
+| 10 | 2,525,219 | 2,325,449 | 199,769 | 7.9% |
 
-Total ten-decade shortfall: **1.125 million m3** (4.5% of the base total).
+Total ten-decade shortfall: **1.176 million m3** (4.7% of the base total).
 
 The patch-size constraints remain met. The base schedule, curves, THLB, AAC,
 targets, and benchmark are unchanged.

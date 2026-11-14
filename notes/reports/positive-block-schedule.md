@@ -10,9 +10,9 @@ blocks with non-negative direct revenue?
 
 ## Candidate pool
 
-- Positive blocks: **7,370**
-- Negative blocks: **478**
-- Positive THLB: **50.3 thousand ha**
+- Positive blocks: **7,355**
+- Negative blocks: **493**
+- Positive THLB: **50.2 thousand ha**
 - Negative THLB: **2.4 thousand ha**
 
 The positive pool was built from the block-level revenue screen. Shared road,
@@ -23,10 +23,10 @@ landing, terminal, and overhead costs remain unallocated.
 The opening-first builder was rerun with the positive pool and the same targets,
 topology, patch rules, and 100-year horizon.
 
-- Scheduled blocks: **5,581**
+- Scheduled blocks: **5,582**
 - Scheduled area: **39.4 thousand ha**
 - Negative blocks scheduled: **0**
-- Openings dropped beyond period capacity: **312**
+- Openings dropped beyond period capacity: **308**
 
 ## Result
 
@@ -35,18 +35,18 @@ All ten decades meet the target band:
 | Decade | Realized volume (m3) | Target band | Status |
 | ---: | ---: | --- | --- |
 | 1 | 2,526,875 | 2,526,000-2,527,000 | met |
-| 2 | 2,526,988 | 2,526,000-2,527,000 | met |
-| 3 | 2,526,769 | 2,526,000-2,527,000 | met |
-| 4 | 2,526,706 | 2,526,000-2,527,000 | met |
-| 5 | 2,526,456 | 2,526,000-2,527,000 | met |
-| 6 | 2,526,890 | 2,526,000-2,527,000 | met |
-| 7 | 2,526,908 | 2,526,000-2,527,000 | met |
-| 8 | 2,526,667 | 2,526,000-2,527,000 | met |
-| 9 | 2,526,951 | 2,526,000-2,527,000 | met |
-| 10 | 2,526,975 | 2,526,000-2,527,000 | met |
+| 2 | 2,526,748 | 2,526,000-2,527,000 | met |
+| 3 | 2,526,865 | 2,526,000-2,527,000 | met |
+| 4 | 2,526,983 | 2,526,000-2,527,000 | met |
+| 5 | 2,526,580 | 2,526,000-2,527,000 | met |
+| 6 | 2,526,952 | 2,526,000-2,527,000 | met |
+| 7 | 2,526,703 | 2,526,000-2,527,000 | met |
+| 8 | 2,526,670 | 2,526,000-2,527,000 | met |
+| 9 | 2,526,531 | 2,526,000-2,527,000 | met |
+| 10 | 2,526,522 | 2,526,000-2,527,000 | met |
 
-The patch-size constraints remain met. The block count is 37 lower than the base
-opening-first schedule, and the scheduled area is about 0.18 thousand ha lower.
+The patch-size constraints remain met. The block count is 36 lower than the base
+opening-first schedule, and the scheduled area is about 0.16 thousand ha lower.
 
 ## Interpretation
 
