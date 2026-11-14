@@ -631,3 +631,13 @@ followed the workflow at the time.
   `notes/reference/full-thlb-screening.md`.
 - The published class-average screen remains unchanged. No partner rates,
   block-level partner output, curve, THLB, AAC, target, or benchmark was committed.
+
+### Coastal old-growth threshold correction
+
+- Replaced the inherited 141-year Age Class 8 boundary with the coastal
+  250-year old-growth threshold in `pipeline/full_thlb_screening.py`.
+- Corrected the GNN price and partner-cost age split; 141–249-year stands now
+  use second-growth values.
+- The corrected base screen is 95.4% positive with 493 negative blocks.
+- Candidate schedule, headroom, access, and risk outputs built on the earlier
+  141-year convention remain to be rerun.

@@ -19,6 +19,7 @@ from pyproj import Transformer
 from sample_block_terrain import _mosaic, _slope_percent
 
 COSTS = {"ground": 15.37, "cable": 17.77, "heli_candidate": 78.13}
+OLD_GROWTH_AGE_MIN = 250
 LEGACY_TRANSPORT = {"low": 7.77, "base": 10.961, "high": 14.54}
 DEFAULT_FHOPS_CONFIG = (
     Path(__file__).resolve().parents[1] / "config/cost_revenue/transport/fhops_marine.yaml"
@@ -110,7 +111,7 @@ def _prices(
     prices: pd.DataFrame, species: str, product: str, age: float
 ) -> tuple[float, float, float]:
     grades = GRADES[product].get(species, [])
-    sale = "old_growth" if age >= 141 or species == "Cypress" else "second_growth"
+    sale = "old_growth" if age >= OLD_GROWTH_AGE_MIN or species == "Cypress" else "second_growth"
     values = prices[
         (prices.species_group == species) & (prices.sale_type == sale) & (prices.grade.isin(grades))
     ]["price_per_m3_cad"]
@@ -260,7 +261,7 @@ def main() -> None:
     revenue = {case: np.zeros(len(checkpoint)) for case in ("low", "base", "high")}
     age_values = age.to_numpy(dtype=float)
     for j, name in enumerate(species_names):
-        old = (age_values >= 141) | (name == "Cypress")
+        old = (age_values >= OLD_GROWTH_AGE_MIN) | (name == "Cypress")
         for product in ("high", "sawlog", "utility", "pulp"):
             for case, share_map, price_index in (
                 ("low", low_shares, 0),
@@ -282,7 +283,7 @@ def main() -> None:
     if cost_config is not None:
         totals = cost_config["harvest_totals"]
         assumptions = cost_config.get("assumptions", {})
-        age_min = float(assumptions.get("old_growth_age_min", 141))
+        age_min = float(assumptions.get("old_growth_age_min", OLD_GROWTH_AGE_MIN))
         heli_key = str(assumptions.get("heli_default", "heli_land"))
         system_key = np.where(operability == "heli_candidate", heli_key, operability)
         old_cost = age_values >= age_min

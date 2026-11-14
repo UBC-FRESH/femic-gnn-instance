@@ -3,6 +3,15 @@
 Date: 2026-10-25
 Status: full-THLB screening; not a calibrated or sustainable result.
 
+## Coastal old-growth threshold correction
+
+The earlier screen used **141 years**, the lower bound of BC Age Class 8, to
+select old-growth prices and costs. That is not the coastal old-growth
+definition. This screen now uses **250 years** for coastal old growth; 141–249
+year stands are second growth. The corrected base screen is **95.4% positive**
+(493 negative blocks, 4.7% of THLB). Candidate schedules, headroom, access, and
+risk reports built on the earlier 141-year screen remain to be rerun.
+
 ## Coverage
 
 The screen covers **52,984.43 ha of derived THLB**, at the VRI checkpoint-polygon
@@ -20,7 +29,7 @@ level (19,467 rows before THLB filtering).
 - Transport: legacy CLEWs/FFCM 100 km truck + 100 km barge + transload,
   10.961 CAD/m3 base; 7.77-14.54 range.
 - Prices: local reviewed BC Coast Log Market deck for 2026-01-31; sale type by
-  age (old growth >=141 years, second growth otherwise; cypress old-growth
+  age (old growth >=250 years, second growth otherwise; cypress old-growth
   proxy). Raw prices are not committed.
 - Recovery: provisional `recovery_matrix.csv`; reject/waste factor 2% low, 5%
   base, 10% high.
@@ -30,9 +39,9 @@ level (19,467 rows before THLB filtering).
 
 | Case | Positive THLB | Share |
 | --- | ---: | ---: |
-| Low price/recovery, high transport | 46,612.65 ha | **88.0%** |
-| Base | 50,602.51 ha | **95.5%** |
-| High price/recovery, low transport | 51,285.26 ha | **96.8%** |
+| Low price/recovery, high transport | 46,603.35 ha | **88.0%** |
+| Base | 50,535.06 ha | **95.4%** |
+| High price/recovery, low transport | 51,205.16 ha | **96.6%** |
 
 By operability (base):
 
@@ -93,7 +102,9 @@ old/second growth, plus road construction rates. `--transport included` must be
 used when the partner totals already include barging. The class-average values
 above remain the published comparison; partner rates are not committed.
 
-The current contract also records a 141-year old-growth threshold and uses the
-land-drop helicopter total unless the contract says otherwise. Road construction
+The current contract records the coastal 250-year old-growth threshold and uses the
+land-drop helicopter total unless the contract says otherwise. The earlier 141-year
+Age Class 8 boundary was a correction target; 141-249-year stands are classified
+as second growth in this coastal screen. Road construction
 rates are loaded but not allocated until route lengths, landings, crossings, and
 existing-versus-new-road treatment are available.
