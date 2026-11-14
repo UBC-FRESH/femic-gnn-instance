@@ -72,3 +72,28 @@ FHOPS marine API test (not a GNN transport sensitivity):
 - This is a screening estimate, not a sustainable harvest level.
 
 Detailed polygon output is local under `runtime/p3/full_thlb_screening.csv`.
+
+## External partner cost contract
+
+The screen supports an optional partner cost contract:
+
+```bash
+python pipeline/full_thlb_screening.py \
+  --checkpoint data/gnn_combined_checkpoint.feather \
+  --aoi data/source/aoi/gnn_full.gpkg \
+  --prices runtime/p3/price_deck_reviewed.csv \
+  --recovery config/cost_revenue/recovery/recovery_matrix.csv \
+  --cost-config runtime/gnn/partner_costs.yaml \
+  --transport included \
+  --out runtime/gnn/full_thlb_screening_partner.csv
+```
+
+The contract can supply harvest totals by ground/cable/heli land/heli water and
+old/second growth, plus road construction rates. `--transport included` must be
+used when the partner totals already include barging. The class-average values
+above remain the published comparison; partner rates are not committed.
+
+The current contract also records a 141-year old-growth threshold and uses the
+land-drop helicopter total unless the contract says otherwise. Road construction
+rates are loaded but not allocated until route lengths, landings, crossings, and
+existing-versus-new-road treatment are available.
