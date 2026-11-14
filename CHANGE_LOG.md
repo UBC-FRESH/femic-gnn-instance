@@ -641,3 +641,15 @@ followed the workflow at the time.
 - The corrected base screen is 95.4% positive with 493 negative blocks.
 - Candidate schedule, headroom, access, and risk outputs built on the earlier
   141-year convention remain to be rerun.
+
+### Post-250 screening rerun
+
+- Rebuilt the block screen, positive-block candidate, block-exclusion
+  diagnostic, shared-cost headroom, access exposure, block revenue map, and
+  candidate risk register with the coastal 250-year threshold.
+- Current base screen: **95.4% positive, 493 negative blocks** (4.7% of THLB).
+- Candidate: **5,582 scheduled blocks, 39.4 thousand ha, no negative blocks**.
+- Shared-cost break-even: **153.68 CAD/m3**.
+- Access: **662 road-touching blocks, 244 stream-crossing blocks, 519 crossings**.
+- Risk: **8 A, 36 B, 61 C, 3,081 D, 2,396 E**.
+- Historical 141-year outputs remain only in dated phase close-outs.

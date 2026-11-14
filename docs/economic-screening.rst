@@ -42,11 +42,11 @@ Positive net revenue by case:
      - 46.6
      - **88.0%**
    * - Base
-     - 50.6
-     - **95.5%**
+     - 50.5
+     - **95.4%**
    * - High price/recovery, low transport
-     - 51.3
-     - **96.8%**
+     - 51.2
+     - **96.6%**
 
 "Positive THLB" means area where modeled log value exceeds modeled harvest and
 transport cost. It does not include road/landing construction, overhead,
@@ -55,16 +55,16 @@ profit, or silviculture cost.
 This page is an area screen, not a schedule. A block-level gate is defined in
 :doc:`cost-revenue-contract`: do not schedule a block with negative net revenue
 under the base deck unless it is explicitly marked as a forced access or
-infrastructure block with a stated reason. The 4.5% of THLB that is non-positive
+infrastructure block with a stated reason. The 4.7% of THLB that is non-positive
 in the base case is the area that gate would exclude.
 
 Block-level diagnostic
 ~~~~~~~~~~~~~~~~~~~~~~
 
 A direct-cost pass mapped the screen to **7,848 screened blocks** (of 19,366
-block supports). It found **478 negative blocks**, covering **2.4 thousand ha**
-of THLB (**4.5%**). The negative share is highest for helicopter candidates
-(**9.3%**), then ground (**3.4%**) and cable (**2.6%**). About **0.3 thousand ha**
+block supports). It found **493 negative blocks**, covering **2.4 thousand ha**
+of THLB (**4.7%**). The negative share is highest for helicopter candidates
+(**9.8%**), then ground (**3.5%**) and cable (**2.6%**). About **0.3 thousand ha**
 of the screened THLB did not map to block support.
 
 This is still a partial gate: shared road, landing, terminal, and overhead
@@ -72,27 +72,27 @@ costs are unallocated. The block list is available in
 `notes/reports/block-level-revenue-screen.md
 <https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reports/block-level-revenue-screen.md>`_.
 
-Removing the 265 scheduled negative blocks from the opening-first schedule
-removes **1.39 thousand ha** of THLB and **0.801 million m3** of volume. Every
-decade then falls below the volume band, by **0.9% to 7.5%**; the ten-decade
-shortfall is **1.125 million m3**. This is a diagnostic conflict with the
+Removing the 276 scheduled negative blocks from the opening-first schedule
+removes **1.44 thousand ha** of THLB and **0.838 million m3** of volume. Every
+decade then falls below the volume band, by **0.9% to 7.9%**; the ten-decade
+shortfall is **1.176 million m3**. This is a diagnostic conflict with the
 current schedule, not a reason to tune the AAC or curves. The detailed result
 is in `notes/reports/block-exclusion-scenario.md
 <https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reports/block-exclusion-scenario.md>`_.
 
-A replacement test used only the **7,370 direct-positive blocks** as
+A replacement test used only the **7,355 direct-positive blocks** as
 candidates and rebuilt the opening-first schedule. It met all ten decades with
-**5,581 blocks** and **39.4 thousand ha**, scheduling **no negative blocks**.
+**5,582 blocks** and **39.4 thousand ha**, scheduling **no negative blocks**.
 The base schedule and benchmark were unchanged. This is a positive-block
 direct-cost candidate, not a sustainable result; shared costs remain
 unallocated. See `notes/reports/positive-block-schedule.md
 <https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reports/positive-block-schedule.md>`_.
 
-Shared-cost headroom for this candidate is **154.92 CAD/m3** on the selected
-block screen, with **2.81 billion CAD** of direct net revenue over **18.146
-million m3**. At a hypothetical shared cost of 50 CAD/m3, **5,047 blocks**
-(35.3 thousand ha) remain positive; at 100 CAD/m3, **4,339 blocks**
-(30.6 thousand ha) remain positive. These cost levels are sensitivity axes,
+Shared-cost headroom for this candidate is **153.68 CAD/m3** on the selected
+block screen, with **2.79 billion CAD** of direct net revenue over **18.140
+million m3**. At a hypothetical shared cost of 50 CAD/m3, **5,042 blocks**
+(35.2 thousand ha) remain positive; at 100 CAD/m3, **4,318 blocks**
+(30.4 thousand ha) remain positive. These cost levels are sensitivity axes,
 not actual rates. Some selected blocks have less than 0.1 CAD/m3 of headroom,
 so individual block results will flip before the aggregate does. See
 `notes/reports/shared-cost-headroom.md
@@ -103,9 +103,9 @@ Public access exposure for the candidate schedule:
 
 - **11.9%** of candidate blocks touch a DRA road;
 - **26.3%** are within 100 m of a road;
-- **45.8%** are within 500 m;
-- **247 blocks** have mapped FWA stream intersections (**527** crossings);
-- median straight-line distance to a road is **631 m**;
+- **45.7%** are within 500 m;
+- **244 blocks** have mapped FWA stream intersections (**519** crossings);
+- median straight-line distance to a road is **633 m**;
 - median distance to the Natural Earth coastline is **9.4 km**.
 
 These are exposure measures, not road, crossing, terminal, haul, or barge
@@ -118,9 +118,9 @@ Using screening flags of **under 10 CAD/m3 headroom**, **over 500 m from a
 DRA road**, and **at least one mapped stream intersection**:
 
 - **8 blocks** are priority A: all three flags;
-- **39 blocks** are priority B: low headroom plus road or stream exposure;
-- **62 blocks** are low-headroom only;
-- **3,075 blocks** are access-exposed but have headroom above the flag.
+- **36 blocks** are priority B: low headroom plus road or stream exposure;
+- **61 blocks** are low-headroom only;
+- **3,081 blocks** are access-exposed but have headroom above the flag.
 
 Only about **0.3 thousand ha** is in priority A/B, so the data request can focus
 on a small set rather than the whole candidate. These are screening flags, not
@@ -142,8 +142,8 @@ actual costs. See `notes/reports/candidate-risk-register.md
    :alt: Map of direct-positive and direct-negative blocks, removed negative blocks, and the positive replacement schedule
    :align: center
 
-   Left: the direct-cost block screen. Right: the 265 negative blocks removed
-   from the base schedule and the 5,581-block positive replacement schedule.
+   Left: the direct-cost block screen. Right: the 276 negative blocks removed
+   from the base schedule and the 5,582-block positive replacement schedule.
    Direct costs only; shared road/landing/terminal/overhead costs are not
    allocated.
 
@@ -160,7 +160,7 @@ By harvest system in the base case:
    * - Ground
      - 29.1
      - 54.8%
-     - 96.6%
+     - 96.5%
    * - Cable
      - 12.3
      - 23.3%
@@ -168,7 +168,7 @@ By harvest system in the base case:
    * - Helicopter candidate
      - 11.6
      - 21.9%
-     - 90.8%
+     - 90.2%
 
 Sensitivity: **87.8%** of the THLB is positive at twice the modeled harvest
 cost; **92.3%** is positive at a transport cost of **$30/m³**.
@@ -193,6 +193,8 @@ Assumptions and Limits
   `second-growth report <https://www2.gov.bc.ca/assets/gov/farming-natural-resources-and-industry/forestry/timber-pricing/coast-timber-pricing/coast-log-reports/3m2gc_jan_26.pdf>`_
   and the
   `old-growth report <https://www2.gov.bc.ca/assets/gov/farming-natural-resources-and-industry/forestry/timber-pricing/coast-timber-pricing/coast-log-reports/3mc_jan_26.pdf>`_.
+  Old-growth prices are selected at age **≥250 years**, the coastal old-growth
+  threshold; 141–249-year stands use second-growth prices.
   The local extracted deck and its manual check are recorded in the
   `price-source note <https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reference/log-price-sources.md>`_
   and the `price-deck validation note <https://github.com/UBC-FRESH/femic-gnn-instance/blob/main/notes/reference/price-deck-validation.md>`_.
