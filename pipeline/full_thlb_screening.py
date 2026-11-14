@@ -14,15 +14,14 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import yaml
 from pyproj import Transformer
-
 from sample_block_terrain import _mosaic, _slope_percent
 
 COSTS = {"ground": 15.37, "cable": 17.77, "heli_candidate": 78.13}
 LEGACY_TRANSPORT = {"low": 7.77, "base": 10.961, "high": 14.54}
 DEFAULT_FHOPS_CONFIG = (
-    Path(__file__).resolve().parents[1]
-    / "config/cost_revenue/transport/fhops_marine.yaml"
+    Path(__file__).resolve().parents[1] / "config/cost_revenue/transport/fhops_marine.yaml"
 )
 REJECT = {"low": 0.02, "base": 0.05, "high": 0.10}
 GRADES = {
@@ -79,19 +78,41 @@ def _transport_costs(
             "legacy_diagnostic",
             "CLEWs-C2070/FFCM at 71b3d45",
         )
+    if mode == "included":
+        return (
+            {"low": 0.0, "base": 0.0, "high": 0.0},
+            "included_in_partner_costs",
+            "partner cost inputs",
+        )
     from fhops_marine_transport import configured_cost_lookup, configured_metadata
 
     status, source = configured_metadata(fhops_config)
     return configured_cost_lookup(fhops_config), status, source
 
 
-def _prices(prices: pd.DataFrame, species: str, product: str, age: float) -> tuple[float, float, float]:
+def _load_cost_config(path: Path) -> dict[str, object]:
+    """Load an external partner harvest-cost contract."""
+    data = yaml.safe_load(path.read_text(encoding="utf-8"))
+    if not isinstance(data, dict):
+        raise ValueError(f"cost config is not a mapping: {path}")
+    totals = data.get("harvest_totals")
+    if not isinstance(totals, dict) or not totals:
+        raise ValueError(f"cost config has no harvest_totals: {path}")
+    for system in ("ground", "cable"):
+        if system not in totals:
+            raise ValueError(f"cost config is missing {system!r}")
+    if "heli_land" not in totals and "heli_water" not in totals:
+        raise ValueError("cost config is missing both heli_land and heli_water")
+    return data
+
+
+def _prices(
+    prices: pd.DataFrame, species: str, product: str, age: float
+) -> tuple[float, float, float]:
     grades = GRADES[product].get(species, [])
     sale = "old_growth" if age >= 141 or species == "Cypress" else "second_growth"
     values = prices[
-        (prices.species_group == species)
-        & (prices.sale_type == sale)
-        & (prices.grade.isin(grades))
+        (prices.species_group == species) & (prices.sale_type == sale) & (prices.grade.isin(grades))
     ]["price_per_m3_cad"]
     if values.empty:
         return (0.0, 0.0, 0.0)
@@ -99,6 +120,7 @@ def _prices(prices: pd.DataFrame, species: str, product: str, age: float) -> tup
 
 
 def main() -> None:
+    """Run the checkpoint-level diagnostic screen."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--checkpoint", type=Path, required=True)
     parser.add_argument("--aoi", type=Path, required=True)
@@ -108,9 +130,18 @@ def main() -> None:
     parser.add_argument("--zoom", type=int, default=11)
     parser.add_argument(
         "--transport",
-        choices=("legacy", "fhops-marine"),
+        choices=("legacy", "fhops-marine", "included"),
         default="legacy",
-        help="Transport cost path; legacy remains the published comparison.",
+        help=(
+            "Transport cost path; use 'included' when partner harvest totals "
+            "already include barging."
+        ),
+    )
+    parser.add_argument(
+        "--cost-config",
+        type=Path,
+        default=None,
+        help="Optional partner/PATH cost YAML with harvest totals by system and age class.",
     )
     parser.add_argument(
         "--fhops-config",
@@ -120,6 +151,12 @@ def main() -> None:
     )
     args = parser.parse_args()
 
+    cost_config = _load_cost_config(args.cost_config) if args.cost_config else None
+    if cost_config is not None and args.transport != "included":
+        print(
+            "WARNING: cost config supplied without --transport included; "
+            "that may double-count barging/transport."
+        )
     transport, transport_status, transport_source = _transport_costs(
         args.transport, args.fhops_config
     )
@@ -150,8 +187,7 @@ def main() -> None:
     count = 2**args.zoom
     col = np.floor((lon + 180.0) / 360.0 * count * 256.0 - x0 * 256.0).astype(int)
     row = np.floor(
-        (1.0 - np.arcsinh(np.tan(np.radians(lat))) / math.pi) / 2.0 * count * 256.0
-        - y0 * 256.0
+        (1.0 - np.arcsinh(np.tan(np.radians(lat))) / math.pi) / 2.0 * count * 256.0 - y0 * 256.0
     ).astype(int)
     valid = (col >= 0) & (col < slope.shape[1]) & (row >= 0) & (row < slope.shape[0])
     point_slope = np.full(len(checkpoint), np.nan)
@@ -160,18 +196,33 @@ def main() -> None:
     prices = pd.read_csv(args.prices)
     recovery = pd.read_csv(args.recovery)
     base_shares = {
-        group: dict(zip(recovery[recovery.species_group == group].product_group,
-                        recovery[recovery.species_group == group].base_share))
+        group: dict(
+            zip(
+                recovery[recovery.species_group == group].product_group,
+                recovery[recovery.species_group == group].base_share,
+                strict=True,
+            )
+        )
         for group in recovery.species_group.unique()
     }
     low_shares = {
-        group: dict(zip(recovery[recovery.species_group == group].product_group,
-                        recovery[recovery.species_group == group].low_share))
+        group: dict(
+            zip(
+                recovery[recovery.species_group == group].product_group,
+                recovery[recovery.species_group == group].low_share,
+                strict=True,
+            )
+        )
         for group in recovery.species_group.unique()
     }
     high_shares = {
-        group: dict(zip(recovery[recovery.species_group == group].product_group,
-                        recovery[recovery.species_group == group].high_share))
+        group: dict(
+            zip(
+                recovery[recovery.species_group == group].product_group,
+                recovery[recovery.species_group == group].high_share,
+                strict=True,
+            )
+        )
         for group in recovery.species_group.unique()
     }
 
@@ -223,13 +274,39 @@ def main() -> None:
                 revenue[case] += volume.to_numpy() * shares[:, j] * share * price
 
     operability = np.where(
-        point_slope < 35, "ground",
+        point_slope < 35,
+        "ground",
         np.where(point_slope < 50, "cable", "heli_candidate"),
     )
     operability = np.where(np.isfinite(point_slope), operability, "unknown")
-    cost = np.array([COSTS.get(name, np.nan) for name in operability])
+    if cost_config is not None:
+        totals = cost_config["harvest_totals"]
+        assumptions = cost_config.get("assumptions", {})
+        age_min = float(assumptions.get("old_growth_age_min", 141))
+        heli_key = str(assumptions.get("heli_default", "heli_land"))
+        system_key = np.where(operability == "heli_candidate", heli_key, operability)
+        old_cost = age_values >= age_min
+        cost = np.full(len(checkpoint), np.nan, dtype=float)
+        for key in np.unique(system_key):
+            if key not in totals:
+                continue
+            entry = totals[key]
+            mask = system_key == key
+            cost[mask] = np.where(
+                old_cost[mask],
+                float(entry["old_growth"]),
+                float(entry["second_growth"]),
+            )
+        cost_source = str(args.cost_config)
+        cost_age_rule = f"old_growth_age_min={age_min:g}"
+        heli_basis = heli_key
+    else:
+        cost = np.array([COSTS.get(name, np.nan) for name in operability])
+        cost_source = "class_average_inherited"
+        cost_age_rule = ""
+        heli_basis = ""
     for case, reject in REJECT.items():
-        revenue[case] *= (1.0 - reject)
+        revenue[case] *= 1.0 - reject
     result = pd.DataFrame(
         {
             "thlb_ha": thlb_ha,
@@ -241,15 +318,24 @@ def main() -> None:
             "revenue_base_cad": revenue["base"],
             "revenue_high_cad": revenue["high"],
             "harvest_cost_per_m3": cost,
+            "cost_source": cost_source,
+            "cost_age_rule": cost_age_rule,
+            "heli_cost_basis": heli_basis,
             "transport_low_per_m3": transport["low"],
             "transport_base_per_m3": transport["base"],
             "transport_high_per_m3": transport["high"],
             "transport_path": args.transport,
             "transport_status": transport_status,
             "transport_source": transport_source,
-            "net_base_per_m3": (revenue["base"] / volume.where(volume > 0)) - cost - transport["base"],
-            "net_high_per_m3": (revenue["high"] / volume.where(volume > 0)) - cost - transport["low"],
-            "net_low_per_m3": (revenue["low"] / volume.where(volume > 0)) - cost - transport["high"],
+            "net_base_per_m3": (revenue["base"] / volume.where(volume > 0))
+            - cost
+            - transport["base"],
+            "net_high_per_m3": (revenue["high"] / volume.where(volume > 0))
+            - cost
+            - transport["low"],
+            "net_low_per_m3": (revenue["low"] / volume.where(volume > 0))
+            - cost
+            - transport["high"],
         }
     )
     result = result[np.isfinite(result["net_base_per_m3"])]
@@ -265,8 +351,12 @@ def main() -> None:
     for case in ("low", "base", "high"):
         col = f"net_{case}_per_m3"
         positive = result[result[col] > 0].thlb_ha.sum()
-        print(f"{case}: positive THLB {positive:.2f} ha = {100*positive/total:.1f}%")
-    print(result.groupby("operability").agg(thlb=("thlb_ha", "sum"), net_base=("net_base_per_m3", "mean")).to_string())
+        print(f"{case}: positive THLB {positive:.2f} ha = {100 * positive / total:.1f}%")
+    print(
+        result.groupby("operability")
+        .agg(thlb=("thlb_ha", "sum"), net_base=("net_base_per_m3", "mean"))
+        .to_string()
+    )
 
 
 if __name__ == "__main__":

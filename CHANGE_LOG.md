@@ -622,3 +622,12 @@ followed the workflow at the time.
   the published cards' three-decimal RMSE rounding.
 - This is a TSA 23 IDF validation, not a GNN calibration.
 - Dashboard: GREEN (lint, format, types, tests, validator, docs).
+
+### Partner cost-input contract
+
+- Added optional `--cost-config` support to `pipeline/full_thlb_screening.py`.
+- Added `--transport included` for partner totals that already include barging.
+- Recorded the external-contract assumptions and limits in
+  `notes/reference/full-thlb-screening.md`.
+- The published class-average screen remains unchanged. No partner rates,
+  block-level partner output, curve, THLB, AAC, target, or benchmark was committed.
